@@ -43,7 +43,7 @@
             <EditText
                 android:id="@+id/nik"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:enabled="false"
@@ -67,7 +67,7 @@
             <EditText
                 android:id="@+id/namasession"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:enabled="false"
@@ -90,7 +90,7 @@
             <EditText
                 android:id="@+id/nohp"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:hint="Masukan Nomor HP"
@@ -112,7 +112,7 @@
             <EditText
                 android:id="@+id/daftaralamat"
                 android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:hint="Alamat"
@@ -130,10 +130,25 @@
                 android:text="Password"
                 android:textColor="@android:color/white" />
 
-            <EditText
-                android:id="@+id/password"
+            <!--<EditText-->
+            <!--android:id="@+id/password"-->
+            <!--android:layout_width="250dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center_vertical|center_horizontal"-->
+            <!--android:background="@drawable/edittexts"-->
+            <!--android:hint="Masukan Password"-->
+            <!--android:padding="10dp"-->
+            <!--android:singleLine="true"-->
+            <!--app:passwordToggleEnabled="true"-->
+            <!--android:textColor="@color/colorAccent"-->
+            <!--android:textColorHint="@color/colorPrimary"-->
+            <!--android:textSize="14sp" />-->
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:hint="Masukan Password"
@@ -141,10 +156,14 @@
                 android:singleLine="true"
                 android:textColor="@color/colorAccent"
                 android:textColorHint="@color/colorPrimary"
-                android:textSize="14sp" />
+                android:textSize="14sp">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
 
-
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <LinearLayout
@@ -161,17 +180,18 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/lanjut_button"
+                android:id="@+id/daftarsimpan"
                 android:layout_width="100dp"
-                android:layout_height="45dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/globalbutton"
                 android:padding="10dp"
-                android:text="Lanjut"
+                android:text="Simpan"
                 android:textAllCaps="false"
                 android:textColor="@color/design_default_color_on_secondary"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:layout_height="match_parent" />
 
 
         </LinearLayout>
