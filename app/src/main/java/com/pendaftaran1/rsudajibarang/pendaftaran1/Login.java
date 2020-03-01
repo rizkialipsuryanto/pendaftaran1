@@ -18,4 +18,8 @@ public class Login extends AppCompatActivity {
         Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
         startActivity(i);
     }
+    public void Daftar(View v){
+        Intent i = new Intent(Login.this, daftarakun.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
+        startActivity(i);
+    }
 }

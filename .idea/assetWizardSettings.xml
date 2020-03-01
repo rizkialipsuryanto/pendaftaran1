@@ -13,30 +13,14 @@
                       <PersistentState>
                         <option name="children">
                           <map>
-                            <entry key="launcher">
+                            <entry key="actionbar">
                               <value>
                                 <PersistentState>
-                                  <option name="children">
-                                    <map>
-                                      <entry key="foregroundImage">
-                                        <value>
-                                          <PersistentState>
-                                            <option name="values">
-                                              <map>
-                                                <entry key="scalingPercent" value="63" />
-                                              </map>
-                                            </option>
-                                          </PersistentState>
-                                        </value>
-                                      </entry>
-                                    </map>
-                                  </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="D:\RSUD\android-material-design-user-interface-login-screen-master\android-material-design-user-interface-login-screen-master\Android\login\app\src\main\res\mipmap-hdpi\account.png" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_background" />
-                                      <entry key="outputName" value="account" />
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="imageAsset" value="E:\alip\rsud ajibarang\pendaftaranonline\image\siapceria.png" />
+                                      <entry key="theme" value="CUSTOM" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -48,9 +32,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="backgroundColor" value="ff000a" />
-                                      <entry key="imageAsset" value="D:\RSUD\android-material-design-user-interface-login-screen-master\android-material-design-user-interface-login-screen-master\Android\login\app\src\main\res\mipmap-hdpi\back_login.png" />
-                                      <entry key="outputName" value="back_login" />
+                                      <entry key="iconShape" value="NONE" />
+                                      <entry key="imageAsset" value="E:\alip\rsud ajibarang\pendaftaranonline\image\siapceria.png" />
+                                      <entry key="outputName" value="ic_siapceria" />
                                     </map>
                                   </option>
                                 </PersistentState>
