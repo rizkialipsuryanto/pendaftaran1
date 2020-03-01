@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@mipmap/background_login"
-    android:padding="40dp"
+    android:padding="0dp"
     tools:context=".Login">
 
     <ScrollView
-        android:layout_width="344dp"
-        android:layout_height="471dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="0dp"
@@ -23,10 +23,10 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="30dp"
-
+            android:layout_marginTop="0dp"
+            android:padding="40dp"
             android:orientation="vertical"
-            android:paddingTop="10dp">
+            android:paddingTop="0dp">
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -84,9 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/selector_xml_btn_yellow"
+                android:background="@drawable/selector_xml_btn_red"
                 android:onClick="Daftar"
-                android:text="Daftar Akun" />
+                android:text="Daftar Akun"
+                android:textColor="@color/design_default_color_background" />
 
             <TextView
                 android:id="@+id/btnbuatakun"
