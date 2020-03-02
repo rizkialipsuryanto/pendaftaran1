@@ -64,10 +64,10 @@ public class Login extends AppCompatActivity {
 
     private void login(){
 
+        // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call  abc =  restServices.listUsers();
-
-        abc.enqueue(new Callback() {
+        Call login = restServices.Login("dodi","dodi123");
+        login.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.d("CEK", response.toString());
@@ -80,6 +80,25 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        // ---------------------------------------------------------------------------------
+
+
+// REST BACA LIST USER  ------------------------------------------------------------------
+//        Call  abc =  restServices.listUsers();
+//
+//        abc.enqueue(new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                Log.d("CEK", response.toString());
+//                Log.d("CEK", response.body().toString());
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//                Log.d("CEK", t.getMessage());
+//            }
+//        });
+// ---------------------------------------------------------------------------------
 
 //        mLogin login = new mLogin("ariguswahyu.id@gmail.com", "54321");
 //        Call<mUser> call = userClient.login(login);
