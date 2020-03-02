@@ -10,11 +10,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mLogin;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mUser;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.UserClient;
 
 import java.io.IOException;
@@ -42,6 +45,11 @@ public class Login extends AppCompatActivity {
                 getSecret();
             }
         });
+
+
+//        GithubService githubService = ServiceGenerator.build().create(GithubService.class);
+
+
     }
 
     public void Login(View v){
@@ -55,26 +63,44 @@ public class Login extends AppCompatActivity {
     }
 
     private void login(){
-        mLogin login = new mLogin("ariguswahyu.id@gmail.com", "54321");
-        Call<mUser> call = userClient.login(login);
-        call.enqueue(new Callback<mUser>() {
+
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call  abc =  restServices.listUsers();
+
+        abc.enqueue(new Callback() {
             @Override
-            public void onResponse(Call<mUser> call, Response<mUser> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(Login.this, response.body().getToken(), Toast.LENGTH_SHORT).show();
-                    token = response.body().getToken();
-                }
-                else
-                {
-                    Toast.makeText(Login.this, "login salah :", Toast.LENGTH_SHORT).show();
-                }
+            public void onResponse(Call call, Response response) {
+                Log.d("CEK", response.toString());
+                Log.d("CEK", response.body().toString());
             }
 
             @Override
-            public void onFailure(Call<mUser> call, Throwable t) {
-                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
+            public void onFailure(Call call, Throwable t) {
+                Log.d("CEK", t.getMessage());
             }
         });
+
+
+//        mLogin login = new mLogin("ariguswahyu.id@gmail.com", "54321");
+//        Call<mUser> call = userClient.login(login);
+//        call.enqueue(new Callback<mUser>() {
+//            @Override
+//            public void onResponse(Call<mUser> call, Response<mUser> response) {
+//                if(response.isSuccessful()){
+//                    Toast.makeText(Login.this, response.body().getToken(), Toast.LENGTH_SHORT).show();
+//                    token = response.body().getToken();
+//                }
+//                else
+//                {
+//                    Toast.makeText(Login.this, "login salah :", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<mUser> call, Throwable t) {
+//                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private void getSecret(){
