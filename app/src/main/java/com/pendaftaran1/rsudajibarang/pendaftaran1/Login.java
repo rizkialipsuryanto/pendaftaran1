@@ -14,13 +14,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mLogin;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mUser;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.UserClient;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
     Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://127.0.0.1/api.simrs.rsudajibarang/api/auth/login/").addConverterFactory(GsonConverterFactory.create());
@@ -70,8 +80,30 @@ public class Login extends AppCompatActivity {
         login.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-                Log.d("CEK", response.toString());
-                Log.d("CEK", response.body().toString());
+                //Log.d("CEK", response.toString());
+               // Object aa = response.body();
+//                JSONArray arr = new JsonArray(response.body());
+                //JSONObject arr = new JSONObject()
+                        //Log.d("OBJEK", aa.toString());
+
+                try{
+
+                    //ArrayList<JSONObject> aaa = new ArrayList<JSONObject>;
+
+//                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+//                    String json = gson.toJson(response.body());
+//                    String aaaa  = jsonobject
+
+                    JSONObject jo = new JSONObject(response.body().toString());
+
+                    JSONObject rrrr = jo.getJSONObject("response");
+
+                    String b = rrrr.getString("token");
+                    Log.d("OBJEK", b);
+                }catch(Exception e){
+                    Log.d("OBJEK", e.getMessage());
+                }
+
             }
 
             @Override
