@@ -75,6 +75,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_yellow"
+                android:onClick="Login"
                 android:text="SignIn" />
 
             <Button
@@ -84,6 +85,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_red"
+                android:onClick="Daftar"
                 android:text="Daftar Akun"
                 android:textColor="@color/design_default_color_background" />
 

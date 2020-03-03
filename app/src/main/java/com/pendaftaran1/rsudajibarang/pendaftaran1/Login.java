@@ -1,12 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AppCompatActivity;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,9 +27,9 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
-    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://127.0.0.1/api.simrs.rsudajibarang/api/auth/login/").addConverterFactory(GsonConverterFactory.create());
-    Retrofit retrofit = builder.build();
-    UserClient userClient = retrofit.create(UserClient.class);
+//    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://127.0.0.1/api.simrs.rsudajibarang/api/auth/login/").addConverterFactory(GsonConverterFactory.create());
+//    Retrofit retrofit = builder.build();
+//    UserClient userClient = retrofit.create(UserClient.class);
 
     String token;
 
@@ -43,6 +37,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+<<<<<<< HEAD
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -60,18 +55,21 @@ public class Login extends AppCompatActivity {
 //        GithubService githubService = ServiceGenerator.build().create(GithubService.class);
 
 
+=======
+>>>>>>> login
     }
 
     public void Login(View v){
 
-//        Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
-//        startActivity(i);
+        Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
+        startActivity(i);
     }
     public void Daftar(View v){
         Intent i = new Intent(Login.this, daftarakun.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
         startActivity(i);
     }
 
+<<<<<<< HEAD
     private void login(){
 
         // REST LOGIN ------------------------------------------------------------------
@@ -179,4 +177,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+=======
+>>>>>>> login
 }
