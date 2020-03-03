@@ -1,6 +1,9 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> lokal 3
     <codeStyleSettings language="XML">
       <arrangement>
         <rules>
@@ -110,6 +113,7 @@
         </rules>
       </arrangement>
     </codeStyleSettings>
+<<<<<<< HEAD
 =======
     <Objective-C-extensions>
       <file>
@@ -137,5 +141,7 @@
       </extensions>
     </Objective-C-extensions>
 >>>>>>> update .gitignore
+=======
+>>>>>>> lokal 3
   </code_scheme>
 </component>
