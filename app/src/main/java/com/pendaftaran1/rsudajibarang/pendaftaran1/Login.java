@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -180,3 +181,5 @@ public class Login extends AppCompatActivity {
 =======
 >>>>>>> login
 }
+=======
+>>>>>>> fix
