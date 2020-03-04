@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
@@ -185,3 +186,5 @@ public class Login extends AppCompatActivity {
 
 }
 
+=======
+>>>>>>> f8843d8f2087d5056b7e8b1738cc67ab9f89c68e
