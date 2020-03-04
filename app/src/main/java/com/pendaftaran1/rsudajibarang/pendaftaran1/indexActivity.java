@@ -16,12 +16,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class indexActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
     private Fragment fragment;
     private FragmentManager fragmentManager;
+
+    public static final String TAG_TOKEN = "token";
+    public static String token;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,6 +68,9 @@ public class indexActivity extends AppCompatActivity {
 
         //Untuk inisialisasi fragment pertama kali
         fragmentManager.beginTransaction().replace(R.id.frame, new HomeFragment()).commit();
+        token = getIntent().getStringExtra(TAG_TOKEN);
+
+        Toast.makeText(getApplicationContext(),token, Toast.LENGTH_LONG).show();
     }
 
 }

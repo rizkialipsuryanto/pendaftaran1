@@ -98,7 +98,8 @@
                 android:onClick="Daftar"
                 android:text="Buat Akun?"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/design_default_color_primary" />
+                android:textColor="@color/design_default_color_primary"
+                android:visibility="invisible" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
