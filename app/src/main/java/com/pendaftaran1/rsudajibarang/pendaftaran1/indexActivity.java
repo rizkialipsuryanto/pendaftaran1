@@ -72,5 +72,7 @@ public class indexActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(),token, Toast.LENGTH_LONG).show();
     }
-
+    public static String getToken() {
+        return token;
+    }
 }

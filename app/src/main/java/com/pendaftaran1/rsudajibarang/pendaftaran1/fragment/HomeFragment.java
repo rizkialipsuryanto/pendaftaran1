@@ -19,6 +19,7 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,14 +48,15 @@ public class HomeFragment extends Fragment {
         barcode = (Button)view.findViewById(R.id.barcodeteks);
         image = (ImageView)view.findViewById(R.id.imageview);
 
+        teksbarcode = indexActivity.getToken();
         barcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String greeting = "Hello world!";
+//                String greeting = teksbarcode;
 //                teksbarcode = teks.getText().toString();
                 try
                 {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(greeting, BarcodeFormat.QR_CODE, 300,300);
+                    BitMatrix bitMatrix = multiFormatWriter.encode(teksbarcode, BarcodeFormat.QR_CODE, 300,300);
                     BarcodeEncoder encoder = new BarcodeEncoder();
                     Bitmap bitmap = encoder.createBitmap(bitMatrix);
                     image.setImageBitmap(bitmap);
