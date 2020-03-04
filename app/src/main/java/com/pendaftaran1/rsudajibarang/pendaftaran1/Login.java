@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +27,11 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Login extends AppCompatActivity {
 //    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://127.0.0.1/api.simrs.rsudajibarang/api/auth/login/").addConverterFactory(GsonConverterFactory.create());
 //    Retrofit retrofit = builder.build();
@@ -38,7 +43,7 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-<<<<<<< HEAD
+
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
@@ -46,18 +51,17 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.buttondaftar).setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                getSecret();
-            }
-        });
+//        findViewById(R.id.buttondaftar).setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View v){
+//                getSecret();
+//            }
+//        });
 
 
 //        GithubService githubService = ServiceGenerator.build().create(GithubService.class);
 
 
-=======
->>>>>>> login
+
     }
 
     public void Login(View v){
@@ -70,7 +74,7 @@ public class Login extends AppCompatActivity {
         startActivity(i);
     }
 
-<<<<<<< HEAD
+
     private void login(){
 
         // REST LOGIN ------------------------------------------------------------------
@@ -153,33 +157,31 @@ public class Login extends AppCompatActivity {
 //        });
     }
 
-    private void getSecret(){
-        Call<ResponseBody> call = userClient.getSecret(token);
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()){
-                    try {
-                        Toast.makeText(Login.this, response.body().string(), Toast.LENGTH_SHORT).show();
-                    }
-                    catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-                else
-                {
-                    Toast.makeText(Login.this, "token is not :", Toast.LENGTH_SHORT).show();
-                }
-            }
+//    private void getSecret(){
+//        Call<ResponseBody> call = userClient.getSecret(token);
+//        call.enqueue(new Callback<ResponseBody>() {
+//            @Override
+//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+//                if (response.isSuccessful()){
+//                    try {
+//                        Toast.makeText(Login.this, response.body().string(), Toast.LENGTH_SHORT).show();
+//                    }
+//                    catch (IOException e){
+//                        e.printStackTrace();
+//                    }
+//                }
+//                else
+//                {
+//                    Toast.makeText(Login.this, "token is not :", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<ResponseBody> call, Throwable t) {
+//                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-=======
->>>>>>> login
 }
-=======
->>>>>>> fix
+
