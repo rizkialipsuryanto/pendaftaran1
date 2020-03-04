@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pendaftaran1.rsudajibarang.pendaftaran1">
+    package="com.it.rsudajibarang.siap_ceria_rsud">
 
 <!--    <uses-permission android:name="android.permission.INTERNET" />-->
 <!--    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.it.rsudajibarang.siap_ceria_rsud.MainActivity"
             android:label="SIAP-CERIA"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -30,7 +30,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".Login"
+            android:name="com.it.rsudajibarang.siap_ceria_rsud.Login"
             android:label="SIAP-CERIA">
 
             <!-- <intent-filter> -->
@@ -41,7 +41,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".SplashScreen"
+            android:name="com.it.rsudajibarang.siap_ceria_rsud.SplashScreen"
             android:label="SIAP-CERIA"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
@@ -51,9 +51,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".indexActivity"
+            android:name="com.it.rsudajibarang.siap_ceria_rsud.indexActivity"
             android:label="SIAP-CERIA" />
-        <activity android:name=".daftarakun"></activity>
+        <activity android:name="com.it.rsudajibarang.siap_ceria_rsud.daftarakun"></activity>
     </application>
 
 </manifest>
