@@ -93,24 +93,22 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private void login(){
+    private void login() {
 
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call login = restServices.Login(usernamea.getText().toString(),passwordd.getText().toString());
+        Call login = restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
         login.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
 
-                try{
+                try {
                     JSONObject jo = new JSONObject(response.body().toString());
-
                     JSONObject rrrr = jo.getJSONObject("response");
-
                     String b = rrrr.getString("token");
                     Log.d("OBJEK", b);
-                    if(b.length()>0){
-                        Toast.makeText(getApplicationContext(),"Berhasil login", Toast.LENGTH_LONG).show();
+                    if (b.length() > 0) {
+                        Toast.makeText(getApplicationContext(), "Berhasil login", Toast.LENGTH_LONG).show();
                         // menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
@@ -125,17 +123,16 @@ public class Login extends AppCompatActivity {
 //
 //                        Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
 //                        startActivity(i);
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Login gagal", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Login gagal", Toast.LENGTH_LONG).show();
                         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Login.this);
                         alertDialogBuilder.setMessage("Gagal login");
                     }
 //                    Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
 //                    startActivity(i);
-                }catch(Exception e){
+                } catch (Exception e) {
 //                    Log.d("OBJEK", e.getMessage());
-                    Toast.makeText(getApplicationContext(),"Login gagal", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Login gagal", Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -145,74 +142,6 @@ public class Login extends AppCompatActivity {
                 Log.d("CEK", t.getMessage());
             }
         });
-
-        // ---------------------------------------------------------------------------------
-
-
-// REST BACA LIST USER  ------------------------------------------------------------------
-//        Call  abc =  restServices.listUsers();
-//
-//        abc.enqueue(new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                Log.d("CEK", response.toString());
-//                Log.d("CEK", response.body().toString());
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//                Log.d("CEK", t.getMessage());
-//            }
-//        });
-// ---------------------------------------------------------------------------------
-
-//        mLogin login = new mLogin("ariguswahyu.id@gmail.com", "54321");
-//        Call<mUser> call = userClient.login(login);
-//        call.enqueue(new Callback<mUser>() {
-//            @Override
-//            public void onResponse(Call<mUser> call, Response<mUser> response) {
-//                if(response.isSuccessful()){
-//                    Toast.makeText(Login.this, response.body().getToken(), Toast.LENGTH_SHORT).show();
-//                    token = response.body().getToken();
-//                }
-//                else
-//                {
-//                    Toast.makeText(Login.this, "login salah :", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<mUser> call, Throwable t) {
-//                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
-
-//    private void getSecret(){
-//        Call<ResponseBody> call = userClient.getSecret(token);
-//        call.enqueue(new Callback<ResponseBody>() {
-//            @Override
-//            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-//                if (response.isSuccessful()){
-//                    try {
-//                        Toast.makeText(Login.this, response.body().string(), Toast.LENGTH_SHORT).show();
-//                    }
-//                    catch (IOException e){
-//                        e.printStackTrace();
-//                    }
-//                }
-//                else
-//                {
-//                    Toast.makeText(Login.this, "token is not :", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ResponseBody> call, Throwable t) {
-//                Toast.makeText(Login.this, "error :", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
-
 }
 
