@@ -20,4 +20,16 @@ public interface RestServices {
     @FormUrlEncoded
     public Call<JsonObject> Login(@Field("username") String username, @Field("password") String password);
 
+
+//    @Headers({"Authorization", "Bearer "+ token}) NEK PAKE TOKEN
+    @POST("/api.simrs.rsudajibarang/api/auth/registration")
+    @FormUrlEncoded
+    public Call<JsonObject> RegistrationNewUser(
+                                                @Field("firstname") String firstname,
+                                                @Field("lastname") String lastname,
+                                                @Field("email") String email,
+                                                @Field("password") String password );
+    
+
+
 }

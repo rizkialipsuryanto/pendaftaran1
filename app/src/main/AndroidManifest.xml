@@ -22,12 +22,12 @@
             android:label="SIAP-CERIA"
             android:theme="@style/AppTheme.NoActionBar">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+<!--             <intent-filter>-->
+<!--             <action android:name="android.intent.action.MAIN" />-->
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+<!--             <category android:name="android.intent.category.LAUNCHER" />-->
+<!--             </intent-filter>-->
         </activity>
         <activity
             android:name="com.pendaftaran1.rsudajibarang.pendaftaran1.Login"
@@ -50,10 +50,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name="com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity"
             android:label="SIAP-CERIA" />
         <activity android:name="com.pendaftaran1.rsudajibarang.pendaftaran1.daftarakun"></activity>
+=======
+<!--        <activity-->
+<!--            android:name=".indexActivity"-->
+<!--            android:label="SIAP-CERIA" />-->
+
+        <activity android:name=".indexActivity"
+            android:label="SIAP-CERIA">
+<!--                        <intent-filter>-->
+<!--                            <action android:name="android.intent.action.MAIN" />-->
+
+<!--                            <category android:name="android.intent.category.LAUNCHER" />-->
+<!--                        </intent-filter>-->
+        </activity>
+        <activity android:name=".daftarakun">
+
+        </activity>
+>>>>>>> b6c5da7a6678f1c69aded9c402f80f3031cf4fad
     </application>
 
 </manifest>
