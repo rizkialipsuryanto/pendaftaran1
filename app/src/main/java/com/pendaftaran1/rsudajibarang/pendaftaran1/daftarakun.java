@@ -20,12 +20,18 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class daftarakun extends AppCompatActivity {
 
@@ -56,7 +62,8 @@ public class daftarakun extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 
-                simpan();
+               // simpan();
+                saveRegistration();
 //                Intent intent = new Intent(daftarakun.this, Login.class);
 //                finish();
 //                startActivity(intent);
@@ -131,5 +138,42 @@ public class daftarakun extends AppCompatActivity {
 
         queue.add(strReq);
 //        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+    }
+
+
+    private void saveRegistration(){
+
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call registrationNewUser = restServices.RegistrationNewUser(  firstnamee.getText().toString(),
+                                                        lastnamee.getText().toString(),
+                                                        emaile.getText().toString(),
+                                                        passworde.getText().toString());
+
+        registrationNewUser.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, retrofit2.Response response) {
+                int status = response.code();
+                Log.d("DAFTARAKUN/RESPON_CODE", String.valueOf(status));
+                Toasty.success(getApplicationContext(), "OKEOKEOKOEK", Toast.LENGTH_LONG).show();
+
+                    if(response.isSuccessful()) {
+                        Toasty.success(getApplicationContext(), "SUKSES", Toast.LENGTH_LONG).show();
+                    }else{
+                        Toasty.error(getApplicationContext(), "GAGAL REGISTRASI. SILAKAN ULANGI", Toast.LENGTH_LONG).show();
+                    }
+//                if(response.code()== 200){
+
+//                }else{
+//                    Toasty.error(getApplicationContext(), "GAGAL REGISTRASI", Toast.LENGTH_LONG).show();
+//                }
+//                response.isSuccessful()
+
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Toasty.success(getApplicationContext(), "GAGAL", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
