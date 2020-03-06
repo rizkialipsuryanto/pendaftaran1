@@ -75,8 +75,8 @@ public class daftarakun extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.d(TAG, "Response: " + response.toString());
-
+                Log.e(TAG, "Response: " + response.toString());
+                Toast.makeText(daftarakun.this, "SUKSES", Toast.LENGTH_LONG).show();
 //                try {
 //                    JSONObject jObj = new JSONObject(response);
 //                    JSONObject rrrr = jObj.getJSONObject("response");
@@ -120,12 +120,12 @@ public class daftarakun extends AppCompatActivity {
                 return params;
             }
 
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> params = new HashMap<String, String>();
-                params.put("Content-Type","application/x-www-form-urlencoded");
-                return params;
-            }
+//            @Override
+//            public Map<String, String> getHeaders() throws AuthFailureError {
+//                Map<String,String> params = new HashMap<String, String>();
+//                params.put("Content-Type","application/x-www-form-urlencoded");
+//                return params;
+//            }
 
         };
 
