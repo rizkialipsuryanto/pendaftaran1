@@ -50,15 +50,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-        <activity
-            android:name="com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity"
-            android:label="SIAP-CERIA" />
-        <activity android:name="com.pendaftaran1.rsudajibarang.pendaftaran1.daftarakun"></activity>
-=======
-<!--        <activity-->
-<!--            android:name=".indexActivity"-->
-<!--            android:label="SIAP-CERIA" />-->
 
         <activity android:name=".indexActivity"
             android:label="SIAP-CERIA">
@@ -71,7 +62,6 @@
         <activity android:name=".daftarakun">
 
         </activity>
->>>>>>> b6c5da7a6678f1c69aded9c402f80f3031cf4fad
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 
@@ -25,10 +29,10 @@ import java.util.Map;
 
 public class daftarakun extends AppCompatActivity {
 
-    private static final String TAG_SUCCESS = "success";
+    private static final String TAG_SUCCESS = "1";
     private static final String TAG_MESSAGE = "message";
-    private static final String TAG = indexActivity.class.getSimpleName();
-    private String url_insert = Base.REST_BASE_URL + "auth/registration";
+    private static final String TAG = daftarakun.class.getSimpleName();
+    private String url_insert = Base.URL + "auth/registration";
     int success;
     String firstnames, lastnames, emails,passwords;
     EditText firstnamee, lastnamee,emaile, passworde;
@@ -43,7 +47,7 @@ public class daftarakun extends AppCompatActivity {
         firstnamee = (EditText) findViewById(R.id.firstname);
         lastnamee = (EditText) findViewById(R.id.lastname);
         emaile = (EditText) findViewById(R.id.email);
-        passworde = (EditText) findViewById(R.id.password);
+        passworde = (EditText) findViewById(R.id.passworddaftar);
         btn_lanjut = (Button) findViewById(R.id.daftarsimpan);
 
         btn_lanjut.setOnClickListener(new View.OnClickListener() {
@@ -53,9 +57,9 @@ public class daftarakun extends AppCompatActivity {
                 // TODO Auto-generated method stub
 
                 simpan();
-                Intent intent = new Intent(daftarakun.this, Login.class);
-                finish();
-                startActivity(intent);
+//                Intent intent = new Intent(daftarakun.this, Login.class);
+//                finish();
+//                startActivity(intent);
 
 
             }
@@ -65,6 +69,7 @@ public class daftarakun extends AppCompatActivity {
     private void simpan() {
         String url;
         url = url_insert;
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
@@ -72,22 +77,23 @@ public class daftarakun extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.d(TAG, "Response: " + response.toString());
 
-                try {
-                    JSONObject jObj = new JSONObject(response);
-                    success = jObj.getInt(TAG_SUCCESS);
-
-                    // Cek error node pada json
-                    if (success == 1) {
-                        Log.d("Add/update", jObj.toString());
-                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-
-                    } else {
-                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // JSON error
-                    e.printStackTrace();
-                }
+//                try {
+//                    JSONObject jObj = new JSONObject(response);
+//                    JSONObject rrrr = jObj.getJSONObject("response");
+//                    success = rrrr.getInt(TAG_SUCCESS);
+//
+//                    // Cek error node pada json
+//                    if (success == 1) {
+//                        Log.d("Add/update", jObj.toString());
+//                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+//
+//                    } else {
+//                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (JSONException e) {
+//                    // JSON error
+//                    e.printStackTrace();
+//                }
 
             }
         }, new Response.ErrorListener() {
@@ -109,13 +115,21 @@ public class daftarakun extends AppCompatActivity {
                 params.put("firstname", firstnamee.getText().toString());
                 params.put("lastname", lastnamee.getText().toString());
                 params.put("email", emaile.getText().toString());
-                params.put("password", passworde.getText().toString().trim());
+                params.put("password", passworde.getText().toString());
 
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> params = new HashMap<String, String>();
+                params.put("Content-Type","application/x-www-form-urlencoded");
                 return params;
             }
 
         };
 
-        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+        queue.add(strReq);
+//        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 }
