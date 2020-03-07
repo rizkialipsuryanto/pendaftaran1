@@ -56,6 +56,12 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.forgetpassword).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                ForgetPassword();
+            }
+        });
+
 //        findViewById(R.id.buttondaftar).setOnClickListener(new View.OnClickListener(){
 //            public void onClick(View v){
 //                getSecret();
@@ -71,11 +77,16 @@ public class Login extends AppCompatActivity {
 
     public void Login(View v){
 
-        Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
+        Intent i = new Intent(Login.this, indexActivity.class);
         startActivity(i);
     }
     public void Daftar(View v){
-        Intent i = new Intent(Login.this, daftarakun.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
+        Intent i = new Intent(Login.this, daftarakun.class);
+        startActivity(i);
+    }
+
+    private void ForgetPassword(){
+        Intent i = new Intent(Login.this, forgetpassword.class);
         startActivity(i);
     }
 
