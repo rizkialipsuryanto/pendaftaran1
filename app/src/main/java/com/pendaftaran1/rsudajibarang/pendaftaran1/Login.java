@@ -95,8 +95,8 @@ public class Login extends AppCompatActivity {
                     String b = rrrr.getString("token");
                     Log.d("OBJEK", b);
                     if (b.length() > 0) {
-                        //Toast.makeText(getApplicationContext(), "Berhasil login", Toast.LENGTH_LONG).show();
-                        Toasty.success(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
+//                        Toast.success(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
                         // menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
