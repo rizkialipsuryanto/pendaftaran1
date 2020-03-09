@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background_login"
+    android:background="#ffffff"
     tools:context=".daftarakun">
 
     <ScrollView
@@ -22,15 +22,15 @@
             android:paddingBottom="50dp"
             android:paddingTop="10dp">
 
-            <ImageView
-                android:id="@+id/regis_title"
-                android:layout_width="308dp"
-                android:layout_height="129dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="center_vertical|center_horizontal|center"
-                android:paddingLeft="11dp"
-                app:srcCompat="@drawable/siapceria2" />
+<!--            <ImageView-->
+<!--                android:id="@+id/regis_title"-->
+<!--                android:layout_width="308dp"-->
+<!--                android:layout_height="129dp"-->
+<!--                android:layout_alignParentStart="true"-->
+<!--                android:layout_alignParentLeft="true"-->
+<!--                android:layout_gravity="center_vertical|center_horizontal|center"-->
+<!--                android:paddingLeft="11dp"-->
+<!--                app:srcCompat="@drawable/siapceria2" />-->
 
             <TextView
                 android:layout_width="250dp"

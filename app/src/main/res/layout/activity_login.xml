@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@mipmap/background_login"
+    android:background="#fffffff"
     android:padding="0dp"
     tools:context=".Login">
 
@@ -28,17 +28,31 @@
             android:orientation="vertical"
             android:paddingTop="0dp">
 
-            <ImageView
-                android:id="@+id/imageView2"
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:srcCompat="@mipmap/logo_ajibarang" />-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="109dp"-->
+<!--                app:srcCompat="@drawable/smile" />-->
+
+            <TextView
+                android:id="@+id/h4_headline"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/logo_ajibarang" />
-
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="109dp"
-                app:srcCompat="@drawable/smile" />
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="70dp"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="0sp"
+                android:text="LOGIN"
+                android:textColor="#AFF1FF"
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/username"
@@ -48,11 +62,11 @@
                 android:drawableLeft="@mipmap/account"
                 android:drawablePadding="5dp"
                 android:ems="10"
-                android:hint="Username"
+                android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="0dp"
                 android:textColor="#FFF"
-                android:textColorHint="#999" />
+                android:textColorHint="#AFF1FF" />
 
             <EditText
                 android:id="@+id/password"
@@ -66,7 +80,7 @@
                 android:inputType="textPassword"
                 android:paddingLeft="0dp"
                 android:textColor="#FFF"
-                android:textColorHint="#999" />
+                android:textColorHint="#AFF1FF" />
 
             <Button
                 android:id="@+id/button"
@@ -76,7 +90,8 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_yellow"
                 android:onClick="Login"
-                android:text="SignIn" />
+                android:text="Login"
+                android:textColor="#AFF1FF"/>
 
             <Button
                 android:id="@+id/buttondaftar"
@@ -86,8 +101,9 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_red"
                 android:onClick="Daftar"
-                android:text="Daftar Akun"
-                android:textColor="@color/design_default_color_background" />
+                android:text="Sign up"
+                android:textColor="#AFF1FF" />
+
 
             <TextView
                 android:id="@+id/forgetpassword"
@@ -95,20 +111,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Lupa Akun?"
+                android:text="Lupa Password?"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/design_default_color_primary" />
-
-            <TextView
-                android:id="@+id/forgetpassword2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:text="Lupa Akun?"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/design_default_color_primary"
-                android:visibility="invisible" />
+                android:textColor="#AFF1FF" />
+<!--            <TextView-->
+<!--                android:id="@+id/forgetpassword2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:text="Lupa Akun?"-->
+<!--                android:textAppearance="?android:attr/textAppearanceMedium"-->
+<!--                android:textColor="@color/design_default_color_primary"-->
+<!--                android:visibility="invisible" />-->
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
