@@ -31,6 +31,7 @@ public class forgetpassword extends AppCompatActivity {
     String codejson;
     Button sendforgot;
     private String url_insert = Base.URL + "auth/forgotpassword";
+    String JSON_STRING = "{\"employee\":{\"name\":\"Abhishek Saini\",\"salary\":65000}}";
     int success;
     private static final String TAG_SUCCESS = "1";
     private static final String TAG_MESSAGE = "message";
@@ -65,27 +66,30 @@ public class forgetpassword extends AppCompatActivity {
 
             @Override
             public void onResponse(String response) {
-                Log.e(TAG, "Response: " + response.toString());
-                Toast.makeText(forgetpassword.this, "SUKSES", Toast.LENGTH_LONG).show();
+                Log.e("OBJECT", "Response");
+                Log.d("OBJECT","SUKSESSS BROOO");
+//                Toast.makeText(forgetpassword.this, "SUKSES", Toast.LENGTH_LONG).show();
                 try {
                     // get JSONObject from JSON file
                     JSONObject obj = new JSONObject(response);
                     // fetch JSONObject named employee
                     JSONObject employee = obj.getJSONObject("metaData");
-                    codejson = employee.getString("code");
+                    String message = employee.getString("message");
+                    Log.d("OBJECT",message);
+                    Toast.makeText(forgetpassword.this, message, Toast.LENGTH_LONG).show();
                     // get employee name and salary
 //                    name = employee.getString("name");
 ////                    salary = employee.getString("salary");
 //                    // set employee name and salary in TextView's
 ////                    employeeName.setText("Name: "+name);
 ////                    employeeSalary.setText("Salary: "+salary);
-                    Log.d(TAG, "Response: " + codejson.toString());
+//                    Log.d(TAG, "Response: " + codejson.toString());
 //                    Toasty.success(getApplicationContext(), codejson.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
+//                Log.d(TAG, "Response: " + codejson.toString());
             }
         }, new Response.ErrorListener() {
 

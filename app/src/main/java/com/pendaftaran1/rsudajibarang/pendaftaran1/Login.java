@@ -50,11 +50,11 @@ public class Login extends AppCompatActivity {
         session = sharedpreferences.getBoolean(session_status, false);
         token = sharedpreferences.getString(TAG_TOKEN, null);
 
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                login();
-            }
-        });
+//        findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
+//            public void onClick(View v){
+//                login();
+//            }
+//        });
 
         findViewById(R.id.forgetpassword).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
