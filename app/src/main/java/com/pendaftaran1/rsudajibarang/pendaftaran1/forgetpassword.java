@@ -15,15 +15,24 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import es.dmoral.toasty.Toasty;
 
 public class forgetpassword extends AppCompatActivity {
 
     EditText emaile, nohpe;
     Button sendforgot;
-    String url_insert;
+    private String url_insert = Base.URL + "auth/forgotpassword";
+    int success;
+    private static final String TAG_SUCCESS = "1";
+    private static final String TAG_MESSAGE = "message";
 
     private static final String TAG = forgetpassword.class.getSimpleName();
     @Override
@@ -56,6 +65,22 @@ public class forgetpassword extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e(TAG, "Response: " + response.toString());
                 Toast.makeText(forgetpassword.this, "SUKSES", Toast.LENGTH_LONG).show();
+                try {
+                    // get JSONObject from JSON file
+                    JSONObject obj = new JSONObject(response);
+                    // fetch JSONObject named employee
+                    JSONObject employee = obj.getJSONObject("metaData");
+                    // get employee name and salary
+//                    name = employee.getString("name");
+////                    salary = employee.getString("salary");
+//                    // set employee name and salary in TextView's
+////                    employeeName.setText("Name: "+name);
+////                    employeeSalary.setText("Salary: "+salary);
+                    Toasty.success(getApplicationContext(), employee.getString("message"), Toast.LENGTH_LONG).show();
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
         }, new Response.ErrorListener() {
