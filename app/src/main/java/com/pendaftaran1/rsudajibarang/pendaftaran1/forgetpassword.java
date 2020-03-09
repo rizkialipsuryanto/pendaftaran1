@@ -15,18 +15,17 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class forgetpassword extends AppCompatActivity {
 
-    private static final String TAG = daftarakun.class.getSimpleName();
-    private String url_insert = Base.URL + "auth/forgotpassword";
     EditText emaile, nohpe;
     Button sendforgot;
+    String url_insert;
+
+    private static final String TAG = forgetpassword.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,5 +83,6 @@ public class forgetpassword extends AppCompatActivity {
 
         queue.add(strReq);
 //        AppController.getInstance().addToRequestQueue(strReq);
+
     }
 }

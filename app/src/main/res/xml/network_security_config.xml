@@ -3,6 +3,7 @@
     <domain-config cleartextTrafficPermitted="true">
 <!--        <domain includeSubdomains="true">10.0.2.2</domain> &lt;!&ndash; Debug port &ndash;&gt;-->
         <domain includeSubdomains="true">192.16.0.87</domain> <!-- Debug port -->
+
     </domain-config>
 
 </network-security-config>
