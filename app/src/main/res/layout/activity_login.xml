@@ -88,7 +88,6 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_yellow"
-                android:onClick="Login"
                 android:text="Login"
                 android:textColor="@color/biruAqua" />
 
