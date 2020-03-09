@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity {
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
+
                 login();
             }
         });
@@ -92,53 +93,62 @@ public class Login extends AppCompatActivity {
 
 
     private void login() {
-
+        Log.d("OBJEK", "Jalan-----");
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call login = restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
         login.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-
                 try {
                     JSONObject jo = new JSONObject(response.body().toString());
+                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
+                    // CASTING JSON OBJECT
                     JSONObject rrrr = jo.getJSONObject("response");
-                    String b = rrrr.getString("token");
-                    Log.d("OBJEK", b);
-                    if (b.length() > 0) {
-                        //Toast.makeText(getApplicationContext(), "Berhasil login", Toast.LENGTH_LONG).show();
-                        Toasty.success(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
-                        // menyimpan login ke session
+                    JSONObject metaData = jo.getJSONObject("metaData");
+                    String code = metaData.getString("code");
+                    String message = metaData.getString("message");
+
+                    // MENDAPATKAN TOKEN
+                    String token = rrrr.getString("token");
+
+                      Log.d("OBJEK", jo.toString());
+                    Log.d("OBJEK", code);
+                    Log.d("OBJEK", message);
+
+//
+                    if (Integer.parseInt(code) == 200) {
+                        Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+
+                        Log.d("OBJEK", "TOKEN : "+token);
+//                       menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
-                        editor.putString(TAG_TOKEN, b);
+                        editor.putString(TAG_TOKEN, token);
                         editor.commit();
-
-                        // Memanggil main activity
+//                        // Memanggil main activity
                         Intent intent = new Intent(Login.this, indexActivity.class);
-                        intent.putExtra(TAG_TOKEN, b);
+                        intent.putExtra(TAG_TOKEN, token);
                         finish();
                         startActivity(intent);
-//
-//                        Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
-//                        startActivity(i);
+
                     } else {
-                        Toast.makeText(getApplicationContext(), "Login gagal", Toast.LENGTH_LONG).show();
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Login.this);
-                        alertDialogBuilder.setMessage("Gagal login");
+//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+//                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Login.this);
+//                        alertDialogBuilder.setMessage("Gagal login");
+                        Toasty.error(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
-//                    Intent i = new Intent(Login.this, indexActivity.class); //MainActivity adalah aktivity awal ,praktikum1Activity activity yang akan di tuju
-//                    startActivity(i);
+
                 } catch (Exception e) {
-//                    Log.d("OBJEK", e.getMessage());
-                    Toast.makeText(getApplicationContext(), "Login gagal", Toast.LENGTH_LONG).show();
+                    Toasty.error(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                 }
 
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-                Log.d("CEK", t.getMessage());
+
+                Log.d("OBJEK", t.getMessage());
             }
         });
     }
