@@ -28,6 +28,7 @@ import es.dmoral.toasty.Toasty;
 public class forgetpassword extends AppCompatActivity {
 
     EditText emaile, nohpe;
+    String codejson;
     Button sendforgot;
     private String url_insert = Base.URL + "auth/forgotpassword";
     int success;
@@ -50,6 +51,7 @@ public class forgetpassword extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 forgetpassword();
+                simpan();
             }
         });
     }
@@ -70,13 +72,15 @@ public class forgetpassword extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     // fetch JSONObject named employee
                     JSONObject employee = obj.getJSONObject("metaData");
+                    codejson = employee.getString("code");
                     // get employee name and salary
 //                    name = employee.getString("name");
 ////                    salary = employee.getString("salary");
 //                    // set employee name and salary in TextView's
 ////                    employeeName.setText("Name: "+name);
 ////                    employeeSalary.setText("Salary: "+salary);
-                    Toasty.success(getApplicationContext(), employee.getString("message"), Toast.LENGTH_LONG).show();
+                    Log.d(TAG, "Response: " + codejson.toString());
+//                    Toasty.success(getApplicationContext(), codejson.toString(), Toast.LENGTH_LONG).show();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -109,5 +113,63 @@ public class forgetpassword extends AppCompatActivity {
         queue.add(strReq);
 //        AppController.getInstance().addToRequestQueue(strReq);
 
+    }
+
+    private void simpan() {
+        String url;
+        url = url_insert;
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+
+        StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e(TAG, "Response: " + response.toString());
+                Toast.makeText(forgetpassword.this, "SUKSES", Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    JSONObject rrrr = jObj.getJSONObject("response");
+                    success = rrrr.getInt(TAG_SUCCESS);
+
+                    // Cek error node pada json
+                    if (success == 1) {
+                        Log.d("Add/update", jObj.toString());
+                        Toast.makeText(forgetpassword.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(forgetpassword.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(forgetpassword.this, error.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+
+                // Posting parameters ke post url
+                Map<String, String> params = new HashMap<String, String>();
+                // jika id kosong maka simpan, jika id ada nilainya maka update
+
+                params.put("email", emaile.getText().toString());
+                params.put("notelepon", nohpe.getText().toString());
+
+                return params;
+            }
+
+        };
+
+        queue.add(strReq);
+//        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 }

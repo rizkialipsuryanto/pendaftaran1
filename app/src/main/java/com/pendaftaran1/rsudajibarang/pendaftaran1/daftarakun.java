@@ -62,8 +62,8 @@ public class daftarakun extends AppCompatActivity {
             public void onClick(View v) {
                 // TODO Auto-generated method stub
 
-               // simpan();
-                saveRegistration();
+                simpan();
+//                saveRegistration();
 //                Intent intent = new Intent(daftarakun.this, Login.class);
 //                finish();
 //                startActivity(intent);
@@ -84,23 +84,23 @@ public class daftarakun extends AppCompatActivity {
             public void onResponse(String response) {
                 Log.e(TAG, "Response: " + response.toString());
                 Toast.makeText(daftarakun.this, "SUKSES", Toast.LENGTH_LONG).show();
-//                try {
-//                    JSONObject jObj = new JSONObject(response);
-//                    JSONObject rrrr = jObj.getJSONObject("response");
-//                    success = rrrr.getInt(TAG_SUCCESS);
-//
-//                    // Cek error node pada json
-//                    if (success == 1) {
-//                        Log.d("Add/update", jObj.toString());
-//                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-//
-//                    } else {
-//                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-//                    }
-//                } catch (JSONException e) {
-//                    // JSON error
-//                    e.printStackTrace();
-//                }
+                try {
+                    JSONObject jObj = new JSONObject(response);
+                    JSONObject rrrr = jObj.getJSONObject("response");
+                    success = rrrr.getInt(TAG_SUCCESS);
+
+                    // Cek error node pada json
+                    if (success == 1) {
+                        Log.d("Add/update", jObj.toString());
+                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+
+                    } else {
+                        Toast.makeText(daftarakun.this, jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
 
             }
         }, new Response.ErrorListener() {
