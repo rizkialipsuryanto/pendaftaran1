@@ -49,7 +49,7 @@ public class forgetpassword extends AppCompatActivity {
     private void forgetpassword() {
         String url;
         url = url_insert;
-//        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 
@@ -64,7 +64,7 @@ public class forgetpassword extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error: " + error.getMessage());
-                Toast.makeText(forgetpassword.this, error.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(forgetpassword.this, "error", Toast.LENGTH_LONG).show();
             }
         }) {
 
@@ -76,13 +76,13 @@ public class forgetpassword extends AppCompatActivity {
                 // jika id kosong maka simpan, jika id ada nilainya maka update
 
                 params.put("email", emaile.getText().toString());
-                params.put("nohp", nohpe.getText().toString());
+                params.put("notelepon", nohpe.getText().toString());
 
                 return params;
             }
         };
 
-        AppController.getInstance().addToRequestQueue(strReq);
-//        queue.add(strReq);
+        queue.add(strReq);
+//        AppController.getInstance().addToRequestQueue(strReq);
     }
 }
