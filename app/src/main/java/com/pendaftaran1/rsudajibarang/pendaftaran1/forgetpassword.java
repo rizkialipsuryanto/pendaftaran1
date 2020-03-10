@@ -31,7 +31,6 @@ public class forgetpassword extends AppCompatActivity {
     String codejson;
     Button sendforgot;
     private String url_insert = Base.URL + "auth/forgotpassword";
-    String JSON_STRING = "{\"employee\":{\"name\":\"Abhishek Saini\",\"salary\":65000}}";
     int success;
     private static final String TAG_SUCCESS = "1";
     private static final String TAG_MESSAGE = "message";

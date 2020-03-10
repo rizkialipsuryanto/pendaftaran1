@@ -65,6 +65,7 @@
                                 android:textSize="14sp">
 
                                 <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/profilFirstname"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"/>
 
@@ -83,6 +84,7 @@
                     android:textSize="14sp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profilLastname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -101,6 +103,7 @@
                     android:textSize="14sp">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/profilEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
@@ -113,17 +116,27 @@
 
                     <Button
                         android:id="@+id/buttoneditprofil"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginRight="80dp"
                         android:layout_weight="1"
-                        android:background="@drawable/edittexts"
+                        android:background="@drawable/buttonprofil"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="Edit Password" />
+                        android:text="Edit" />
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="Lupa Password?"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/biruAqua"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 

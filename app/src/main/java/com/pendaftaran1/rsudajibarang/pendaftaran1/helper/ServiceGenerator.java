@@ -9,7 +9,7 @@ public class ServiceGenerator {
 
     public static Retrofit build() {
         Retrofit.Builder builder = new Retrofit.Builder();
-        builder.baseUrl(Base.REST_BASE_URL);
+        builder.baseUrl(Base.REST_URL);
         builder.addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
