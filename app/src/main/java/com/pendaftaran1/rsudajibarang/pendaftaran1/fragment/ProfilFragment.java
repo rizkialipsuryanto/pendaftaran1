@@ -2,16 +2,13 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
 
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -78,8 +75,12 @@ public class ProfilFragment extends Fragment {
                     // get employee name and salary
                     email = employee.getString("email");
                     firstname = employee.getString("firstname");
+                    lastname = employee.getString("lastname");
+
+                    //ini untuk settext
                     emaill.setText(email);
                     firstnamee.setText(firstname);
+                    lastnamee.setText(lastname);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

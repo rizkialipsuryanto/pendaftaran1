@@ -63,32 +63,32 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        barcode = (Button)view.findViewById(R.id.barcodeteks);
-        image = (ImageView)view.findViewById(R.id.imageview);
+//        barcode = (Button)view.findViewById(R.id.barcodeteks);
+//        image = (ImageView)view.findViewById(R.id.imageview);
 
 
 //        name = indexActivity.getName();
         teksbarcode = indexActivity.getToken();
 
 //        barcode.setText(name.toString());
-        barcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                String greeting = teksbarcode;
-//                teksbarcode = teks.getText().toString();
-                nama();
-                try
-                {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(teksbarcode, BarcodeFormat.QR_CODE, 300,300);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(bitMatrix);
-                    image.setImageBitmap(bitmap);
-
-                } catch (WriterException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        barcode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                String greeting = teksbarcode;
+////                teksbarcode = teks.getText().toString();
+//                nama();
+//                try
+//                {
+//                    BitMatrix bitMatrix = multiFormatWriter.encode(teksbarcode, BarcodeFormat.QR_CODE, 300,300);
+//                    BarcodeEncoder encoder = new BarcodeEncoder();
+//                    Bitmap bitmap = encoder.createBitmap(bitMatrix);
+//                    image.setImageBitmap(bitmap);
+//
+//                } catch (WriterException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
         return view;
     }
 
