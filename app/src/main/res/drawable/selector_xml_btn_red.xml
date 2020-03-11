@@ -9,7 +9,7 @@
     <item >
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
             <corners android:radius="20dp" />
-            <solid android:color="#9AA3AA" />
+            <solid android:color="@color/birunyacinta" />
         </shape>
     </item>
 </selector>

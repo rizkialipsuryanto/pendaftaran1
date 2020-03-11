@@ -29,7 +29,7 @@
         android:layout_marginTop="396dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="RSUD AJIBARANG"
-        android:textColor="@color/biruAqua"
+        android:textColor="@color/colorDivider"
         android:textSize="18sp" />
 
     <ProgressBar
@@ -40,7 +40,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="150dp" />
+        android:layout_marginBottom="150dp"
+        android:progressBackgroundTint="@color/birunyacinta"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -52,5 +53,5 @@
         android:layout_marginBottom="18dp"
         android:fontFamily="monospace"
         android:text="© IT RSUD Ajibarang"
-        android:textColor="@color/biruAqua" />
+        android:textColor="@color/colorDivider" />
 </RelativeLayout>
