@@ -17,9 +17,9 @@
             android:padding="40dp">
 
             <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pl_hubungan" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_hubungan" />
 
             <EditText
                 android:id="@+id/plhubungan"

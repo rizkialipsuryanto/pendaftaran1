@@ -8,13 +8,12 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.DaftarFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.HomeFragment;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.JadwalFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.ProfilFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,7 +55,7 @@ public class indexActivity extends AppCompatActivity {
                     fragment = new HomeFragment();
                     break;
                 case R.id.navigation_dashboard:
-                    fragment = new JadwalFragment();
+                    fragment = new DaftarFragment();
                     break;
 //                    mTextMessage.setText(R.string.title_dashboard);
 //                    return true;
