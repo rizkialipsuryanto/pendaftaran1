@@ -50,6 +50,8 @@
     <string name="pb_pekerjaan">Pekerjaan</string>
     <string name="pb_status_kawin">Status Kawin</string>
     <string name="pb_kewarganegaraan">Kewarganegaraan</string>
+    <string name="pb_wni">WNI</string>
+    <string name="pb_wna">WNA</string>
     <string name="pb_suku">Suku</string>
     <string name="pb_bahasa_daerah">Bahsa Daerah</string>
 
@@ -65,7 +67,17 @@
     <string name="plh_no_telephon">Masukan Nomor Telephon</string>
     <string name="plh_email">Masukan Email</string>
     <string name="btn_pl_daftar">Daftar</string>
-
+    
+    <!-- Pendaftaran Online -->
+    <string name="po_tgl">Tanggal Kontrol</string>
+    <string name="po_penjamin">Penjamain</string>
+    <string name="po_nmrbpjs">Nomor BPJS</string>
+    <string name="po_nmrrujukan">Nomor rujukan</string>
+    <string name="po_btndftr">Daftar</string>
+    <string name="poh_tgl">Pilih Tanggal</string>
+    <string name="poh_penjamin">Pilih Penjamin</string>
+    <string name="poh_nmrbpjs">Masukan Nomor BPJS</string>
+    <string name="poh_nmrrujukan">Masukan Nomor RUjukan</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

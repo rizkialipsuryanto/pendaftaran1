@@ -20,8 +20,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_hubungan" />
-            <EditText
-                android:id="@+id/pbhubungan"
+            <Spinner
+                android:id="@+id/spinnerhub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -29,26 +29,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_nama" />
+
             <EditText
                 android:id="@+id/pbnama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_nik" />
+
             <EditText
                 android:id="@+id/pbnik"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_jk" />
-            <EditText
-                android:id="@+id/pbjk"
+            <Spinner
+                android:id="@+id/spinnerjk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -56,26 +60,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_tempat_lahir" />
+
             <EditText
                 android:id="@+id/pbtempatlahir"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_alamat" />
+
             <EditText
                 android:id="@+id/pbalamatktp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_provinsi" />
-            <EditText
-                android:id="@+id/pbprov"
+            <Spinner
+                android:id="@+id/spinnerprov"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -83,8 +91,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_kabupaten" />
-            <EditText
-                android:id="@+id/pbkab"
+            <Spinner
+                android:id="@+id/spinnerkab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -92,8 +100,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_kecamatan" />
-            <EditText
-                android:id="@+id/pbkec"
+            <Spinner
+                android:id="@+id/spinnerkec"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -101,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_kelurahan" />
-            <EditText
+            <Spinner
                 android:id="@+id/pbkel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -110,53 +118,63 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_ayah" />
+
             <EditText
                 android:id="@+id/pbayah"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_ibu" />
+
             <EditText
                 android:id="@+id/pbibu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_suami" />
+
             <EditText
                 android:id="@+id/pbsuami"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_istri" />
+
             <EditText
                 android:id="@+id/pbistri"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_no_telephon" />
+
             <EditText
                 android:id="@+id/pbnmrtelp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_agama" />
-            <EditText
-                android:id="@+id/pbagama"
+            <Spinner
+                android:id="@+id/spinneragama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -164,8 +182,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_pendidikan" />
-            <EditText
-                android:id="@+id/pbpend"
+            <Spinner
+                android:id="@+id/spinnerpend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -173,7 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_pekerjaan" />
-            <EditText
+            <Spinner
                 android:id="@+id/pbpekerjaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -182,7 +200,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_status_kawin" />
-            <EditText
+            <Spinner
                 android:id="@+id/pbstatuskawin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -191,17 +209,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_kewarganegaraan" />
-            <EditText
-                android:id="@+id/pbkewarganegaraan"
+            <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_above="@+id/view_bellow">
+
+                <RadioButton
+                    android:id="@+id/pbkewarganegaraan1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pb_wni"
+                    android:paddingRight="10dp"/>
+
+                <RadioButton
+                    android:id="@+id/pbkewarganegaraan2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pb_wna"
+                    android:paddingRight="10dp"/>
+            </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_suku" />
-            <EditText
-                android:id="@+id/pbsuku"
+            <Spinner
+                android:id="@+id/spinnersuku"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -209,8 +243,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_bahasa_daerah" />
-            <EditText
-                android:id="@+id/pbbhs"
+            <Spinner
+                android:id="@+id/spinnerbhs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
