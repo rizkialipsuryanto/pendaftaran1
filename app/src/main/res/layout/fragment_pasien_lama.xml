@@ -47,6 +47,41 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pl_tgl_lahir" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/kalenderinputcatatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittexts"
+                    android:drawablePadding="8dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="Tanggal Lahir"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/btnTanggal1"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/ic_date" />
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/pltgllahir"
                 android:layout_width="match_parent"

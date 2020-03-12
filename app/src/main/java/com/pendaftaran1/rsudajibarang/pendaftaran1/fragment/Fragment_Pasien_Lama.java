@@ -1,10 +1,14 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,13 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
@@ -40,16 +43,15 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.R.layout.simple_spinner_item;
-import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.pDialog;
-import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.volleyerror;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Pasien_Lama extends Fragment {
 
-    EditText plnorma, plnotelephona,plemaila;
+    EditText plnorma, plnotelephona,plemaila, kalenderinputcatatan;
     Button btnpldaftara;
+    ImageButton btnTanggal;
 
     private Spinner sppbhubunganpasien;
 
@@ -72,13 +74,21 @@ public class Fragment_Pasien_Lama extends Fragment {
         plemaila = (EditText)view.findViewById(R.id.plemail);
         sppbhubunganpasien = (Spinner) view.findViewById(R.id.spinnerplhubungan);
         btnpldaftara = (Button)view.findViewById(R.id.btnpldaftar);
+        btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggal1);
+        kalenderinputcatatan = view.findViewById(R.id.kalenderinputcatatan);
 
         btnpldaftara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String msg = edtMessageF.getText().toString();
                 validasi();
 
+            }
+        });
+
+        btnTanggal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialogDatePicker();
             }
         });
 
@@ -176,6 +186,43 @@ public class Fragment_Pasien_Lama extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+    }
+
+    public String desimal(int des){
+        String dc=String.valueOf(des);
+        if(des<10){
+            dc="0"+dc;
+        }
+        return dc;
+    }
+
+    public void alertDialogDatePicker() {
+        // inflate file
+        LayoutInflater inflater = (LayoutInflater)getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        // inflate file layout_datepicker.xml
+        View view = inflater.inflate(R.layout.layout_datepicker, null, false);
+
+        // dapatkan id dan nilai
+        final DatePicker myDatePicker = (DatePicker)view
+                .findViewById(R.id.datepicker);
+
+        // buat popup
+        new AlertDialog.Builder(getActivity()).setView(view)
+                // judul
+                .setTitle("Tanggal Hari Ini")
+                // tombol
+                .setPositiveButton("Pilih", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        String month=desimal(myDatePicker.getMonth() + 1);
+                        String day=desimal(myDatePicker.getDayOfMonth());
+                        int year = myDatePicker.getYear();
+                        // print hasil dalam toast
+                        kalenderinputcatatan.setText(year+"-"+month+"-"+day);
+                        dialog.cancel();
+                    }
+                }).show();
 
     }
 
