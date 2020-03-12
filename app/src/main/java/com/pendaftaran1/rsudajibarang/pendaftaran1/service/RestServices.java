@@ -24,6 +24,9 @@ public interface RestServices {
     @GET("/api.simrs.rsudajibarang/api/references/provinsi")
     public Call<JsonObject> ListProvinsi();
 
+    @GET("/api.simrs.rsudajibarang/api/references/kabupaten")
+    public Call<JsonObject> ListKabupaten(@Field("idprovinsi") String idprovinsi);
+
 
 //    @Headers({"Authorization", "Bearer "+ token}) NEK PAKE TOKEN
     @POST("/api.simrs.rsudajibarang/api/auth/registration")

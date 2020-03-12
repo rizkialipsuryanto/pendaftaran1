@@ -52,7 +52,8 @@
                 android:layout_height="match_parent"
                 android:text="@string/pb_jk" />
             <Spinner
-                android:id="@+id/spinnerjk"
+                android:id="@+id/spinnerpbjk"
+                android:entries="@array/jenis_kelamin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -256,5 +257,11 @@
                 android:text="NEXT" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/tvpbtempprovinsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
 </RelativeLayout>

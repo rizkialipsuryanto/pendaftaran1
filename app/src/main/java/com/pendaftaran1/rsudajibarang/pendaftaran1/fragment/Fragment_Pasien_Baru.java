@@ -11,10 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -27,6 +29,7 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mKabupaten;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.ProvinsiService;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
@@ -34,6 +37,7 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,13 +59,20 @@ import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.volleyer
 public class Fragment_Pasien_Baru extends Fragment {
 
     EditText pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
+    TextView tvtempprovinsii;
     Button btnpbdaftarr;
     Spinner pbspprovinsi;
 
     private ArrayList<mProvinsi> goodModelArrayList;
+    private ArrayList<mKabupaten> goodModelKabArrayList;
     private ArrayList<String> playerNames = new ArrayList<String>();
-    private Spinner spinner;
+    private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten;
 
+
+    List<String> valueIdProvinsi = new ArrayList<String>();
+
+    List<String> valueIdKota = new ArrayList<String>();
+    List<String> valueKota = new ArrayList<String>();
 //    private String url = Base.URL + "references/provinsi";
     public Fragment_Pasien_Baru() {
         // Required empty public constructor
@@ -83,18 +94,46 @@ public class Fragment_Pasien_Baru extends Fragment {
         pbsuamia = (EditText) view.findViewById(R.id.pbsuami);
         pbistria = (EditText) view.findViewById(R.id.pbistri);
         pbnmrtelpa = (EditText) view.findViewById(R.id.pbnmrtelp);
-        spinner = (Spinner) view.findViewById(R.id.spinnerprov);
+        tvtempprovinsii = (TextView) view.findViewById(R.id.tvpbtempprovinsi);
+        sppbprovinsi = (Spinner) view.findViewById(R.id.spinnerprov);
+        sppbkabupaten = (Spinner) view.findViewById(R.id.spinnerkab);
+        sppbjeniskelamin = (Spinner) view.findViewById(R.id.spinnerpbjk);
 
-//        getProvinsi();
-        fetchJSON();
+        fetchJSONProvinsi();
 
         btnpbdaftarr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                String msg = edtMessageF.getText().toString();
                 validasi();
 
             }
+        });
+
+        sppbprovinsi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Toasty.success(getActivity(), parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+                tvtempprovinsii.setText(valueIdProvinsi.get(position));
+                fetchJSONKabupaten();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+        sppbjeniskelamin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                Toasty.success(getActivity(), parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
         });
         return view;
     }
@@ -149,9 +188,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
     }
 
-    private void fetchJSON(){
-
-
+    private void fetchJSONProvinsi(){
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call povinsi = restServices.ListProvinsi();
@@ -166,7 +203,7 @@ public class Fragment_Pasien_Baru extends Fragment {
                         Log.i("onSuccess", response.body().toString());
 
                         String jsonresponse = response.body().toString();
-                        spinJSON(jsonresponse);
+                        spinJSONProvinsi(jsonresponse);
 
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
@@ -181,7 +218,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         });
     }
 
-    private void spinJSON(String response){
+    private void spinJSONProvinsi(String response){
 
         try {
 
@@ -206,12 +243,83 @@ public class Fragment_Pasien_Baru extends Fragment {
                 }
 
                 for (int i = 0; i < goodModelArrayList.size(); i++){
+                    valueIdProvinsi.add(goodModelArrayList.get(i).getIdprovinsi().toString());
                     playerNames.add(goodModelArrayList.get(i).getNamaprovinsi().toString());
                 }
 
                 ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, playerNames);
                 spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-                spinner.setAdapter(spinnerArrayAdapter);
+                sppbprovinsi.setAdapter(spinnerArrayAdapter);
+
+//            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void fetchJSONKabupaten(){
+        // REST LOGIN ------------------------------------------------------------------
+
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call kabupaten = restServices.ListKabupaten(tvtempprovinsii.getText().toString());
+
+        kabupaten.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.i("Responsestring", response.body().toString());
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body().toString());
+
+                        String jsonresponse = response.body().toString();
+                        spinJSONKabupaten(jsonresponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.i("onFailure",t.getMessage().toString());
+            }
+        });
+    }
+
+    private void spinJSONKabupaten(String response){
+
+        try {
+
+            JSONObject obj = new JSONObject(response);
+            JSONObject rrrr = obj.getJSONObject("response");
+
+            goodModelKabArrayList = new ArrayList<>();
+            JSONArray dataArray  = rrrr.getJSONArray("kabupaten");
+
+            for (int i = 0; i < dataArray.length(); i++) {
+
+                mKabupaten spinnerModel = new mKabupaten();
+                JSONObject dataobj = dataArray.getJSONObject(i);
+
+                spinnerModel.setIdkota(dataobj.getString("idkota"));
+                spinnerModel.setNamakota(dataobj.getString("namakota"));
+
+                goodModelKabArrayList.add(spinnerModel);
+
+            }
+
+            for (int i = 0; i < goodModelKabArrayList.size(); i++){
+                valueIdKota.add(goodModelKabArrayList.get(i).getIdkota().toString());
+                valueKota.add(goodModelKabArrayList.get(i).getNamakota().toString());
+            }
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, playerNames);
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            sppbkabupaten.setAdapter(spinnerArrayAdapter);
 
 //            }
 
