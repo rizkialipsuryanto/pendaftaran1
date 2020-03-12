@@ -21,6 +21,10 @@ public interface RestServices {
     public Call<JsonObject> Login(@Field("username") String username, @Field("password") String password);
 
 
+    @GET("/api.simrs.rsudajibarang/api/references/provinsi")
+    public Call<JsonObject> ListProvinsi();
+
+
 //    @Headers({"Authorization", "Bearer "+ token}) NEK PAKE TOKEN
     @POST("/api.simrs.rsudajibarang/api/auth/registration")
     @FormUrlEncoded

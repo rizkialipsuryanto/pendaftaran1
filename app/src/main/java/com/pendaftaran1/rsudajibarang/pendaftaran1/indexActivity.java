@@ -1,20 +1,29 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.DaftarFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.HomeFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.ProfilFragment;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -23,13 +32,17 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class indexActivity extends AppCompatActivity {
@@ -42,6 +55,16 @@ public class indexActivity extends AppCompatActivity {
     public static String token;
     public static String name;
     private String url_insert = Base.URL + "auth/decode";
+    public static ProgressDialog pDialog;
+    public static String Errmsg;
+
+    JSONArray JsonArrayProvinsi = null;
+    String tag_json_obj = "json_obj_req";
+    ArrayAdapter<String> spinnerAdapterProvinsi;
+    List<String> valueidprovinsi = new ArrayList<String>();
+    List<String> valuenamaprovinsi = new ArrayList<String>();
+
+    private String url = Base.URL + "references/provinsi";
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -165,5 +188,79 @@ public class indexActivity extends AppCompatActivity {
 
     public static String getName() {
         return name;
+    }
+
+    public static void volleyerror (VolleyError error){
+        if(pDialog.isShowing()){
+            pDialog.dismiss();
+        }
+        if (error instanceof TimeoutError) {
+            Errmsg="Gagal Terhubung ke Server, ( Time Out Error )";
+        } else if (error instanceof NoConnectionError) {
+            Errmsg="Pastikan Device terhubung dengan internet";
+        } else if (error instanceof AuthFailureError) {
+            Errmsg="Terjadi kesalahan Autentifikasi";
+        } else if (error instanceof ServerError) {
+            Errmsg="Server Error, Silahkan coba kembali nanti";
+        } else if (error instanceof NetworkError) {
+            Errmsg="Jaringan Error";
+        } else if (error instanceof ParseError) {
+            Errmsg="Gagal Menampilkan Data";
+        }
+        Toast.makeText(AppController.getAppContext(), error.getMessage(), Toast.LENGTH_LONG).show();
+    }
+
+
+    public void getProvinsi(){
+        if(pDialog!=null ){
+            pDialog.show();
+        }
+
+//        RequestQueue queue = Volley.newRequestQueue(getActivity());
+        StringRequest strReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObj = new JSONObject(response);
+
+                    JsonArrayProvinsi = jsonObj.getJSONArray("provinsi");
+                    ArrayList<mProvinsi> listDataProvinsi = new ArrayList<mProvinsi>();
+                    listDataProvinsi.clear();
+
+                    for (int i = 0; i < JsonArrayProvinsi.length(); i++) {
+                        JSONObject obj = JsonArrayProvinsi.getJSONObject(i);
+
+                        mProvinsi range = new mProvinsi();
+                        range.setIdprovinsi(obj.getString("idprovinsi"));
+                        range.setNamaprovinsi(obj.getString("namaprovinsi"));
+                        listDataProvinsi.add(range);
+
+                        System.out.println("sukses "+range.getIdprovinsi());
+                    }
+
+                    for (int i = 0; i < listDataProvinsi.size(); i++) {
+                        valueidprovinsi.add(listDataProvinsi.get(i).getIdprovinsi());
+                        valuenamaprovinsi.add(listDataProvinsi.get(i).getNamaprovinsi());
+                    }
+//                    spinnerAdapterProvinsi.notifyDataSetChanged();
+//                    pDialog.dismiss();
+                } catch (JSONException e) {
+//                    pDialog.dismiss();
+                    // JSON error
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                volleyerror(error);
+            }
+        }) {
+        };
+//        queue.add(strReq);
+        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 }

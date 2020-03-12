@@ -9,13 +9,31 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
+
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.pDialog;
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.volleyerror;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +44,9 @@ public class Fragment_Pasien_Lama extends Fragment {
     Button btnpldaftara;
     private Fragment fragment;
     private FragmentManager fragmentManager;
+
+
+
     public Fragment_Pasien_Lama() {
         // Required empty public constructor
     }
@@ -77,4 +98,6 @@ public class Fragment_Pasien_Lama extends Fragment {
         Fragment newFrame = new Fragment_Dftronline();
         fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
     }
+
+
 }

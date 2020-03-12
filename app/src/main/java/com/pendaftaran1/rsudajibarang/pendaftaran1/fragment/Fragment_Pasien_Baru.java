@@ -7,16 +7,47 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+//import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+//import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.service.ProvinsiService;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+import static android.R.layout.simple_spinner_item;
+
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.pDialog;
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.volleyerror;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +56,13 @@ public class Fragment_Pasien_Baru extends Fragment {
 
     EditText pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
     Button btnpbdaftarr;
+    Spinner pbspprovinsi;
+
+    private ArrayList<mProvinsi> goodModelArrayList;
+    private ArrayList<String> playerNames = new ArrayList<String>();
+    private Spinner spinner;
+
+//    private String url = Base.URL + "references/provinsi";
     public Fragment_Pasien_Baru() {
         // Required empty public constructor
     }
@@ -45,6 +83,10 @@ public class Fragment_Pasien_Baru extends Fragment {
         pbsuamia = (EditText) view.findViewById(R.id.pbsuami);
         pbistria = (EditText) view.findViewById(R.id.pbistri);
         pbnmrtelpa = (EditText) view.findViewById(R.id.pbnmrtelp);
+        pbspprovinsi = (Spinner) view.findViewById(R.id.spinnerprov);
+
+//        getProvinsi();
+        fetchJSON();
 
         btnpbdaftarr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,5 +147,92 @@ public class Fragment_Pasien_Baru extends Fragment {
         FragmentManager fm = getActivity().getSupportFragmentManager();
         Fragment newFrame = new Fragment_Dftronline();
         fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
+    }
+
+    private void fetchJSON(){
+
+
+        // REST LOGIN ------------------------------------------------------------------
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call povinsi = restServices.ListProvinsi();
+
+        povinsi.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+//                Log.i("onSuccess", response.body().toString());
+//                String jsonresponse = response.body().toString();
+//                spinJSON(jsonresponse);
+//                try {
+//                    JSONObject jo = new JSONObject(response.body().toString());
+//                    JSONObject rrrr = jo.getJSONObject("response");
+//                    JSONObject rrarr = rrrr.getJSONObject("provinsi");
+//
+//                    String token = rrrr.getString("provinsi");
+//
+//                    Log.i("token",rrarr.toString());
+//                }
+//                catch (Exception ex){
+//
+//                }
+                Log.i("Responsestring", response.body().toString());
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body().toString());
+
+                        String jsonresponse = response.body().toString();
+                        spinJSON(jsonresponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.i("onFailure",t.getMessage().toString());
+            }
+        });
+    }
+
+    private void spinJSON(String response){
+
+        try {
+
+            JSONObject obj = new JSONObject(response);
+//                                JSONObject rrrr = obj.getJSONObject("provinsi");
+//                    JSONObject rrarr = rrrr.getJSONObject("provinsi");
+//            if(obj.optString("status").equals("true")){
+
+                goodModelArrayList = new ArrayList<>();
+                JSONArray dataArray  = obj.getJSONArray("provinsi");
+
+                for (int i = 0; i < dataArray.length(); i++) {
+
+                    mProvinsi spinnerModel = new mProvinsi();
+                    JSONObject dataobj = dataArray.getJSONObject(i);
+
+                    spinnerModel.setIdprovinsi(dataobj.getString("idprovinsi"));
+                    spinnerModel.setNamaprovinsi(dataobj.getString("namaprovinsi"));
+
+                    goodModelArrayList.add(spinnerModel);
+
+                }
+
+                for (int i = 0; i < goodModelArrayList.size(); i++){
+                    playerNames.add(goodModelArrayList.get(i).getNamaprovinsi().toString());
+                }
+
+                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, playerNames);
+                spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+                spinner.setAdapter(spinnerArrayAdapter);
+
+//            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
