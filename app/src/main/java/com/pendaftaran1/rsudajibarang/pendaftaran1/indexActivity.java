@@ -80,14 +80,10 @@ public class indexActivity extends AppCompatActivity {
                 case R.id.navigation_dashboard:
                     fragment = new DaftarFragment();
                     break;
-//                    mTextMessage.setText(R.string.title_dashboard);
-//                    return true;
                 case R.id.navigation_notifications:
                     fragment = new ProfilFragment();
                     nama();
                     break;
-//                    mTextMessage.setText(R.string.title_notifications);
-//                    return true;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.replace(R.id.flMain, fragment).commit();
@@ -111,30 +107,12 @@ public class indexActivity extends AppCompatActivity {
         token = getIntent().getStringExtra(TAG_TOKEN);
 
         Toast.makeText(getApplicationContext(),token, Toast.LENGTH_LONG).show();
-
-//        nama();
     }
 
     private void nama() {
         String url;
-
         url = url_insert+"?token="+getIntent().getStringExtra(TAG_TOKEN);
-//
-//        final String urlnya = url_insert + "?token=" + token;
-//
-//        JsonObjectRequest getRequest = new JsonObjectRequest(Request.Method.GET, urlnya, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        Log.d("AMBILDATA",response.toString());
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Log.d("AMBILDATA","erormas");
-//                    }
-//                });
+
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
 
         StringRequest strReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -190,77 +168,5 @@ public class indexActivity extends AppCompatActivity {
         return name;
     }
 
-    public static void volleyerror (VolleyError error){
-        if(pDialog.isShowing()){
-            pDialog.dismiss();
-        }
-        if (error instanceof TimeoutError) {
-            Errmsg="Gagal Terhubung ke Server, ( Time Out Error )";
-        } else if (error instanceof NoConnectionError) {
-            Errmsg="Pastikan Device terhubung dengan internet";
-        } else if (error instanceof AuthFailureError) {
-            Errmsg="Terjadi kesalahan Autentifikasi";
-        } else if (error instanceof ServerError) {
-            Errmsg="Server Error, Silahkan coba kembali nanti";
-        } else if (error instanceof NetworkError) {
-            Errmsg="Jaringan Error";
-        } else if (error instanceof ParseError) {
-            Errmsg="Gagal Menampilkan Data";
-        }
-        Toast.makeText(AppController.getAppContext(), error.getMessage(), Toast.LENGTH_LONG).show();
-    }
 
-
-    public void getProvinsi(){
-        if(pDialog!=null ){
-            pDialog.show();
-        }
-
-//        RequestQueue queue = Volley.newRequestQueue(getActivity());
-        StringRequest strReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject jsonObj = new JSONObject(response);
-
-                    JsonArrayProvinsi = jsonObj.getJSONArray("provinsi");
-                    ArrayList<mProvinsi> listDataProvinsi = new ArrayList<mProvinsi>();
-                    listDataProvinsi.clear();
-
-                    for (int i = 0; i < JsonArrayProvinsi.length(); i++) {
-                        JSONObject obj = JsonArrayProvinsi.getJSONObject(i);
-
-                        mProvinsi range = new mProvinsi();
-                        range.setIdprovinsi(obj.getString("idprovinsi"));
-                        range.setNamaprovinsi(obj.getString("namaprovinsi"));
-                        listDataProvinsi.add(range);
-
-                        System.out.println("sukses "+range.getIdprovinsi());
-                    }
-
-                    for (int i = 0; i < listDataProvinsi.size(); i++) {
-                        valueidprovinsi.add(listDataProvinsi.get(i).getIdprovinsi());
-                        valuenamaprovinsi.add(listDataProvinsi.get(i).getNamaprovinsi());
-                    }
-//                    spinnerAdapterProvinsi.notifyDataSetChanged();
-//                    pDialog.dismiss();
-                } catch (JSONException e) {
-//                    pDialog.dismiss();
-                    // JSON error
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                volleyerror(error);
-            }
-        }) {
-        };
-//        queue.add(strReq);
-        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
-    }
 }

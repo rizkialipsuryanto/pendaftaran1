@@ -91,7 +91,6 @@ public class Fragment_Pasien_Baru extends Fragment {
     List<String> valueBahasa = new ArrayList<String>();
     List<String> valueHubunganPasien = new ArrayList<String>();
 
-//    private String url = Base.URL + "references/provinsi";
     public Fragment_Pasien_Baru() {
         // Required empty public constructor
     }
@@ -289,8 +288,6 @@ public class Fragment_Pasien_Baru extends Fragment {
 
             JSONObject obj = new JSONObject(response);
             JSONObject rrrr = obj.getJSONObject("response");
-//                    JSONObject rrarr = rrrr.getJSONObject("provinsi");
-//            if(obj.optString("status").equals("true")){
 
                 goodModelArrayList = new ArrayList<>();
                 JSONArray dataArray  = rrrr.getJSONArray("provinsi");
@@ -326,13 +323,10 @@ public class Fragment_Pasien_Baru extends Fragment {
 
     private void fetchJSONKabupaten(){
         Log.d("OBJEK", "Jalan-----");
-//        String id = "1";
         // REST LOGIN ------------------------------------------------------------------
-//        tvtempprovinsii.setText("1");
         Log.d("OBJEK", tvtempprovinsii.getText().toString());
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call kabupatena = restServices.ListKabupaten(tvtempprovinsii.getText().toString());
-//        Log.d("OBJEK", restServices.ListKabupaten(tvtempprovinsii.getText().toString()));
         kabupatena.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -365,7 +359,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             JSONArray dataArray  = rrrr.getJSONArray("kabupaten");
             ArrayList<mKabupaten> listKabupaten = new ArrayList<mKabupaten>();
             listKabupaten.clear();
-//            spinnerArrayAdapter.notifyDataSetChanged();
             for (int i = 0; i < dataArray.length(); i++) {
 
                 mKabupaten spinnerModel = new mKabupaten();
@@ -395,13 +388,10 @@ public class Fragment_Pasien_Baru extends Fragment {
 
     private void fetchJSONKecamatan(){
         Log.d("OBJEK", "Jalan-----");
-//        String id = "1";
         // REST LOGIN ------------------------------------------------------------------
-//        tvtempprovinsii.setText("1");
         Log.d("OBJEK", tvtempkabupatenn.getText().toString());
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call kecamatana = restServices.ListKecamatan(tvtempkabupatenn.getText().toString());
-//        Log.d("OBJEK", restServices.ListKabupaten(tvtempprovinsii.getText().toString()));
         kecamatana.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -460,7 +450,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
             sppbkecamatan.setAdapter(spinnerArrayAdapter);
             spinnerArrayAdapter.notifyDataSetChanged();
-//            }
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -477,7 +466,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.i("OBJEK", response.body().toString());
-                //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.i("onSuccess", response.body().toString());
@@ -531,8 +519,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
             sppbkelurahan.setAdapter(spinnerArrayAdapter);
 
-//            }
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -548,7 +534,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.i("onSuccess", response.body().toString());
@@ -617,7 +602,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.i("onSuccess", response.body().toString());
@@ -891,7 +875,6 @@ public class Fragment_Pasien_Baru extends Fragment {
             @Override
             public void onResponse(Call call, Response response) {
                 Log.i("Responsestring", response.body().toString());
-                //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
                         Log.i("onSuccess", response.body().toString());
