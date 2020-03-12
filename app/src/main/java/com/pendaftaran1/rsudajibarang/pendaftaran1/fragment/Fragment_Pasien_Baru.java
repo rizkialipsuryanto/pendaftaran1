@@ -22,6 +22,7 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mAgama;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mBahasa;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mHubunganPasien;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mKabupaten;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mKecamatan;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mKelurahan;
@@ -53,7 +54,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     EditText pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
     TextView tvtempprovinsii,tvtempkabupatenn,tvtempkecamatann;
     private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten,sppbkecamatan,sppbkelurahan,sppbagama, sppbpendidikan, sppbpekerjaan, sppbstatuspernikahan
-    ,sppbsuku,sppbbahasa;
+    ,sppbsuku,sppbbahasa,sppbhubunganpasien;
     Button btnpbdaftarr;
 
     private ArrayList<mProvinsi> goodModelArrayList;
@@ -66,6 +67,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     private ArrayList<mStatusPernikahan> goodModelStatusPernikahanArrayList;
     private ArrayList<mSuku> goodModelSukuArrayList;
     private ArrayList<mBahasa> goodModelBahasaArrayList;
+    private ArrayList<mHubunganPasien> goodModelHubunganPasienArrayList;
     private ArrayList<String> playerNames = new ArrayList<String>();
 
 
@@ -87,6 +89,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     List<String> valueSuku = new ArrayList<String>();
     List<String> valueIdBahasa = new ArrayList<String>();
     List<String> valueBahasa = new ArrayList<String>();
+    List<String> valueHubunganPasien = new ArrayList<String>();
 
 //    private String url = Base.URL + "references/provinsi";
     public Fragment_Pasien_Baru() {
@@ -123,6 +126,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         sppbstatuspernikahan = (Spinner) view.findViewById(R.id.spinnerpbstatuskawin);
         sppbsuku = (Spinner) view.findViewById(R.id.spinnersuku);
         sppbbahasa = (Spinner) view.findViewById(R.id.spinnerbhs);
+        sppbhubunganpasien = (Spinner) view.findViewById(R.id.spinnerpbhub);
 
         fetchJSONProvinsi();
         fetchJSONAgama();
@@ -131,6 +135,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         fetchJSONStatusPernikahan();
         fetchJSONSuku();
         fetchJSONBahasa();
+        fetchJSONHubunganPasien();
 
         btnpbdaftarr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -938,6 +943,73 @@ public class Fragment_Pasien_Baru extends Fragment {
 
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
             sppbbahasa.setAdapter(spinnerArrayAdapter);
+            spinnerArrayAdapter.notifyDataSetChanged();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void fetchJSONHubunganPasien(){
+        // REST LOGIN ------------------------------------------------------------------
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call hubunganpasien = restServices.ListHubunganPasien();
+
+        hubunganpasien.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.i("Responsestring", response.body().toString());
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body().toString());
+
+                        String jsonresponse = response.body().toString();
+                        spinJSONHubunganPasien(jsonresponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.i("onFailure",t.getMessage().toString());
+            }
+        });
+    }
+
+    private void spinJSONHubunganPasien(String response){
+
+        try {
+
+            JSONObject obj = new JSONObject(response);
+            JSONObject rrrr = obj.getJSONObject("response");
+
+            goodModelHubunganPasienArrayList = new ArrayList<>();
+            JSONArray dataArray  = rrrr.getJSONArray("hubungan");
+
+            for (int i = 0; i < dataArray.length(); i++) {
+
+                mHubunganPasien spinnerModel = new mHubunganPasien();
+                JSONObject dataobj = dataArray.getJSONObject(i);
+
+                spinnerModel.setNama(dataobj.getString("nama"));
+
+                goodModelHubunganPasienArrayList.add(spinnerModel);
+
+            }
+
+            for (int i = 0; i < goodModelHubunganPasienArrayList.size(); i++){
+                valueHubunganPasien.add(goodModelHubunganPasienArrayList.get(i).getNama().toString());
+            }
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, valueHubunganPasien);
+
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            sppbhubunganpasien.setAdapter(spinnerArrayAdapter);
             spinnerArrayAdapter.notifyDataSetChanged();
 
         } catch (JSONException e) {

@@ -52,6 +52,9 @@ public interface RestServices {
     @GET("/api.simrs.rsudajibarang/api/references/bahasa")
     public Call<JsonObject> ListBahasa();
 
+    @GET("/api.simrs.rsudajibarang/api/references/hubunganpasien")
+    public Call<JsonObject> ListHubunganPasien();
+
 //    @Headers({"Authorization", "Bearer "+ token}) NEK PAKE TOKEN
     @POST("/api.simrs.rsudajibarang/api/auth/registration")
     @FormUrlEncoded
