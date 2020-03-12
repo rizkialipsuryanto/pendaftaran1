@@ -67,7 +67,7 @@ public class indexActivity extends AppCompatActivity {
 //                    return true;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();
-            transaction.replace(R.id.frame, fragment).commit();
+            transaction.replace(R.id.flMain, fragment).commit();
             return true;
         }
     };
@@ -84,7 +84,7 @@ public class indexActivity extends AppCompatActivity {
         fragmentManager = getSupportFragmentManager();
 
         //Untuk inisialisasi fragment pertama kali
-        fragmentManager.beginTransaction().replace(R.id.frame, new HomeFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.flMain, new HomeFragment()).commit();
         token = getIntent().getStringExtra(TAG_TOKEN);
 
         Toast.makeText(getApplicationContext(),token, Toast.LENGTH_LONG).show();

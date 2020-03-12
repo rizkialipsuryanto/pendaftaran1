@@ -10,7 +10,7 @@
                     <padding android:right="5dp" android:left="5dp" android:top="5dp" android:bottom="5dp"/>
                     <stroke
                         android:color="@android:color/holo_orange_dark"
-                        android:width="10dp" />
+                        android:width="3dp" />
                 </shape>
             </item>
         </layer-list>
