@@ -83,7 +83,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         pbsuamia = (EditText) view.findViewById(R.id.pbsuami);
         pbistria = (EditText) view.findViewById(R.id.pbistri);
         pbnmrtelpa = (EditText) view.findViewById(R.id.pbnmrtelp);
-        pbspprovinsi = (Spinner) view.findViewById(R.id.spinnerprov);
+        spinner = (Spinner) view.findViewById(R.id.spinnerprov);
 
 //        getProvinsi();
         fetchJSON();
@@ -159,21 +159,6 @@ public class Fragment_Pasien_Baru extends Fragment {
         povinsi.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
-//                Log.i("onSuccess", response.body().toString());
-//                String jsonresponse = response.body().toString();
-//                spinJSON(jsonresponse);
-//                try {
-//                    JSONObject jo = new JSONObject(response.body().toString());
-//                    JSONObject rrrr = jo.getJSONObject("response");
-//                    JSONObject rrarr = rrrr.getJSONObject("provinsi");
-//
-//                    String token = rrrr.getString("provinsi");
-//
-//                    Log.i("token",rrarr.toString());
-//                }
-//                catch (Exception ex){
-//
-//                }
                 Log.i("Responsestring", response.body().toString());
                 //Toast.makeText()
                 if (response.isSuccessful()) {
@@ -201,12 +186,12 @@ public class Fragment_Pasien_Baru extends Fragment {
         try {
 
             JSONObject obj = new JSONObject(response);
-//                                JSONObject rrrr = obj.getJSONObject("provinsi");
+            JSONObject rrrr = obj.getJSONObject("response");
 //                    JSONObject rrarr = rrrr.getJSONObject("provinsi");
 //            if(obj.optString("status").equals("true")){
 
                 goodModelArrayList = new ArrayList<>();
-                JSONArray dataArray  = obj.getJSONArray("provinsi");
+                JSONArray dataArray  = rrrr.getJSONArray("provinsi");
 
                 for (int i = 0; i < dataArray.length(); i++) {
 
