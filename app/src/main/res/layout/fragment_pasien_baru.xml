@@ -111,7 +111,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/pb_kelurahan" />
             <Spinner
-                android:id="@+id/pbkel"
+                android:id="@+id/pbspinnerkel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -193,7 +193,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/pb_pekerjaan" />
             <Spinner
-                android:id="@+id/pbpekerjaan"
+                android:id="@+id/spinnerpbpekerjaan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -202,7 +202,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/pb_status_kawin" />
             <Spinner
-                android:id="@+id/pbstatuskawin"
+                android:id="@+id/spinnerpbstatuskawin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -262,6 +262,21 @@
         android:id="@+id/tvpbtempprovinsi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvpvtempkabupaten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvpbtempkecamatan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         android:text="TextView" />
 
 </RelativeLayout>
