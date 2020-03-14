@@ -67,7 +67,7 @@ public interface RestServices {
 
 //    NEK PAKE TOKEN
 //        @Headers({"Authorization", "Bearer "+ token})
-    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+//    @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/api.simrs.rsudajibarang/api/registration/outPatient")
     @FormUrlEncoded
     public Call<JsonObject> PendaftaranPasienLama(

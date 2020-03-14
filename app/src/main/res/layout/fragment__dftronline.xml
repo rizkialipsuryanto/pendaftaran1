@@ -13,6 +13,12 @@
 
             <!-- TODO: Update blank fragment layout -->
             <TextView
+                android:id="@+id/tvcarabayartemp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TextView" />
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/po_tgl" />
@@ -71,18 +77,25 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/poh_penjamin"/>
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/llnobpjs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/po_nmrbpjs" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/ponmrbpjs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/poh_nmrbpjs"
-                android:importantForAutofill="no"
-                android:inputType="number" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/po_nmrbpjs" />
+
+                <EditText
+                    android:id="@+id/ponmrbpjs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/poh_nmrbpjs"
+                    android:importantForAutofill="no"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"

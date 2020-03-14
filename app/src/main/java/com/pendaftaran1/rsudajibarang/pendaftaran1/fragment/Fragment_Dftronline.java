@@ -11,12 +11,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
@@ -28,6 +31,7 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +42,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.R.layout.simple_spinner_item;
+import static android.view.View.VISIBLE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -52,8 +57,10 @@ public class Fragment_Dftronline extends Fragment {
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
     EditText kalenderinputcontrol, ponmrbpjs;
+    LinearLayout llnobpjs;
     ImageButton btnTanggal;
     Button btnpodaftar;
+    TextView tvcarabayartemp;
 
     private Spinner spcarabayar;
     private ArrayList<mCaraBayar> goodModelCaraBayarArrayList;
@@ -89,8 +96,11 @@ public class Fragment_Dftronline extends Fragment {
         spcarabayar = (Spinner) view.findViewById(R.id.spinnercarabayar);
         btnpodaftar = view.findViewById(R.id.btnpodaftar);
         ponmrbpjs = (EditText) view.findViewById(R.id.ponmrbpjs);
+        tvcarabayartemp = (TextView) view.findViewById(R.id.tvcarabayartemp);
+        llnobpjs = (LinearLayout) view.findViewById(R.id.llnobpjs);
 
-        ponmrbpjs.setText(getemail);
+//        ponmrbpjs.setVisibility(View.GONE);
+        llnobpjs.setVisibility(View.GONE);
 
         btnTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +114,28 @@ public class Fragment_Dftronline extends Fragment {
             public void onClick(View v) {
                 daftar();
             }
+        });
+
+        spcarabayar.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+//                Toasty.success(getActivity(), parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
+                tvcarabayartemp.setText(valueId.get(position));
+                if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")){
+                    llnobpjs.setVisibility(View.VISIBLE);
+                    ponmrbpjs.setText(valueId.get(position));
+                    Log.d("OBJEK", valueId.get(position));
+                }
+                else{
+                    llnobpjs.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
         });
 
         fetchJSONHubunganPasien();
@@ -163,6 +195,7 @@ public class Fragment_Dftronline extends Fragment {
             }
 
             for (int i = 0; i < goodModelCaraBayarArrayList.size(); i++){
+                valueId.add(goodModelCaraBayarArrayList.get(i).getKode().toString());
                 valueNama.add(goodModelCaraBayarArrayList.get(i).getNama().toString());
             }
 
@@ -183,7 +216,13 @@ public class Fragment_Dftronline extends Fragment {
         String poliklinik = "2";
         String dokter = "1";
         String tanggal = "2020-03-17";
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFyaWd1c3dhaHl1LmlkQGdtYWlsLmNvbSIsImZpcnN0bmFtZSI6Ii0tLS0iLCJsYXN0bmFtZSI6Ii0tLSIsImNlayI6dHJ1ZSwiaWF0IjoxNTg0MTA4OTQ2LCJleHAiOjE1ODQxMjY5NDZ9.ARwcUUTLaYyuahI9zKoESYFv0J6QbgOeaSkveQgGVnM";
+        String normnya = "1";
+        String jenispasiennya = "SENDIRI";
+        String hubungannya = "TIDAK ADA";
+        String notelpnya = "4444";
+        String emailnya = "aa@gmail.com";
+
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDE0NjY4MSwiZXhwIjoxNTg0MTY0NjgxfQ.x86nzjptDyIbEoluwzEZ_k8naThFqbo8n80smkXuQHY";
         Log.d("OBJEK", "Jalan-----");
         Log.d("OBJEK", getnorm);
         Log.d("OBJEK", getjenispasien);
@@ -194,47 +233,14 @@ public class Fragment_Dftronline extends Fragment {
         Log.d("OBJEK", token);
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm.toString(),tanggal.toString(),poliklinik.toString(),dokter.toString(),
-                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),ponmrbpjs.getText().toString(),"Bearer "+token);
+        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,kalenderinputcontrol.getText().toString(),poliklinik.toString(),dokter.toString(),
+                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),"Bearer "+token);
         daftar.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
                 try {
                     JSONObject jo = new JSONObject(response.body().toString());
                     Log.d("OBJEK","RESPON BODY : "+response.body().toString());
-                    // CASTING JSON OBJECT
-//                    JSONObject rrrr = jo.getJSONObject("response");
-//                    JSONObject metaData = jo.getJSONObject("metaData");
-//                    String code = metaData.getString("code");
-//                    String message = metaData.getString("message");
-//
-//                    // MENDAPATKAN TOKEN
-//                    String token = rrrr.getString("token");
-//
-//                    Log.d("OBJEK", jo.toString());
-//                    Log.d("OBJEK", code);
-//                    Log.d("OBJEK", message);
-//
-////
-//                    if (Integer.parseInt(code) == 200) {
-//                        Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-//
-//                        Log.d("OBJEK", "TOKEN : "+token);
-////                       menyimpan login ke session
-//                        SharedPreferences.Editor editor = sharedpreferences.edit();
-//                        editor.putBoolean(session_status, true);
-//                        editor.putString(TAG_TOKEN, token);
-//                        editor.commit();
-////                        // Memanggil main activity
-//                        Intent intent = new Intent(Login.this, indexActivity.class);
-//                        intent.putExtra(TAG_TOKEN, token);
-//                        finish();
-//                        startActivity(intent);
-//
-//                    } else {
-//                        Toasty.error(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-//                    }
-
                 } catch (Exception e) {
                     Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                     Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
