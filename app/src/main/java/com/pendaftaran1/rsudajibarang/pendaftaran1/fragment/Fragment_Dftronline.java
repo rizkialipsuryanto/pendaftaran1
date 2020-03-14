@@ -56,7 +56,7 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_EMAIL = "email";
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
-    EditText kalenderinputcontrol, ponmrbpjs;
+    EditText kalenderinputcontrol, ponmrbpjs, ponmrrujukan;
     LinearLayout llnobpjs;
     ImageButton btnTanggal;
     Button btnpodaftar;
@@ -96,6 +96,7 @@ public class Fragment_Dftronline extends Fragment {
         spcarabayar = (Spinner) view.findViewById(R.id.spinnercarabayar);
         btnpodaftar = view.findViewById(R.id.btnpodaftar);
         ponmrbpjs = (EditText) view.findViewById(R.id.ponmrbpjs);
+        ponmrrujukan = (EditText) view.findViewById(R.id.ponmrrujukan);
         tvcarabayartemp = (TextView) view.findViewById(R.id.tvcarabayartemp);
         llnobpjs = (LinearLayout) view.findViewById(R.id.llnobpjs);
 
@@ -234,7 +235,8 @@ public class Fragment_Dftronline extends Fragment {
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,kalenderinputcontrol.getText().toString(),poliklinik.toString(),dokter.toString(),
-                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),"Bearer "+token);
+                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),tvcarabayartemp.getText().toString(),
+                ponmrbpjs.getText().toString(),ponmrrujukan.getText().toString(),"Bearer "+token);
         daftar.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {

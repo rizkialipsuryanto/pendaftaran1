@@ -16,7 +16,8 @@
                 android:id="@+id/tvcarabayartemp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -95,20 +96,20 @@
                     android:hint="@string/poh_nmrbpjs"
                     android:importantForAutofill="no"
                     android:inputType="number" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/po_nmrrujukan" />
+
+                <EditText
+                    android:id="@+id/ponmrrujukan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/poh_nmrrujukan"
+                    android:importantForAutofill="no"
+                    android:inputType="number" />
             </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/po_nmrrujukan" />
-
-            <EditText
-                android:id="@+id/ponmrrujukan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/poh_nmrrujukan"
-                android:importantForAutofill="no"
-                android:inputType="number" />
 
             <Button
                 android:id="@+id/btnpodaftar"

@@ -21,6 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.DaftarFragment;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Riwayat;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_poli;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.HomeFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.ProfilFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
@@ -75,14 +77,14 @@ public class indexActivity extends AppCompatActivity {
                 case R.id.navigation_home:
 //                    mTextMessage.setText(R.string.title_home);
 //                    return true;
-                    fragment = new HomeFragment();
+                    fragment = new DaftarFragment();
                     break;
                 case R.id.navigation_dashboard:
-                    fragment = new DaftarFragment();
+                    fragment = new Fragment_Riwayat();
                     break;
                 case R.id.navigation_notifications:
                     fragment = new ProfilFragment();
-                    nama();
+//                    nama();
                     break;
             }
             final FragmentTransaction transaction = fragmentManager.beginTransaction();

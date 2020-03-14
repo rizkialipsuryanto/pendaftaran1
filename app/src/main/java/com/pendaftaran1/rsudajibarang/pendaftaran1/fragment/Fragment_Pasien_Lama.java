@@ -139,15 +139,7 @@ public class Fragment_Pasien_Lama extends Fragment {
         mBundle.putString(KEY_EMAIL, plemaila.getText().toString());
 
         secondFragtry.setArguments(mBundle);
-
-//        FragmentManager mFragmentManager = getFragmentManager();
-//        FragmentTransaction mFragmentTransaction = mFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.flMain, secondFragtry, Fragment_Dftronline.class.getSimpleName());
-//        mFragmentTransaction.addToBackStack(null).commit();
-
         FragmentManager fm = getActivity().getSupportFragmentManager();
-//        Fragment newFrame = new Fragment_Dftronline();
         fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
