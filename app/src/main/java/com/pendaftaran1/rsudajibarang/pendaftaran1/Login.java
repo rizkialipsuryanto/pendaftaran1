@@ -132,9 +132,6 @@ public class Login extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
-//                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-//                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Login.this);
-//                        alertDialogBuilder.setMessage("Gagal login");
                         Toasty.error(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
 

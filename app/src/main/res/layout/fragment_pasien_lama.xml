@@ -82,13 +82,13 @@
                     android:src="@drawable/ic_date" />
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/pltgllahir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/plh_tgl_lahir"
-                android:inputType="date"
-                android:importantForAutofill="no" />
+<!--            <EditText-->
+<!--                android:id="@+id/pltgllahir"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/plh_tgl_lahir"-->
+<!--                android:inputType="date"-->
+<!--                android:importantForAutofill="no" />-->
 
             <TextView
                 android:layout_width="match_parent"

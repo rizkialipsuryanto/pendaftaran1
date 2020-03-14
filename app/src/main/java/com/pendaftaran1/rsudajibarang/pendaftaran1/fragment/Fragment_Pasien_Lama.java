@@ -48,10 +48,17 @@ import static android.R.layout.simple_spinner_item;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Pasien_Lama extends Fragment {
+    public static String KEY_JENIS_PASIEN = "jenis_pasien";
+    public static String KEY_HUBUNGAN = "hubungan";
+    public static String KEY_NORM = "norm";
+    public static String KEY_TGLLAHIR = "tgl_lahir";
+    public static String KEY_NOTELP = "notelp";
+    public static String KEY_EMAIL = "email";
 
     EditText plnorma, plnotelephona,plemaila, kalenderinputcatatan;
     Button btnpldaftara;
     ImageButton btnTanggal;
+    String hubunganspinner;
 
     private Spinner sppbhubunganpasien;
 
@@ -77,6 +84,7 @@ public class Fragment_Pasien_Lama extends Fragment {
         btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggal1);
         kalenderinputcatatan = view.findViewById(R.id.kalenderinputcatatan);
 
+
         btnpldaftara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +99,8 @@ public class Fragment_Pasien_Lama extends Fragment {
                 alertDialogDatePicker();
             }
         });
+
+
 
         fetchJSONHubunganPasien();
         return view;
@@ -117,9 +127,28 @@ public class Fragment_Pasien_Lama extends Fragment {
     }
 
     private void nextFragment() {
+        // TODO Auto-generated method stub
+
+        Fragment_Dftronline secondFragtry = new Fragment_Dftronline();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(KEY_JENIS_PASIEN, "PASIEN LAMA");
+        mBundle.putString(KEY_HUBUNGAN, sppbhubunganpasien.getSelectedItem().toString());
+        mBundle.putString(KEY_NORM, plnorma.getText().toString());
+        mBundle.putString(KEY_TGLLAHIR, kalenderinputcatatan.getText().toString());
+        mBundle.putString(KEY_NOTELP, plnotelephona.getText().toString());
+        mBundle.putString(KEY_EMAIL, plemaila.getText().toString());
+
+        secondFragtry.setArguments(mBundle);
+
+//        FragmentManager mFragmentManager = getFragmentManager();
+//        FragmentTransaction mFragmentTransaction = mFragmentManager
+//                .beginTransaction()
+//                .replace(R.id.flMain, secondFragtry, Fragment_Dftronline.class.getSimpleName());
+//        mFragmentTransaction.addToBackStack(null).commit();
+
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        Fragment newFrame = new Fragment_Dftronline();
-        fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
+//        Fragment newFrame = new Fragment_Dftronline();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
     private void fetchJSONHubunganPasien(){
@@ -175,6 +204,7 @@ public class Fragment_Pasien_Lama extends Fragment {
 
             for (int i = 0; i < goodModelHubunganPasienArrayList.size(); i++){
                 valueHubunganPasien.add(goodModelHubunganPasienArrayList.get(i).getNama().toString());
+
             }
 
             ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, valueHubunganPasien);
