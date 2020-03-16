@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -54,6 +55,11 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_TGLLAHIR = "tgl_lahir";
     public static String KEY_NOTELP = "notelp";
     public static String KEY_EMAIL = "email";
+    public static String KEY_TANGGAL = "tanggal";
+    public static String KEY_CARABAYAR = "carabayar";
+    public static String KEY_BPJS = "bpjs";
+    public static String KEY_RUJUKAN = "rujukan";
+    public static String save;
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
     EditText kalenderinputcontrol, ponmrbpjs, ponmrrujukan;
@@ -61,6 +67,7 @@ public class Fragment_Dftronline extends Fragment {
     ImageButton btnTanggal;
     Button btnpodaftar;
     TextView tvcarabayartemp;
+
 
     private Spinner spcarabayar;
     private ArrayList<mCaraBayar> goodModelCaraBayarArrayList;
@@ -84,12 +91,12 @@ public class Fragment_Dftronline extends Fragment {
         getnotelp = getArguments().getString(KEY_NOTELP);
         getemail = getArguments().getString(KEY_EMAIL);
 
-        Toasty.error(getActivity(), getjenispasien, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), gethubungan, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), getnorm, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), gettgllahir, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), getnotelp, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), getemail, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), getjenispasien, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), gethubungan, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), getnorm, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), gettgllahir, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), getnotelp, Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), getemail, Toast.LENGTH_LONG).show();
 
         kalenderinputcontrol= (EditText) view.findViewById(R.id.kalenderinputtglkontrol);
         btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggalcontrol);
@@ -113,7 +120,9 @@ public class Fragment_Dftronline extends Fragment {
         btnpodaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                daftar();
+//                daftar();
+//                showDialog();
+                nextFragment();
             }
         });
 
@@ -294,4 +303,30 @@ public class Fragment_Dftronline extends Fragment {
         }
         return dc;
     }
+
+    private void nextFragment() {
+        // TODO Auto-generated method stub
+
+        Fragment_poli secondFragtry = new Fragment_poli();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+        mBundle.putString(KEY_HUBUNGAN, gethubungan);
+        mBundle.putString(KEY_NORM, getnorm);
+        mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+        mBundle.putString(KEY_NOTELP, getnotelp);
+        mBundle.putString(KEY_EMAIL, getemail);
+        mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+        mBundle.putString(KEY_CARABAYAR, spcarabayar.getSelectedItem().toString());
+        mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+        mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+
+        secondFragtry.setArguments(mBundle);
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+    }
+
+//    public static String getSave(){
+//        return daftar;
+//    }
+
 }

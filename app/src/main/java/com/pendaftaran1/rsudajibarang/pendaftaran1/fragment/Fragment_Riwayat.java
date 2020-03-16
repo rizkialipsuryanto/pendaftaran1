@@ -51,24 +51,12 @@ public class Fragment_Riwayat extends Fragment {
         RecyclerView.LayoutManager gridlay;
         gridlay = new GridLayoutManager(getActivity(), 1);
         listView.setLayoutManager(gridlay);
-
-//        riwayatAdapter = new RiwayatAdapter(getActivity(), goodModelRiwayatArrayList);
-//        listView.setAdapter(riwayatAdapter);
-//
-//                riwayatAdapter = new RiwayatAdapter(getContext(), goodModelRiwayatArrayList,new RiwayatAdapter.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(mRiwayat item, int posisi) {
-//                    Log.i("TAGI", String.valueOf(posisi));
-//
-//                }
-//
-//            });
         getdata();
         return view;
     }
 
     private void getdata() {
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDIwMTQ4NywiZXhwIjoxNTg0MjE5NDg3fQ.tY4W5EmVixWta2DgK7CKoIqRu5EYFoW1M3mDScmaS5k";
+        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDMyMDQzMiwiZXhwIjoxNTg0MzM4NDMyfQ.SWLQ9FWeNk3Ez1WX0QD8vTZuypscP3sYB7mCSk49TrI";
 
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
@@ -97,11 +85,6 @@ public class Fragment_Riwayat extends Fragment {
             public void onFailure(Call call, Throwable t) {
                 Log.i("onFailure",t.getMessage().toString());
             }
-
-//            @Override
-//            public void onFailure(Call<String> call, Throwable t) {
-//
-//            }
         });
     }
 
@@ -129,21 +112,6 @@ public class Fragment_Riwayat extends Fragment {
 
             riwayatAdapter = new RiwayatAdapter(getActivity(), goodModelRiwayatArrayList);
             listView.setAdapter(riwayatAdapter);
-
-//            listView.setAdapter(new RiwayatAdapter(items, new RiwayatAdapter.OnItemClickListener() {
-//                @Override public void onItemClick(mRiwayat item) {
-//                    Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_LONG).show();
-//                }
-//            }));
-
-//            riwayatAdapter = new RiwayatAdapter(getContext(), goodModelRiwayatArrayList,new RiwayatAdapter.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(mRiwayat item, int posisi) {
-//                    Log.i("TAGI", String.valueOf(posisi));
-//
-//                }
-//
-//            });
 
         } catch (JSONException e) {
             e.printStackTrace();

@@ -30,11 +30,6 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.MyViewHo
     public static String KEY_ID = "id";
 
 
-//    private final OnItemClickListener listener;
-//    public interface OnItemClickListener {
-//        void onItemClick(mRiwayat item, int posisi);
-//    }
-
     private Context context;
     public RiwayatAdapter(Context context, ArrayList<mRiwayat> dataModelArrayList){
 

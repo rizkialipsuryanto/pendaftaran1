@@ -2,78 +2,161 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_poli;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPoliklinik;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class PoliklinikAdapter extends BaseAdapter {
+import es.dmoral.toasty.Toasty;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-    private Context context;
+public class PoliklinikAdapter extends RecyclerView.Adapter<PoliklinikAdapter.MyViewHolder> {
+
+    private LayoutInflater inflater;
     private ArrayList<mPoliklinik> dataModelArrayList;
+    public static String KEY_ID = "id";
+    private final OnItemClickListener listener;
 
-    public PoliklinikAdapter(Context context, ArrayList<mPoliklinik> dataModelArrayList) {
+//    public PoliklinikAdapter(FragmentActivity activity, ArrayList<mPoliklinik> goodModelPoliklinikArrayList) {
+//    }
 
-        this.context = context;
+    public interface OnItemClickListener {
+        void onItemClick(mPoliklinik item, int posisi);
+    }
+
+//, OnItemClickListener listener
+    private Context context;
+    public PoliklinikAdapter(Context context, ArrayList<mPoliklinik> dataModelArrayList, OnItemClickListener listener){
+
+        this.context=context;
+        inflater = LayoutInflater.from(context);
         this.dataModelArrayList = dataModelArrayList;
+        this.listener = listener;
     }
 
     @Override
-    public int getViewTypeCount() {
-        return getCount();
-    }
-    @Override
-    public int getItemViewType(int position) {
-        return position;
+    public PoliklinikAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = inflater.inflate(R.layout.row_poli, parent, false);
+        MyViewHolder holder = new MyViewHolder(view);
+
+        return holder;
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(PoliklinikAdapter.MyViewHolder holder, int position) {
+
+        holder.bind(dataModelArrayList.get(position), position, listener);
+        holder.posisi=position;
+        holder.tvname.setText(dataModelArrayList.get(position).getNama());
+    }
+
+    @Override
+    public int getItemCount() {
         return dataModelArrayList.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return dataModelArrayList.get(position);
-    }
+    class MyViewHolder extends RecyclerView.ViewHolder{
 
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
+        public int posisi;
+        TextView tvname;
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+        public MyViewHolder(View itemView) {
+            super(itemView);
 
-        if (convertView == null) {
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.row_poli, null, true);
-
-            holder.tvname = (TextView) convertView.findViewById(R.id.txt_poli);
-
-            convertView.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)convertView.getTag();
+            tvname = (TextView) itemView.findViewById(R.id.txt_poli);
+            itemView.setClickable(true);
+//            itemView.setOnClickListener(this);
         }
 
-        holder.tvname.setText("Name: "+dataModelArrayList.get(position).getNama());
+        public void bind(final mPoliklinik item, final int position, final OnItemClickListener listener) {
+            if(listener!=null) {
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.e("TAGI", String.valueOf(position));
+                        listener.onItemClick(item, position);
+                    }
+                });
+            }
+        }
 
-        return convertView;
     }
 
-    private class ViewHolder {
+//    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+//
+//        TextView tvname;
+//
+//        public MyViewHolder(View itemView) {
+//            super(itemView);
+//
+//            tvname = (TextView) itemView.findViewById(R.id.txt_poli);
+//
+//            itemView.setClickable(true);
+//            itemView.setOnClickListener(this);
+//        }
+//
+//        @Override
+//        public void onClick(View v) {
+//            showDialogPoli();
+//        }
+//
+//        public void showDialogPoli(){
+//            String poli,teksbarcode;
+////            teksbarcode = Fragment_poli.();
+//            poli = "poli anak";
+//            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(itemView.getRootView().getContext());
+//            // set title dialog
+//            alertDialogBuilder.setTitle("ANDA MEMILIH "+tvname.getText().toString()+"?");
+//
+//            // set pesan dari dialog
+//            alertDialogBuilder
+//                    .setMessage("Klik Ya untuk pilih dokter!")
+//                    .setIcon(R.mipmap.ic_launcher)
+//                    .setCancelable(false)
+//                    .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog,int id) {
+//                            // jika tombol diklik, maka akan menutup activity ini
+////                        getActivity().finish();
+////                        nextFragment();
+//                            daftarFragmentPoli();
+//                        }
+//                    })
+//                    .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int id) {
+//                            // jika tombol ini diklik, akan menutup dialog
+//                            // dan tidak terjadi apa2
+//                            dialog.cancel();
+//                        }
+//                    });
+//
+//            // membuat alert dialog dari builder
+//            AlertDialog alertDialog = alertDialogBuilder.create();
+//
+//            // menampilkan alert dialog
+//            alertDialog.show();
+//        }
+//    }
 
-        protected TextView tvname;
-    }
 }
