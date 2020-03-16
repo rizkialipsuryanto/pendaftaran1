@@ -25,9 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
-//    Retrofit.Builder builder = new Retrofit.Builder().baseUrl("http://127.0.0.1/api.simrs.rsudajibarang/api/auth/login/").addConverterFactory(GsonConverterFactory.create());
-//    Retrofit retrofit = builder.build();
-//    UserClient userClient = retrofit.create(UserClient.class);
+
 
     String token;
     TextView usernamea, passwordd;
@@ -37,6 +35,7 @@ public class Login extends AppCompatActivity {
     SharedPreferences sharedpreferences;
     public static final String my_shared_preferences = "my_shared_preferences";
     Boolean session = false;
+    RestServices restServices = ServiceGenerator.build().create(RestServices.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,17 +61,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-//        findViewById(R.id.buttondaftar).setOnClickListener(new View.OnClickListener(){
-//            public void onClick(View v){
-//                getSecret();
-//            }
-//        });
-
-
-//        GithubService githubService = ServiceGenerator.build().create(GithubService.class);
-
-
-
     }
 
     public void Login(View v){
@@ -92,9 +80,7 @@ public class Login extends AppCompatActivity {
 
 
     private void login() {
-        Log.d("OBJEK", "Jalan-----");
-        // REST LOGIN ------------------------------------------------------------------
-        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+
         Call login = restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
         login.enqueue(new Callback() {
             @Override
@@ -102,6 +88,7 @@ public class Login extends AppCompatActivity {
                 try {
                     JSONObject jo = new JSONObject(response.body().toString());
                     Log.d("OBJEK","RESPON BODY : "+response.body().toString());
+
                     // CASTING JSON OBJECT
                     JSONObject rrrr = jo.getJSONObject("response");
                     JSONObject metaData = jo.getJSONObject("metaData");
@@ -111,15 +98,14 @@ public class Login extends AppCompatActivity {
                     // MENDAPATKAN TOKEN
                     String token = rrrr.getString("token");
 
-                      Log.d("OBJEK", jo.toString());
-                    Log.d("OBJEK", code);
-                    Log.d("OBJEK", message);
+
 
 //
                     if (Integer.parseInt(code) == 200) {
                         Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 
-                        Log.d("OBJEK", "TOKEN : "+token);
+                       // Log.d("OBJEK", "TOKEN : "+token);
+
 //                       menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
