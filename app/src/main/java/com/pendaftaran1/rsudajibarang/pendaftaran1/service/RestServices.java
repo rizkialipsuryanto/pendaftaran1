@@ -59,7 +59,7 @@ public interface RestServices {
     @GET("/api.simrs.rsudajibarang/api/references/poliklinik")
     public Call<JsonObject> ListPolik();
 
-//    @Headers({"Authorization", "Bearer "+ token}) NEK PAKE TOKEN
+
     @POST("/api.simrs.rsudajibarang/api/auth/registration")
     @FormUrlEncoded
     public Call<JsonObject> RegistrationNewUser(
@@ -68,9 +68,7 @@ public interface RestServices {
                                                 @Field("email") String email,
                                                 @Field("password") String password );
 
-//    NEK PAKE TOKEN
-//        @Headers({"Authorization", "Bearer "+ token})
-//    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+
     @POST("/api.simrs.rsudajibarang/api/registration/outPatient")
     @FormUrlEncoded
     public Call<JsonObject> PendaftaranPasienLama(
@@ -88,13 +86,8 @@ public interface RestServices {
             @Field("norujukan") String norujukan,
             @Header("Authorization") String auth);
 
-
-//    @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("/api.simrs.rsudajibarang/api/registration/outPatientList")
-//    @FormUrlEncoded
     public Call<JsonObject> ListRiwayat(@Header("Authorization") String auth);
 
-
-//    @Header("Authorization") String auth
 
 }
