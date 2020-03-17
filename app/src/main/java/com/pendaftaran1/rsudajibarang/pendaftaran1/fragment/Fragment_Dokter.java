@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.DokterAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mDokter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
@@ -55,7 +56,8 @@ public class Fragment_Dokter extends Fragment {
     RecyclerView listView;
     TextView tvtempdokter;
 
-    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli;
+    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli,
+    token;
     public Fragment_Dokter() {
         // Required empty public constructor
     }
@@ -77,6 +79,7 @@ public class Fragment_Dokter extends Fragment {
         getbpjs = getArguments().getString(KEY_BPJS);
         getrujukan = getArguments().getString(KEY_RUJUKAN);
         getpoli = getArguments().getString(KEY_POLI);
+        token = indexActivity.getToken();
 
         listView = (RecyclerView) view.findViewById(R.id.rcvdokter);
         tvtempdokter = (TextView) view.findViewById(R.id.tvtempdokter);
@@ -204,7 +207,7 @@ public class Fragment_Dokter extends Fragment {
         String notelpnya = "4444";
         String emailnya = "aa@gmail.com";
 
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
+//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
         Log.d("OBJEK", "Jalan-----");
         Log.d("OBJEK", getnorm);
         Log.d("OBJEK", getjenispasien);

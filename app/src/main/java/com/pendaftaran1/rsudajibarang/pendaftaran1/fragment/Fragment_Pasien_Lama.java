@@ -58,7 +58,7 @@ public class Fragment_Pasien_Lama extends Fragment {
     EditText plnorma, plnotelephona,plemaila, kalenderinputcatatan;
     Button btnpldaftara;
     ImageButton btnTanggal;
-    String hubunganspinner;
+    String hubunganspinner, token;
 
     private Spinner sppbhubunganpasien;
 
@@ -100,7 +100,7 @@ public class Fragment_Pasien_Lama extends Fragment {
             }
         });
 
-
+        token = indexActivity.getToken();
 
         fetchJSONHubunganPasien();
         return view;
