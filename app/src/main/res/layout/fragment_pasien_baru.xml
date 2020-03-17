@@ -19,7 +19,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_hubungan" />
+                android:text="@string/pb_hubungan"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerpbhub"
                 android:layout_width="match_parent"
@@ -28,7 +29,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_nama" />
+                android:text="@string/pb_nama"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbnama"
@@ -50,7 +52,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_jk" />
+                android:text="@string/pb_jk"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerpbjk"
                 android:entries="@array/jenis_kelamin"
@@ -60,7 +63,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_tempat_lahir" />
+                android:text="@string/pb_tempat_lahir"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbtempatlahir"
@@ -71,7 +75,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_alamat" />
+                android:text="@string/pb_alamat"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbalamatktp"
@@ -82,7 +87,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_provinsi" />
+                android:text="@string/pb_provinsi"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerprov"
                 android:layout_width="match_parent"
@@ -91,7 +97,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_kabupaten" />
+                android:text="@string/pb_kabupaten"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerkab"
                 android:layout_width="match_parent"
@@ -100,7 +107,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_kecamatan" />
+                android:text="@string/pb_kecamatan"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerkec"
                 android:layout_width="match_parent"
@@ -109,7 +117,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_kelurahan" />
+                android:text="@string/pb_kelurahan"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/pbspinnerkel"
                 android:layout_width="match_parent"
@@ -118,7 +127,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_ayah" />
+                android:text="@string/pb_ayah"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbayah"
@@ -129,7 +139,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_ibu" />
+                android:text="@string/pb_ibu"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbibu"
@@ -140,7 +151,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_suami" />
+                android:text="@string/pb_suami"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbsuami"
@@ -151,7 +163,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_istri" />
+                android:text="@string/pb_istri"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbistri"
@@ -162,7 +175,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_no_telephon" />
+                android:text="@string/pb_no_telephon"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/pbnmrtelp"
@@ -173,7 +187,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_agama" />
+                android:text="@string/pb_agama"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinneragama"
                 android:layout_width="match_parent"
@@ -182,7 +197,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_pendidikan" />
+                android:text="@string/pb_pendidikan"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerpend"
                 android:layout_width="match_parent"
@@ -191,7 +207,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_pekerjaan" />
+                android:text="@string/pb_pekerjaan"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerpbpekerjaan"
                 android:layout_width="match_parent"
@@ -200,7 +217,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_status_kawin" />
+                android:text="@string/pb_status_kawin"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerpbstatuskawin"
                 android:layout_width="match_parent"
@@ -209,7 +227,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_kewarganegaraan" />
+                android:text="@string/pb_kewarganegaraan"
+                android:textColor="@color/colorDivider"/>
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -234,7 +253,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_suku" />
+                android:text="@string/pb_suku"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnersuku"
                 android:layout_width="match_parent"
@@ -243,7 +263,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_bahasa_daerah" />
+                android:text="@string/pb_bahasa_daerah"
+                android:textColor="@color/colorDivider"/>
             <Spinner
                 android:id="@+id/spinnerbhs"
                 android:layout_width="match_parent"
@@ -251,10 +272,12 @@
 
             <Button
                 android:id="@+id/btnpbdaftar"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="100dp"
-                android:text="NEXT" />
+                android:text="NEXT"
+                android:layout_gravity="center_horizontal"
+                />
         </LinearLayout>
     </ScrollView>
 

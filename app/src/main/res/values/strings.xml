@@ -11,13 +11,17 @@
     <string name="title_riwayat">Riwayat</string>
     <string name="title_profil">Profil</string>
 
+    <!-- Splash screen -->
+    <string name="splash">RSUD AJIBARANG</string>
+    <string name="copyright">© IT RSUD Ajibarang</string>
+
     <!-- Daftar -->
     <string name="daftar">Daftar</string>
     <string name="ket_daftar">Silahkan isi field dibawah ini</string>
 
     <!-- Login -->
     <string name="login">Login</string>
-    <string name="ket_login">Anda Perlu Login terlebih dahulu untuk mendaftar</string>
+    <string name="ket_login">Anda perlu login terlebih dahulu untuk mendaftar</string>
     <string name="login_email_hint">Email</string>
     <string name="login_password_hint">Password</string>
 
@@ -77,7 +81,7 @@
     <string name="poh_tgl">Pilih Tanggal</string>
     <string name="poh_penjamin">Pilih Penjamin</string>
     <string name="poh_nmrbpjs">Masukan Nomor BPJS</string>
-    <string name="poh_nmrrujukan">Masukan Nomor RUjukan</string>
+    <string name="poh_nmrrujukan">Masukan Nomor Rujukan</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

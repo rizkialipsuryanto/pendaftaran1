@@ -19,7 +19,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pl_hubungan" />
+                android:text="@string/pl_hubungan"
+                android:textColor="@color/colorDivider"/>
 
             <Spinner
                 android:id="@+id/spinnerplhubungan"
@@ -32,7 +33,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pl_norm" />
+                android:text="@string/pl_norm"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/plnorm"
@@ -45,7 +47,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pl_tgl_lahir" />
+                android:text="@string/pl_tgl_lahir"
+                android:textColor="@color/colorDivider"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -93,7 +96,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pl_no_telephon" />
+                android:text="@string/pl_no_telephon"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/plnotelephon"
@@ -106,7 +110,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/pl_email" />
+                android:text="@string/pl_email"
+                android:textColor="@color/colorDivider"/>
 
             <EditText
                 android:id="@+id/plemail"
@@ -118,11 +123,13 @@
 
             <Button
                 android:id="@+id/btnpldaftar"
-                android:background="@drawable/selector_xml_btn_yellow"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/selector_xml_btn_yellow"
                 android:text="@string/btn_pl_daftar"
-                android:textColor="@color/putih"/>
+                android:textAlignment="center"
+                android:textColor="@color/putih" />
         </LinearLayout>
     </ScrollView>
 
