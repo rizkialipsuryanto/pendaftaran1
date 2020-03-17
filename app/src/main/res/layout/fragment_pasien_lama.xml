@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Fragment_Pasien_Lama">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_hubungan" />
+
+            <Spinner
+                android:id="@+id/spinnerplhubungan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/plh_hubungan"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_norm" />
+
+            <EditText
+                android:id="@+id/plnorm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/plh_norm"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_tgl_lahir" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/kalenderinputcatatan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittexts"
+                    android:drawablePadding="8dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:hint="Tanggal Lahir"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/btnTanggal1"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edittext"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/ic_date" />
+            </LinearLayout>
+
+<!--            <EditText-->
+<!--                android:id="@+id/pltgllahir"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="@string/plh_tgl_lahir"-->
+<!--                android:inputType="date"-->
+<!--                android:importantForAutofill="no" />-->
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_no_telephon" />
+
+            <EditText
+                android:id="@+id/plnotelephon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/plh_no_telephon"
+                android:inputType="number"
+                android:importantForAutofill="no" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pl_email" />
+
+            <EditText
+                android:id="@+id/plemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/plh_email"
+                android:inputType="textEmailAddress"
+                android:importantForAutofill="no" />
+
+            <Button
+                android:id="@+id/btnpldaftar"
+                android:background="@drawable/selector_xml_btn_yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_pl_daftar"
+                android:textColor="@color/putih"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

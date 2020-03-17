@@ -6,12 +6,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -19,7 +27,16 @@ import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.TAG_TOKEN;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +46,8 @@ public class HomeFragment extends Fragment {
     public Button barcode;
     public ImageView image;
 
-    String teksbarcode;
+    String teksbarcode,name;
+    private String url_insert = Base.URL + "auth/decode";
 
     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
 
@@ -45,28 +63,86 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        barcode = (Button)view.findViewById(R.id.barcodeteks);
-        image = (ImageView)view.findViewById(R.id.imageview);
+//        barcode = (Button)view.findViewById(R.id.barcodeteks);
+//        image = (ImageView)view.findViewById(R.id.imageview);
 
+
+//        name = indexActivity.getName();
         teksbarcode = indexActivity.getToken();
-        barcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                String greeting = teksbarcode;
-//                teksbarcode = teks.getText().toString();
-                try
-                {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(teksbarcode, BarcodeFormat.QR_CODE, 300,300);
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    Bitmap bitmap = encoder.createBitmap(bitMatrix);
-                    image.setImageBitmap(bitmap);
 
-                } catch (WriterException e) {
+//        barcode.setText(name.toString());
+//        barcode.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                String greeting = teksbarcode;
+////                teksbarcode = teks.getText().toString();
+//                nama();
+//                try
+//                {
+//                    BitMatrix bitMatrix = multiFormatWriter.encode(teksbarcode, BarcodeFormat.QR_CODE, 300,300);
+//                    BarcodeEncoder encoder = new BarcodeEncoder();
+//                    Bitmap bitmap = encoder.createBitmap(bitMatrix);
+//                    image.setImageBitmap(bitmap);
+//
+//                } catch (WriterException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+        return view;
+    }
+
+    private void nama() {
+        String url;
+        url = url_insert+"?token="+indexActivity.getToken();
+
+        RequestQueue queue = Volley.newRequestQueue(getActivity());
+
+        StringRequest strReq = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.e("OBJECT", "Response");
+                Log.d("OBJECT","SUKSESSS BROOO");
+                try {
+                    // get JSONObject from JSON file
+                    JSONObject obj = new JSONObject(response);
+                    // fetch JSONObject named employee
+                    JSONObject employee = obj.getJSONObject("response");
+                    String message = employee.getString("email");
+                    Log.d("OBJECT",message);
+                    Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
+                    // get employee name and salary
+                    name = employee.getString("email");
+                    barcode.setText(name);
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-        });
-        return view;
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+//                Log.e(TAG, "Error: " + error.getMessage());
+                Toast.makeText(getActivity(), "error", Toast.LENGTH_LONG).show();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+
+                // Posting parameters ke post url
+                Map<String, String> params = new HashMap<String, String>();
+                // jika id kosong maka simpan, jika id ada nilainya maka update
+
+                params.put("token", indexActivity.getToken());
+
+                return params;
+            }
+        };
+
+        queue.add(strReq);
+
     }
 
 //    public void onClick(View v) {

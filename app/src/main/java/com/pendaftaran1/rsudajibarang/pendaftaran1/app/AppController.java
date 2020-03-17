@@ -1,24 +1,31 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.app;
 
 import android.app.Application;
+import android.content.Context;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.Utils.LruBitmapCache;
 
 public class AppController extends Application {
     public static final String TAG = AppController.class.getSimpleName();
-
+    private static Context context;
     private RequestQueue mRequestQueue;
-//    mRequestQueuprivate ImageLoader mImageLoader;
+    private ImageLoader mImageLoader;
     private static AppController mInstance;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mInstance = this;
+        AppController.context = getApplicationContext();
+    }
+
+    public static Context getAppContext() {
+        return AppController.context;
     }
 
     public static synchronized AppController getInstance() {
@@ -48,14 +55,13 @@ public class AppController extends Application {
             mRequestQueue.cancelAll(tag);
         }
     }
-
-    //ini untuk image
-//    public ImageLoader getImageLoader() {
-//        getRequestQueue();
-//        if (mImageLoader == null) {
-//            mImageLoader = new ImageLoader(this.mRequestQueue,
-//                    new LruBitmapCache());
-//        }
-//        return this.mImageLoader;
-//    }
+    public ImageLoader getImageLoader() {
+        getRequestQueue();
+        if (mImageLoader == null) {
+            mImageLoader = new ImageLoader(this.mRequestQueue,
+                    new LruBitmapCache());
+        }
+        return this.mImageLoader;
+    }
 }
+

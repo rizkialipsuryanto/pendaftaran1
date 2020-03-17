@@ -3,4 +3,23 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="biruAqua">#AFF1FF</color>
+    <color name="colorDivider">#000000</color>
+    <color name="Chartreuse">#7FFF00</color>
+    <color name="CornflowerBlue">#6495ed</color>
+    <color name="colorhead">#374f65</color>
+    <color name="Cyan">#00FFFF</color>
+    <color name="birulaut">#1AB5E4</color>
+    <color name="kuning">#f7c411</color>
+    <color name="merah">#fe5d5d</color>
+    <color name="hintcolor">#d6d7d7</color>
+    <color name="unread">#e43725</color>
+    <color name="read">#29b765</color>
+    <color name="ksm">#e08e0b</color>
+    <color name="dlh">#258cd1</color>
+    <color name="semitrans">#6F1A425C</color>
+    <color name="birunyacinta">#5490FE</color>
+    <color name="abuabu">#dbdbdb</color>
+    <color name="putih">#FFFFFF</color>
+
 </resources>
