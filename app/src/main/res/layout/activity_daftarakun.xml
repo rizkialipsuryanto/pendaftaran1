@@ -180,37 +180,9 @@
                 android:textColorHint="@color/abuabu"
                 android:textSize="14sp" />
 
-<!--            <TextView-->
-<!--                android:layout_width="250dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:text="Password"-->
-<!--                android:textColor="@android:color/white" />-->
-
-<!--            <com.google.android.material.textfield.TextInputLayout-->
-<!--                android:layout_width="250dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:passwordToggleEnabled="true"-->
-<!--                android:layout_gravity="center_vertical|center_horizontal"-->
-<!--                android:background="@drawable/edittexts"-->
-<!--                android:hint="Masukan Password"-->
-<!--                android:padding="10dp"-->
-<!--                android:singleLine="true"-->
-<!--                android:textColor="@color/colorAccent"-->
-<!--                android:textColorHint="@color/colorPrimary"-->
-<!--                android:textSize="14sp">-->
-
-<!--                <com.google.android.material.textfield.TextInputEditText-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:inputType="textPassword" />-->
-
-<!--            </com.google.android.material.textfield.TextInputLayout>-->
-
             <Button
                 android:id="@+id/daftarsimpan"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"

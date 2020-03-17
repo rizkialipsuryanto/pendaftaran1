@@ -10,7 +10,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="0dp"
@@ -19,24 +20,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
-            android:padding="40dp"
             android:orientation="vertical"
+            android:padding="40dp"
             android:paddingTop="0dp">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:srcCompat="@mipmap/logo_ajibarang" />-->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/imageView2"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                app:srcCompat="@mipmap/logo_ajibarang" />-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/imageView4"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="109dp"-->
-<!--                app:srcCompat="@drawable/smile" />-->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/imageView4"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="109dp"-->
+            <!--                app:srcCompat="@drawable/smile" />-->
             <TextView
                 android:layout_width="142dp"
                 android:layout_height="wrap_content"
@@ -61,10 +61,10 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/login_email_hint"
+                android:importantForAutofill="no"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/colorDivider"
-                android:textColorHint="@color/abuabu"
-                android:importantForAutofill="no" />
+                android:textColorHint="@color/abuabu" />
 
             <EditText
                 android:id="@+id/password"
@@ -75,30 +75,30 @@
                 android:drawablePadding="5dp"
                 android:ems="10"
                 android:hint="@string/login_password_hint"
+                android:importantForAutofill="no"
                 android:inputType="textPassword"
                 android:textColor="@color/colorDivider"
-                android:textColorHint="@color/abuabu"
-                android:importantForAutofill="no"/>
+                android:textColorHint="@color/abuabu" />
 
             <Button
                 android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_yellow"
-                android:text="Login"
+                android:text="@string/login"
                 android:textColor="@color/putih" />
 
             <Button
                 android:id="@+id/buttondaftar"
-                android:layout_width="match_parent"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_red"
                 android:onClick="Daftar"
-                android:text="Sign up"
+                android:text="@string/daftar"
                 android:textColor="@color/putih" />
 
 
@@ -108,19 +108,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:text="Lupa Password?"
+                android:text="@string/lupa_password"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/colorDivider" />
-<!--            <TextView-->
-<!--                android:id="@+id/forgetpassword2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center_horizontal"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                android:text="Lupa Akun?"-->
-<!--                android:textAppearance="?android:attr/textAppearanceMedium"-->
-<!--                android:textColor="@color/design_default_color_primary"-->
-<!--                android:visibility="invisible" />-->
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
