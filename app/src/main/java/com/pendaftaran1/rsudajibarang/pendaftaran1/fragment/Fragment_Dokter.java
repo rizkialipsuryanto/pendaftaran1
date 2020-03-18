@@ -50,18 +50,20 @@ public class Fragment_Dokter extends Fragment {
     public static String KEY_EMAIL = "email";
     public static String KEY_TANGGAL = "tanggal";
     public static String KEY_CARABAYAR = "carabayar";
+    public static String KEY_CARABAYARNAMA = "carabayarnama";
     public static String KEY_BPJS = "bpjs";
     public static String KEY_RUJUKAN = "rujukan";
     public static String KEY_POLI = "poliklinik";
+    public static String KEY_POLINAMA = "polikliniknama";
 
     RecyclerView listView;
-    TextView tvtempdokter;
+    TextView tvtempdokter,tvtempdokternama;
     View dialogView;
     AlertDialog.Builder dialog;
     LayoutInflater inflater;
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli,
-    token;
+    token,getcarabayarnama,getpolinama;
     EditText txtalertjenispasien, txtalertnorm, txtalerttgllahir, txtalertnotelp,txtalertemail,txtalerttanggal,txtalertcarabayar,
     txtalertnobpjs,txtalertnorujukan,txtalertpoli,txtalertdokter;
     String jenis_pasien, norm, tgllahir, notelp, email, tanggal, carabayar,bpjs, rujukan, poli, dokter;
@@ -83,13 +85,16 @@ public class Fragment_Dokter extends Fragment {
         getemail = getArguments().getString(KEY_EMAIL);
         gettanggal = getArguments().getString(KEY_TANGGAL);
         getcarabayar = getArguments().getString(KEY_CARABAYAR);
+        getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
         getbpjs = getArguments().getString(KEY_BPJS);
         getrujukan = getArguments().getString(KEY_RUJUKAN);
         getpoli = getArguments().getString(KEY_POLI);
+        getpolinama = getArguments().getString(KEY_POLINAMA);
         token = indexActivity.getToken();
 
         listView = (RecyclerView) view.findViewById(R.id.rcvdokter);
         tvtempdokter = (TextView) view.findViewById(R.id.tvtempdokter);
+        tvtempdokternama = (TextView) view.findViewById(R.id.tvtempdokternama);
         RecyclerView.LayoutManager gridlay;
         gridlay = new GridLayoutManager(getActivity(), 1);
         listView.setLayoutManager(gridlay);
@@ -184,12 +189,12 @@ public class Fragment_Dokter extends Fragment {
                     txtalertnotelp.setText(getnotelp);
                     txtalertemail.setText(getemail);
                     txtalerttanggal.setText(gettanggal);
-                    txtalertcarabayar.setText(getcarabayar);
+                    txtalertcarabayar.setText(getcarabayarnama);
                     txtalertnobpjs.setText(getbpjs);
                     txtalertnorujukan.setText(getrujukan);
-                    txtalertpoli.setText(getpoli);
-                    txtalertdokter.setText(String.valueOf(posisi));
-                    dialog.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
+                    txtalertpoli.setText(getpolinama);
+                    txtalertdokter.setText(item.getNAMADOKTER());
+                    dialog.setPositiveButton("SIMPAN", new DialogInterface.OnClickListener() {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -201,13 +206,13 @@ public class Fragment_Dokter extends Fragment {
                         }
                     });
 
-                    dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
+//                    dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+//
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            dialog.dismiss();
+//                        }
+//                    });
 
                     dialog.show();
                 }

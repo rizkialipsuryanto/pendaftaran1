@@ -57,6 +57,7 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_EMAIL = "email";
     public static String KEY_TANGGAL = "tanggal";
     public static String KEY_CARABAYAR = "carabayar";
+    public static String KEY_CARABAYARNAMA = "carabayarnama";
     public static String KEY_BPJS = "bpjs";
     public static String KEY_RUJUKAN = "rujukan";
     public static String save;
@@ -66,7 +67,7 @@ public class Fragment_Dftronline extends Fragment {
     LinearLayout llnobpjs;
     ImageButton btnTanggal;
     Button btnpodaftar;
-    TextView tvcarabayartemp;
+    TextView tvcarabayartemp, tvcarabayartempnama;
 
 
     private Spinner spcarabayar;
@@ -105,6 +106,7 @@ public class Fragment_Dftronline extends Fragment {
         ponmrbpjs = (EditText) view.findViewById(R.id.ponmrbpjs);
         ponmrrujukan = (EditText) view.findViewById(R.id.ponmrrujukan);
         tvcarabayartemp = (TextView) view.findViewById(R.id.tvcarabayartemp);
+        tvcarabayartempnama = (TextView) view.findViewById(R.id.tvcarabayartempnama);
         llnobpjs = (LinearLayout) view.findViewById(R.id.llnobpjs);
 
 //        ponmrbpjs.setVisibility(View.GONE);
@@ -131,10 +133,12 @@ public class Fragment_Dftronline extends Fragment {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 //                Toasty.success(getActivity(), parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
                 tvcarabayartemp.setText(valueId.get(position));
+                tvcarabayartempnama.setText(valueNama.get(position));
                 if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")){
                     llnobpjs.setVisibility(View.VISIBLE);
-//                    ponmrbpjs.setText(valueId.get(position));
+//                    ponmrbpjs.setText(valueNama.toString());
                     Log.d("OBJEK", valueId.get(position));
+//                    Log.d("OBJEK", valueNama.get(position));
                 }
                 else{
                     llnobpjs.setVisibility(View.GONE);
@@ -208,6 +212,7 @@ public class Fragment_Dftronline extends Fragment {
                 valueId.add(goodModelCaraBayarArrayList.get(i).getKode().toString());
                 valueNama.add(goodModelCaraBayarArrayList.get(i).getNama().toString());
             }
+//            ponmrbpjs.setText(valueNama.toString());
 
             ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, valueNama);
 
@@ -316,7 +321,8 @@ public class Fragment_Dftronline extends Fragment {
         mBundle.putString(KEY_NOTELP, getnotelp);
         mBundle.putString(KEY_EMAIL, getemail);
         mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-        mBundle.putString(KEY_CARABAYAR, spcarabayar.getSelectedItem().toString());
+        mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+        mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
         mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
         mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
 
@@ -325,8 +331,5 @@ public class Fragment_Dftronline extends Fragment {
         fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
-//    public static String getSave(){
-//        return daftar;
-//    }
 
 }

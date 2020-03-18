@@ -92,10 +92,12 @@ public class PoliklinikAdapter extends RecyclerView.Adapter<PoliklinikAdapter.My
 
         public void bind(final mPoliklinik item, final int position, final OnItemClickListener listener) {
             if(listener!=null) {
+//                tvname.setText(item.getNama());
                 itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Log.e("TAGI", String.valueOf(position));
+                        Log.e("OBJEK", String.valueOf(position));
+//                        Log.e("OBJEK", tvname.getText().toString());
                         listener.onItemClick(item, position);
                     }
                 });
@@ -104,59 +106,5 @@ public class PoliklinikAdapter extends RecyclerView.Adapter<PoliklinikAdapter.My
 
     }
 
-//    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-//
-//        TextView tvname;
-//
-//        public MyViewHolder(View itemView) {
-//            super(itemView);
-//
-//            tvname = (TextView) itemView.findViewById(R.id.txt_poli);
-//
-//            itemView.setClickable(true);
-//            itemView.setOnClickListener(this);
-//        }
-//
-//        @Override
-//        public void onClick(View v) {
-//            showDialogPoli();
-//        }
-//
-//        public void showDialogPoli(){
-//            String poli,teksbarcode;
-////            teksbarcode = Fragment_poli.();
-//            poli = "poli anak";
-//            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(itemView.getRootView().getContext());
-//            // set title dialog
-//            alertDialogBuilder.setTitle("ANDA MEMILIH "+tvname.getText().toString()+"?");
-//
-//            // set pesan dari dialog
-//            alertDialogBuilder
-//                    .setMessage("Klik Ya untuk pilih dokter!")
-//                    .setIcon(R.mipmap.ic_launcher)
-//                    .setCancelable(false)
-//                    .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog,int id) {
-//                            // jika tombol diklik, maka akan menutup activity ini
-////                        getActivity().finish();
-////                        nextFragment();
-//                            daftarFragmentPoli();
-//                        }
-//                    })
-//                    .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int id) {
-//                            // jika tombol ini diklik, akan menutup dialog
-//                            // dan tidak terjadi apa2
-//                            dialog.cancel();
-//                        }
-//                    });
-//
-//            // membuat alert dialog dari builder
-//            AlertDialog alertDialog = alertDialogBuilder.create();
-//
-//            // menampilkan alert dialog
-//            alertDialog.show();
-//        }
-//    }
 
 }

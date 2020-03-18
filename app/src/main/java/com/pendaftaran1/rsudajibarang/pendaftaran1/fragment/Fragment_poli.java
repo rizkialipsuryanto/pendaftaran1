@@ -59,13 +59,15 @@ public class Fragment_poli extends Fragment {
     public static String KEY_EMAIL = "email";
     public static String KEY_TANGGAL = "tanggal";
     public static String KEY_CARABAYAR = "carabayar";
+    public static String KEY_CARABAYARNAMA = "carabayarnama";
     public static String KEY_BPJS = "bpjs";
     public static String KEY_RUJUKAN = "rujukan";
     public static String KEY_POLI = "poliklinik";
-    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan;
+    public static String KEY_POLINAMA = "polikliniknama";
+    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getcarabayarnama,getbpjs,getrujukan;
     public String polik;
 
-    TextView tvtemppoli;
+    TextView tvtemppoli,tvtemppolinama;
 
     public Fragment_poli() {
         // Required empty public constructor
@@ -79,6 +81,7 @@ public class Fragment_poli extends Fragment {
         View view = inflater.inflate(R.layout.fragment_poli, container, false);
         listView = (RecyclerView) view.findViewById(R.id.rcvpoli);
         tvtemppoli = (TextView) view.findViewById(R.id.tvtemppoli);
+        tvtemppolinama = (TextView) view.findViewById(R.id.tvtemppolinama);
         RecyclerView.LayoutManager gridlay;
         gridlay = new GridLayoutManager(getActivity(), 1);
         listView.setLayoutManager(gridlay);
@@ -91,6 +94,7 @@ public class Fragment_poli extends Fragment {
         getemail = getArguments().getString(KEY_EMAIL);
         gettanggal = getArguments().getString(KEY_TANGGAL);
         getcarabayar = getArguments().getString(KEY_CARABAYAR);
+        getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
         getbpjs = getArguments().getString(KEY_BPJS);
         getrujukan = getArguments().getString(KEY_RUJUKAN);
 
@@ -178,8 +182,9 @@ public class Fragment_poli extends Fragment {
 
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
                     // set title dialog
-                    alertDialogBuilder.setTitle("ANDA MEMILIH "+posisi+"?");
+                    alertDialogBuilder.setTitle("ANDA MEMILIH "+item.getNama()+"?");
                     tvtemppoli.setText(String.valueOf(posisi));
+                    tvtemppolinama.setText(item.getNama());
 //                    polik = String.valueOf(posisi);
                     // set pesan dari dialog
                     alertDialogBuilder
@@ -277,9 +282,11 @@ public class Fragment_poli extends Fragment {
         mBundle.putString(KEY_EMAIL, getemail);
         mBundle.putString(KEY_TANGGAL, gettanggal);
         mBundle.putString(KEY_CARABAYAR, getcarabayar);
+        mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
         mBundle.putString(KEY_BPJS, getbpjs);
         mBundle.putString(KEY_RUJUKAN, getrujukan);
         mBundle.putString(KEY_POLI, tvtemppoli.getText().toString());
+        mBundle.putString(KEY_POLINAMA, tvtemppolinama.getText().toString());
 
         secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();
