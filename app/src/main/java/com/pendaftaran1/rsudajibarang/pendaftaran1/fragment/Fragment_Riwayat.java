@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.RiwayatAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mRiwayat;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
@@ -36,6 +37,7 @@ public class Fragment_Riwayat extends Fragment {
     private ArrayList<mRiwayat> goodModelRiwayatArrayList;
     private RiwayatAdapter riwayatAdapter;
     RecyclerView listView;
+    String token;
 
     public Fragment_Riwayat() {
         // Required empty public constructor
@@ -51,13 +53,14 @@ public class Fragment_Riwayat extends Fragment {
         RecyclerView.LayoutManager gridlay;
         gridlay = new GridLayoutManager(getActivity(), 1);
         listView.setLayoutManager(gridlay);
+        token = indexActivity.getToken();
         getdata();
         return view;
     }
 
     private void getdata() {
         String id = "2";
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxMTg3OCwiZXhwIjoxNTg0NDI5ODc4fQ.afATTKIba_ekReGFSUD3_NE9fBzRof2yVLeeDlOeB7I";
+//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxMTg3OCwiZXhwIjoxNTg0NDI5ODc4fQ.afATTKIba_ekReGFSUD3_NE9fBzRof2yVLeeDlOeB7I";
 
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);

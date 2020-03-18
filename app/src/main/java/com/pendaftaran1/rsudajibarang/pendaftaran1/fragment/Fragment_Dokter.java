@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,9 +56,15 @@ public class Fragment_Dokter extends Fragment {
 
     RecyclerView listView;
     TextView tvtempdokter;
+    View dialogView;
+    AlertDialog.Builder dialog;
+    LayoutInflater inflater;
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli,
     token;
+    EditText txtalertjenispasien, txtalertnorm, txtalerttgllahir, txtalertnotelp,txtalertemail,txtalerttanggal,txtalertcarabayar,
+    txtalertnobpjs,txtalertnorujukan,txtalertpoli,txtalertdokter;
+    String jenis_pasien, norm, tgllahir, notelp, email, tanggal, carabayar,bpjs, rujukan, poli, dokter;
     public Fragment_Dokter() {
         // Required empty public constructor
     }
@@ -149,42 +156,60 @@ public class Fragment_Dokter extends Fragment {
                 @Override
                 public void onItemClick(mDokter item, int posisi) {
                     Log.i("jalan poli", String.valueOf(posisi));
-                    String poli;
-                    poli = "poli anak";
 
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-                    // set title dialog
-                    alertDialogBuilder.setTitle("ANDA MEMILIH "+posisi+"?");
                     tvtempdokter.setText(String.valueOf(posisi));
-                    // set pesan dari dialog
-                    alertDialogBuilder
-                            .setMessage("Klik Ya untuk menyelesaikan pendaftaran!")
-                            .setIcon(R.mipmap.ic_launcher)
-                            .setCancelable(false)
-                            .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog,int id) {
-                                    // jika tombol diklik, maka akan menutup activity ini
-//                        getActivity().finish();
-                                    daftarFragmentPoli();
-                                    Fragment_Riwayat secondFragtry = new Fragment_Riwayat();
-                                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
-//                                    nextFragment();
-                                }
-                            })
-                            .setNegativeButton("Tidak",new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // jika tombol ini diklik, akan menutup dialog
-                                    // dan tidak terjadi apa2
-                                    dialog.cancel();
-                                }
-                            });
+                    dialog = new AlertDialog.Builder(getActivity());
+                    inflater = getLayoutInflater();
+                    dialogView = inflater.inflate(R.layout.form_alertdialog, null);
+                    dialog.setView(dialogView);
+                    dialog.setCancelable(true);
+                    dialog.setIcon(R.mipmap.ic_launcher);
+                    dialog.setTitle("Data Pendaftaran");
 
-                    // membuat alert dialog dari builder
-                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    txtalertjenispasien    = (EditText) dialogView.findViewById(R.id.txtalertjenispasien);
+                    txtalertnorm    = (EditText) dialogView.findViewById(R.id.txtalertnorm);
+                    txtalerttgllahir  = (EditText) dialogView.findViewById(R.id.txtalerttgllahir);
+                    txtalertnotelp = (EditText) dialogView.findViewById(R.id.txtalertnotelp);
+                    txtalertemail    = (EditText) dialogView.findViewById(R.id.txtalertemail);
+                    txtalerttanggal    = (EditText) dialogView.findViewById(R.id.txtalerttanggal);
+                    txtalertcarabayar  = (EditText) dialogView.findViewById(R.id.txtalertcarabayar);
+                    txtalertnobpjs = (EditText) dialogView.findViewById(R.id.txtalertnobpjs);
+                    txtalertnorujukan    = (EditText) dialogView.findViewById(R.id.txtalertnorujukan);
+                    txtalertpoli  = (EditText) dialogView.findViewById(R.id.txtalertpoli);
+                    txtalertdokter  = (EditText) dialogView.findViewById(R.id.txtalertdokter);
 
-                    // menampilkan alert dialog
-                    alertDialog.show();
+                    txtalertjenispasien.setText(getjenispasien);
+                    txtalertnorm.setText(getnorm);
+                    txtalerttgllahir.setText(gettgllahir);
+                    txtalertnotelp.setText(getnotelp);
+                    txtalertemail.setText(getemail);
+                    txtalerttanggal.setText(gettanggal);
+                    txtalertcarabayar.setText(getcarabayar);
+                    txtalertnobpjs.setText(getbpjs);
+                    txtalertnorujukan.setText(getrujukan);
+                    txtalertpoli.setText(getpoli);
+                    txtalertdokter.setText(String.valueOf(posisi));
+                    dialog.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            daftarFragmentPoli();
+                            Fragment_Riwayat secondFragtry = new Fragment_Riwayat();
+                            FragmentManager fm = getActivity().getSupportFragmentManager();
+                            fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+                    dialog.show();
                 }
 
             });
@@ -240,5 +265,66 @@ public class Fragment_Dokter extends Fragment {
                 Log.d("OBJEK", t.getMessage());
             }
         });
+    }
+
+
+    private void DialogForm() {
+        dialog = new AlertDialog.Builder(getActivity());
+        inflater = getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.form_alertdialog, null);
+        dialog.setView(dialogView);
+        dialog.setCancelable(true);
+        dialog.setIcon(R.mipmap.ic_launcher);
+        dialog.setTitle("Data Pendaftaran");
+
+        txtalertjenispasien    = (EditText) dialogView.findViewById(R.id.txtalertjenispasien);
+        txtalertnorm    = (EditText) dialogView.findViewById(R.id.txtalertnorm);
+        txtalerttgllahir  = (EditText) dialogView.findViewById(R.id.txtalerttgllahir);
+        txtalertnotelp = (EditText) dialogView.findViewById(R.id.txtalertnotelp);
+        txtalertemail    = (EditText) dialogView.findViewById(R.id.txtalertemail);
+        txtalerttanggal    = (EditText) dialogView.findViewById(R.id.txtalerttanggal);
+        txtalertcarabayar  = (EditText) dialogView.findViewById(R.id.txtalertcarabayar);
+        txtalertnobpjs = (EditText) dialogView.findViewById(R.id.txtalertnobpjs);
+        txtalertnorujukan    = (EditText) dialogView.findViewById(R.id.txtalertnorujukan);
+        txtalertpoli  = (EditText) dialogView.findViewById(R.id.txtalertpoli);
+
+        txtalertjenispasien.setText(getjenispasien);
+        txtalertnorm.setText(getnorm);
+        txtalerttgllahir.setText(gettgllahir);
+        txtalertnotelp.setText(getnotelp);
+        txtalertemail.setText(getemail);
+        txtalerttanggal.setText(gettanggal);
+        txtalertcarabayar.setText(getcarabayar);
+        txtalertnobpjs.setText(getbpjs);
+        txtalertnorujukan.setText(getrujukan);
+        txtalertpoli.setText(getpoli);
+        dialog.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                jenis_pasien    = txtalertjenispasien.getText().toString();
+                norm    = txtalertnorm.getText().toString();
+                tgllahir    = txtalerttgllahir.getText().toString();
+                notelp  = txtalertnotelp.getText().toString();
+                email = txtalertemail.getText().toString();
+                tanggal    = txtalerttanggal.getText().toString();
+                carabayar    = txtalertcarabayar.getText().toString();
+                bpjs    = txtalertnobpjs.getText().toString();
+                rujukan  = txtalertnorujukan.getText().toString();
+                poli = txtalertpoli.getText().toString();
+
+                dialog.dismiss();
+            }
+        });
+
+        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
     }
 }

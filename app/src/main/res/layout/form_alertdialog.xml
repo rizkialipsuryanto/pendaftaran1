@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/txtalertjenispasien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Jenis Pasien" />
+
+    <EditText
+        android:id="@+id/txtalertnorm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="NO RM" />
+
+    <EditText
+        android:id="@+id/txtalerttgllahir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Tanggal Lahir" />
+
+    <EditText
+        android:id="@+id/txtalertnotelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="No Telp" />
+
+    <EditText
+        android:id="@+id/txtalertemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/txtalerttanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Tanggal" />
+
+    <EditText
+        android:id="@+id/txtalertcarabayar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Cara Bayar" />
+
+    <EditText
+        android:id="@+id/txtalertnobpjs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="No Bpjs" />
+
+    <EditText
+        android:id="@+id/txtalertnorujukan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="No Rujukan" />
+
+    <EditText
+        android:id="@+id/txtalertpoli"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="No Poli" />
+
+    <EditText
+        android:id="@+id/txtalertdokter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background_normal"
+        android:editable="false"
+        android:enabled="true"
+        android:hint="Dokter" />
+
+</LinearLayout>
