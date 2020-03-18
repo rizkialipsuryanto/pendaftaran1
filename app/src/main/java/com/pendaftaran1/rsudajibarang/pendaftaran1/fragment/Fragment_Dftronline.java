@@ -133,7 +133,7 @@ public class Fragment_Dftronline extends Fragment {
                 tvcarabayartemp.setText(valueId.get(position));
                 if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")){
                     llnobpjs.setVisibility(View.VISIBLE);
-                    ponmrbpjs.setText(valueId.get(position));
+//                    ponmrbpjs.setText(valueId.get(position));
                     Log.d("OBJEK", valueId.get(position));
                 }
                 else{

@@ -4,6 +4,7 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.SliderImageAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
@@ -26,6 +28,7 @@ import retrofit2.Response;
 
 public class Login extends AppCompatActivity {
 
+    ViewPager viewPager;
 
     String token;
     TextView usernamea, passwordd;
@@ -48,6 +51,12 @@ public class Login extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
         session = sharedpreferences.getBoolean(session_status, false);
         token = sharedpreferences.getString(TAG_TOKEN, null);
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+
+        SliderImageAdapter viewPagerAdapter = new SliderImageAdapter(this);
+
+        viewPager.setAdapter(viewPagerAdapter);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){

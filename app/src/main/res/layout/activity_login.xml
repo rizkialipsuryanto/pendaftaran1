@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="0dp"
     tools:context=".Login">
@@ -26,17 +27,12 @@
             android:padding="40dp"
             android:paddingTop="0dp">
 
-            <!--            <ImageView-->
-            <!--                android:id="@+id/imageView2"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                app:srcCompat="@mipmap/logo_ajibarang" />-->
 
-            <!--            <ImageView-->
-            <!--                android:id="@+id/imageView4"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="109dp"-->
-            <!--                app:srcCompat="@drawable/smile" />-->
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
             <TextView
                 android:layout_width="142dp"
                 android:layout_height="wrap_content"
@@ -49,7 +45,7 @@
                 android:layout_width="333dp"
                 android:layout_height="wrap_content"
                 android:text="@string/ket_login"
-                android:textColor="@color/abuabu"
+                android:textColor="@android:color/tertiary_text_light"
                 android:textSize="12sp" />
 
             <EditText
