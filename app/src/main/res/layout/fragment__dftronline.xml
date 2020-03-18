@@ -103,6 +103,7 @@
                     android:id="@+id/ponmrbpjs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="13"
                     android:hint="@string/poh_nmrbpjs"
                     android:importantForAutofill="no"
                     android:inputType="number" />
@@ -117,9 +118,9 @@
                     android:id="@+id/ponmrrujukan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="16"
                     android:hint="@string/poh_nmrrujukan"
-                    android:importantForAutofill="no"
-                    android:inputType="number" />
+                    android:importantForAutofill="no" />
             </LinearLayout>
 
             <Button

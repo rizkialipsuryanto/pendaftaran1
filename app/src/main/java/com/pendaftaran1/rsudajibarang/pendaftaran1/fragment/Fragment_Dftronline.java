@@ -92,13 +92,6 @@ public class Fragment_Dftronline extends Fragment {
         getnotelp = getArguments().getString(KEY_NOTELP);
         getemail = getArguments().getString(KEY_EMAIL);
 
-//        Toasty.error(getActivity(), getjenispasien, Toast.LENGTH_LONG).show();
-//        Toasty.error(getActivity(), gethubungan, Toast.LENGTH_LONG).show();
-//        Toasty.error(getActivity(), getnorm, Toast.LENGTH_LONG).show();
-//        Toasty.error(getActivity(), gettgllahir, Toast.LENGTH_LONG).show();
-//        Toasty.error(getActivity(), getnotelp, Toast.LENGTH_LONG).show();
-//        Toasty.error(getActivity(), getemail, Toast.LENGTH_LONG).show();
-
         kalenderinputcontrol= (EditText) view.findViewById(R.id.kalenderinputtglkontrol);
         btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggalcontrol);
         spcarabayar = (Spinner) view.findViewById(R.id.spinnercarabayar);
@@ -124,6 +117,7 @@ public class Fragment_Dftronline extends Fragment {
             public void onClick(View v) {
 //                daftar();
 //                showDialog();
+//                validasi();
                 nextFragment();
             }
         });
@@ -309,26 +303,81 @@ public class Fragment_Dftronline extends Fragment {
         return dc;
     }
 
+    private void validasi(){
+        if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
+            if(ponmrbpjs.getText().toString().length()<13){
+
+            }
+            ponmrbpjs.setError("Masukkan 13 Digit!");
+            Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
+        }
+        if(ponmrrujukan.getText().toString().length()<16) {
+            ponmrrujukan.setError("Masukkan No Telephon!");
+            Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
+        }
+
+        else{
+            Toasty.success(getActivity(), "Pilih Poli", Toast.LENGTH_LONG).show();
+            nextFragment();
+        }
+    }
+
     private void nextFragment() {
         // TODO Auto-generated method stub
+        if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
+            if(ponmrbpjs.getText().toString().length()<13){
+                ponmrbpjs.setError("Masukkan 13 Digit!");
+                Toasty.error(getActivity(), "Masukkan 13 Digit!", Toast.LENGTH_LONG).show();
+            }
+            if(ponmrrujukan.getText().toString().length()<16) {
+                ponmrrujukan.setError("Masukkan 16 Digit!");
+                Toasty.error(getActivity(), "Masukkan 16 Digit!", Toast.LENGTH_LONG).show();
+            }
+            if (ponmrbpjs.getText().toString().length()==13 && ponmrrujukan.getText().toString().length()==16){
+                Fragment_poli secondFragtry = new Fragment_poli();
+                Bundle mBundle = new Bundle();
+                mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+                mBundle.putString(KEY_HUBUNGAN, gethubungan);
+                mBundle.putString(KEY_NORM, getnorm);
+                mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+                mBundle.putString(KEY_NOTELP, getnotelp);
+                mBundle.putString(KEY_EMAIL, getemail);
+                mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+                mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+                mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
+                mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+                mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
 
-        Fragment_poli secondFragtry = new Fragment_poli();
-        Bundle mBundle = new Bundle();
-        mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-        mBundle.putString(KEY_HUBUNGAN, gethubungan);
-        mBundle.putString(KEY_NORM, getnorm);
-        mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-        mBundle.putString(KEY_NOTELP, getnotelp);
-        mBundle.putString(KEY_EMAIL, getemail);
-        mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-        mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
-        mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
-        mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
-        mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+                secondFragtry.setArguments(mBundle);
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+            }
 
-        secondFragtry.setArguments(mBundle);
-        FragmentManager fm = getActivity().getSupportFragmentManager();
-        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+        }
+        else
+            {
+            Fragment_poli secondFragtry = new Fragment_poli();
+            Bundle mBundle = new Bundle();
+            mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+            mBundle.putString(KEY_HUBUNGAN, gethubungan);
+            mBundle.putString(KEY_NORM, getnorm);
+            mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+            mBundle.putString(KEY_NOTELP, getnotelp);
+            mBundle.putString(KEY_EMAIL, getemail);
+            mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+            mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+            mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
+            mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+            mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+
+            secondFragtry.setArguments(mBundle);
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+        }
+
+
+
+
     }
 
 
