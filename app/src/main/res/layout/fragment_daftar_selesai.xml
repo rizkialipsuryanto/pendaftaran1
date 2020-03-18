@@ -6,9 +6,65 @@
     tools:context=".fragment.Fragment_Daftar_Selesai">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Booking :"
+            android:textAlignment="center"
+            android:textColor="@color/colorDivider"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvdaftarselesaitanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/colorDivider"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anda Memilih Poli :"
+            android:textAlignment="center"
+            android:textColor="@color/colorDivider"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvdaftarselesaipoli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
+            android:text="TextView"
+            android:textAlignment="center"
+            android:textColor="@color/colorDivider"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btndaftarselesaisimpan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonprofil"
+            android:text="Simpan" />
+
+        <ImageView
+            android:id="@+id/imageviewBCDaftarSelesai"
+            android:layout_width="match_parent"
+            android:layout_height="425dp"
+            android:layout_marginTop="20dp" />
+    </LinearLayout>
 
 </FrameLayout>

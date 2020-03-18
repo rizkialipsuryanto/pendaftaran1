@@ -55,6 +55,8 @@ public class Fragment_Dokter extends Fragment {
     public static String KEY_RUJUKAN = "rujukan";
     public static String KEY_POLI = "poliklinik";
     public static String KEY_POLINAMA = "polikliniknama";
+    public static String KEY_DOKTER = "dokter";
+    public static String KEY_DOKTERNAMA = "dokternama";
 
     RecyclerView listView;
     TextView tvtempdokter,tvtempdokternama;
@@ -163,6 +165,7 @@ public class Fragment_Dokter extends Fragment {
                     Log.i("jalan poli", String.valueOf(posisi));
 
                     tvtempdokter.setText(String.valueOf(posisi));
+                    tvtempdokternama.setText(item.getNAMADOKTER());
                     dialog = new AlertDialog.Builder(getActivity());
                     inflater = getLayoutInflater();
                     dialogView = inflater.inflate(R.layout.form_alertdialog, null);
@@ -199,20 +202,30 @@ public class Fragment_Dokter extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             daftarFragmentPoli();
-                            Fragment_Riwayat secondFragtry = new Fragment_Riwayat();
+                            Fragment_Daftar_Selesai secondFragtry = new Fragment_Daftar_Selesai();
+                            Bundle mBundle = new Bundle();
+                            mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+                            mBundle.putString(KEY_HUBUNGAN, gethubungan);
+                            mBundle.putString(KEY_NORM, getnorm);
+                            mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+                            mBundle.putString(KEY_NOTELP, getnotelp);
+                            mBundle.putString(KEY_EMAIL, getemail);
+                            mBundle.putString(KEY_TANGGAL, gettanggal);
+                            mBundle.putString(KEY_CARABAYAR, getcarabayar);
+                            mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
+                            mBundle.putString(KEY_BPJS, getbpjs);
+                            mBundle.putString(KEY_RUJUKAN, getrujukan);
+                            mBundle.putString(KEY_POLI, getpoli);
+                            mBundle.putString(KEY_POLINAMA, getpolinama);
+                            mBundle.putString(KEY_DOKTER, tvtempdokter.getText().toString());
+                            mBundle.putString(KEY_DOKTERNAMA, tvtempdokternama.getText().toString());
+
+                            secondFragtry.setArguments(mBundle);
                             FragmentManager fm = getActivity().getSupportFragmentManager();
                             fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
                             dialog.dismiss();
                         }
                     });
-
-//                    dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-//
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            dialog.dismiss();
-//                        }
-//                    });
 
                     dialog.show();
                 }
