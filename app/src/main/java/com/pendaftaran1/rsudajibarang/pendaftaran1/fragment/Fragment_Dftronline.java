@@ -102,7 +102,6 @@ public class Fragment_Dftronline extends Fragment {
         tvcarabayartempnama = (TextView) view.findViewById(R.id.tvcarabayartempnama);
         llnobpjs = (LinearLayout) view.findViewById(R.id.llnobpjs);
 
-//        ponmrbpjs.setVisibility(View.GONE);
         llnobpjs.setVisibility(View.GONE);
 
         btnTanggal.setOnClickListener(new View.OnClickListener() {
@@ -115,9 +114,6 @@ public class Fragment_Dftronline extends Fragment {
         btnpodaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                daftar();
-//                showDialog();
-//                validasi();
                 nextFragment();
             }
         });
@@ -220,52 +216,6 @@ public class Fragment_Dftronline extends Fragment {
 
     }
 
-    private void daftar() {
-        String pasienbaru = "0";
-        String poliklinik = "2";
-        String dokter = "1";
-        String tanggal = "2020-03-17";
-        String normnya = "1";
-        String jenispasiennya = "SENDIRI";
-        String hubungannya = "TIDAK ADA";
-        String notelpnya = "4444";
-        String emailnya = "aa@gmail.com";
-
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDE0NjY4MSwiZXhwIjoxNTg0MTY0NjgxfQ.x86nzjptDyIbEoluwzEZ_k8naThFqbo8n80smkXuQHY";
-        Log.d("OBJEK", "Jalan-----");
-        Log.d("OBJEK", getnorm);
-        Log.d("OBJEK", getjenispasien);
-        Log.d("OBJEK", gethubungan);
-        Log.d("OBJEK", gettgllahir);
-        Log.d("OBJEK", getnotelp);
-        Log.d("OBJEK", getemail);
-        Log.d("OBJEK", token);
-        // REST LOGIN ------------------------------------------------------------------
-        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,kalenderinputcontrol.getText().toString(),poliklinik.toString(),dokter.toString(),
-                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),tvcarabayartemp.getText().toString(),
-                ponmrbpjs.getText().toString(),ponmrrujukan.getText().toString(),"Bearer "+token);
-        daftar.enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                try {
-                    JSONObject jo = new JSONObject(response.body().toString());
-                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
-                } catch (Exception e) {
-                    Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
-                    Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-
-                Log.d("OBJEK", t.getMessage());
-            }
-        });
-    }
-
     public void alertDialogDatePicker() {
         // inflate file
         LayoutInflater inflater = (LayoutInflater)getActivity()
@@ -301,25 +251,6 @@ public class Fragment_Dftronline extends Fragment {
             dc="0"+dc;
         }
         return dc;
-    }
-
-    private void validasi(){
-        if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
-            if(ponmrbpjs.getText().toString().length()<13){
-
-            }
-            ponmrbpjs.setError("Masukkan 13 Digit!");
-            Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
-        }
-        if(ponmrrujukan.getText().toString().length()<16) {
-            ponmrrujukan.setError("Masukkan No Telephon!");
-            Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
-        }
-
-        else{
-            Toasty.success(getActivity(), "Pilih Poli", Toast.LENGTH_LONG).show();
-            nextFragment();
-        }
     }
 
     private void nextFragment() {
