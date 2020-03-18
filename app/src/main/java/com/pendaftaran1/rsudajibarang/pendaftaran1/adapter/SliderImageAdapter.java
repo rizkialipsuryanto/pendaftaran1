@@ -15,7 +15,7 @@ public class SliderImageAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer [] images = {R.drawable.admin_avatar,R.drawable.background,R.drawable.siapceria};
+    private Integer [] images = {R.drawable.siapceria,R.drawable.background,R.drawable.siapceria};
 
     public SliderImageAdapter(Context context) {
         this.context = context;
