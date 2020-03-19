@@ -38,7 +38,7 @@ public class daftarakun extends AppCompatActivity {
     private static final String TAG_SUCCESS = "1";
     private static final String TAG_MESSAGE = "message";
     private static final String TAG = daftarakun.class.getSimpleName();
-    private String url_insert = Base.URL + "auth/registration";
+    private String url_insert = Base.URL + "api.simrs.rsudajibarang/api/auth/registration";
     int success;
     String firstnames, lastnames, emails,passwords;
     EditText firstnamee, lastnamee,emaile, passworde;
@@ -126,14 +126,6 @@ public class daftarakun extends AppCompatActivity {
 
                 return params;
             }
-
-//            @Override
-//            public Map<String, String> getHeaders() throws AuthFailureError {
-//                Map<String,String> params = new HashMap<String, String>();
-//                params.put("Content-Type","application/x-www-form-urlencoded");
-//                return params;
-//            }
-
         };
 
         queue.add(strReq);

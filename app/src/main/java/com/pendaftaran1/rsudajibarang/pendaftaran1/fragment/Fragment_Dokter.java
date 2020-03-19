@@ -111,7 +111,6 @@ public class Fragment_Dokter extends Fragment {
     private void getdata() {
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
         Call dokter = restServices.ListDokter(getpoli,"Bearer "+token);
 
         dokter.enqueue(new Callback<String>() {
@@ -287,64 +286,4 @@ public class Fragment_Dokter extends Fragment {
         });
     }
 
-
-    private void DialogForm() {
-        dialog = new AlertDialog.Builder(getActivity());
-        inflater = getLayoutInflater();
-        dialogView = inflater.inflate(R.layout.form_alertdialog, null);
-        dialog.setView(dialogView);
-        dialog.setCancelable(true);
-        dialog.setIcon(R.mipmap.ic_launcher);
-        dialog.setTitle("Data Pendaftaran");
-
-        txtalertjenispasien    = (EditText) dialogView.findViewById(R.id.txtalertjenispasien);
-        txtalertnorm    = (EditText) dialogView.findViewById(R.id.txtalertnorm);
-        txtalerttgllahir  = (EditText) dialogView.findViewById(R.id.txtalerttgllahir);
-        txtalertnotelp = (EditText) dialogView.findViewById(R.id.txtalertnotelp);
-        txtalertemail    = (EditText) dialogView.findViewById(R.id.txtalertemail);
-        txtalerttanggal    = (EditText) dialogView.findViewById(R.id.txtalerttanggal);
-        txtalertcarabayar  = (EditText) dialogView.findViewById(R.id.txtalertcarabayar);
-        txtalertnobpjs = (EditText) dialogView.findViewById(R.id.txtalertnobpjs);
-        txtalertnorujukan    = (EditText) dialogView.findViewById(R.id.txtalertnorujukan);
-        txtalertpoli  = (EditText) dialogView.findViewById(R.id.txtalertpoli);
-
-        txtalertjenispasien.setText(getjenispasien);
-        txtalertnorm.setText(getnorm);
-        txtalerttgllahir.setText(gettgllahir);
-        txtalertnotelp.setText(getnotelp);
-        txtalertemail.setText(getemail);
-        txtalerttanggal.setText(gettanggal);
-        txtalertcarabayar.setText(getcarabayar);
-        txtalertnobpjs.setText(getbpjs);
-        txtalertnorujukan.setText(getrujukan);
-        txtalertpoli.setText(getpoli);
-        dialog.setPositiveButton("SUBMIT", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                jenis_pasien    = txtalertjenispasien.getText().toString();
-                norm    = txtalertnorm.getText().toString();
-                tgllahir    = txtalerttgllahir.getText().toString();
-                notelp  = txtalertnotelp.getText().toString();
-                email = txtalertemail.getText().toString();
-                tanggal    = txtalerttanggal.getText().toString();
-                carabayar    = txtalertcarabayar.getText().toString();
-                bpjs    = txtalertnobpjs.getText().toString();
-                rujukan  = txtalertnorujukan.getText().toString();
-                poli = txtalertpoli.getText().toString();
-
-                dialog.dismiss();
-            }
-        });
-
-        dialog.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        dialog.show();
-    }
 }

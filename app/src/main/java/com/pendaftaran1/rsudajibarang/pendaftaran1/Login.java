@@ -15,6 +15,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
+import com.android.volley.ServerError;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.SliderImageAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
@@ -25,6 +30,8 @@ import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.pDialog;
 
 public class Login extends AppCompatActivity {
 
@@ -109,7 +116,6 @@ public class Login extends AppCompatActivity {
                     String token = rrrr.getString("token");
                     if (Integer.parseInt(code) == 200) {
                         Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-
 //                       menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
@@ -138,5 +144,6 @@ public class Login extends AppCompatActivity {
             }
         });
     }
+
 }
 
