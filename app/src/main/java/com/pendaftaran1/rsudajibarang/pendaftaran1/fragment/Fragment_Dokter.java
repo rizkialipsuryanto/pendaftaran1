@@ -57,6 +57,7 @@ public class Fragment_Dokter extends Fragment {
     public static String KEY_POLINAMA = "polikliniknama";
     public static String KEY_DOKTER = "dokter";
     public static String KEY_DOKTERNAMA = "dokternama";
+    public static String KEY_BOOKINGCODE = "bookingcode";
 
     RecyclerView listView;
     TextView tvtempdokter,tvtempdokternama;
@@ -69,6 +70,7 @@ public class Fragment_Dokter extends Fragment {
     EditText txtalertjenispasien, txtalertnorm, txtalerttgllahir, txtalertnotelp,txtalertemail,txtalerttanggal,txtalertcarabayar,
     txtalertnobpjs,txtalertnorujukan,txtalertpoli,txtalertdokter;
     String jenis_pasien, norm, tgllahir, notelp, email, tanggal, carabayar,bpjs, rujukan, poli, dokter;
+    String bookingcode;
     public Fragment_Dokter() {
         // Required empty public constructor
     }
@@ -156,7 +158,6 @@ public class Fragment_Dokter extends Fragment {
                 modelListView.setNAMADOKTER(dataobj.getString("NAMADOKTER"));
 
                 goodModelDokterArrayList.add(modelListView);
-
             }
 
             dokterAdapter = new DokterAdapter(getContext(), goodModelDokterArrayList,new DokterAdapter.OnItemClickListener() {
@@ -202,27 +203,7 @@ public class Fragment_Dokter extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             daftarFragmentPoli();
-                            Fragment_Daftar_Selesai secondFragtry = new Fragment_Daftar_Selesai();
-                            Bundle mBundle = new Bundle();
-                            mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-                            mBundle.putString(KEY_HUBUNGAN, gethubungan);
-                            mBundle.putString(KEY_NORM, getnorm);
-                            mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-                            mBundle.putString(KEY_NOTELP, getnotelp);
-                            mBundle.putString(KEY_EMAIL, getemail);
-                            mBundle.putString(KEY_TANGGAL, gettanggal);
-                            mBundle.putString(KEY_CARABAYAR, getcarabayar);
-                            mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
-                            mBundle.putString(KEY_BPJS, getbpjs);
-                            mBundle.putString(KEY_RUJUKAN, getrujukan);
-                            mBundle.putString(KEY_POLI, getpoli);
-                            mBundle.putString(KEY_POLINAMA, getpolinama);
-                            mBundle.putString(KEY_DOKTER, tvtempdokter.getText().toString());
-                            mBundle.putString(KEY_DOKTERNAMA, tvtempdokternama.getText().toString());
 
-                            secondFragtry.setArguments(mBundle);
-                            FragmentManager fm = getActivity().getSupportFragmentManager();
-                            fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
                             dialog.dismiss();
                         }
                     });
@@ -241,8 +222,6 @@ public class Fragment_Dokter extends Fragment {
 
     public void daftarFragmentPoli() {
         String pasienbaru = "0";
-
-//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
         Log.d("OBJEK", "Jalan-----");
         Log.d("OBJEK", getnorm);
         Log.d("OBJEK", getjenispasien);
@@ -262,8 +241,39 @@ public class Fragment_Dokter extends Fragment {
                 try {
                     JSONObject jo = new JSONObject(response.body().toString());
                     Log.d("OBJEK","RESPON BODY : "+response.body().toString());
+                    // CASTING JSON OBJECT
+                    JSONObject rrrr = jo.getJSONObject("response");
+
+                    JSONObject metaData = jo.getJSONObject("metaData");
+                    String code = metaData.getString("code");
+                    bookingcode = rrrr.getString("bookingcode");
+                    Log.d("OBJEK","RESPON BODY : "+bookingcode);
+
+                    Fragment_Daftar_Selesai secondFragtry = new Fragment_Daftar_Selesai();
+                    Bundle mBundle = new Bundle();
+                    mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+                    mBundle.putString(KEY_HUBUNGAN, gethubungan);
+                    mBundle.putString(KEY_NORM, getnorm);
+                    mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+                    mBundle.putString(KEY_NOTELP, getnotelp);
+                    mBundle.putString(KEY_EMAIL, getemail);
+                    mBundle.putString(KEY_TANGGAL, gettanggal);
+                    mBundle.putString(KEY_CARABAYAR, getcarabayar);
+                    mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
+                    mBundle.putString(KEY_BPJS, getbpjs);
+                    mBundle.putString(KEY_RUJUKAN, getrujukan);
+                    mBundle.putString(KEY_POLI, getpoli);
+                    mBundle.putString(KEY_POLINAMA, getpolinama);
+                    mBundle.putString(KEY_DOKTER, tvtempdokter.getText().toString());
+                    mBundle.putString(KEY_DOKTERNAMA, tvtempdokternama.getText().toString());
+                    mBundle.putString(KEY_BOOKINGCODE, bookingcode);
+                    Log.d("OBJEK","RESPON BODY : "+bookingcode);
+
+                    secondFragtry.setArguments(mBundle);
+                    FragmentManager fm = getActivity().getSupportFragmentManager();
+                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
                 } catch (Exception e) {
-                    Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    Toasty.error(getContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                     Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
                 }
 

@@ -100,14 +100,7 @@ public class Login extends AppCompatActivity {
 
                     // CASTING JSON OBJECT
                     JSONObject rrrr = jo.getJSONObject("response");
-//<<<<<<< HEAD
-//                    String b = rrrr.getString("token");
-//                    Log.d("OBJEK", b);
-//                    if (b.length() > 0) {
-//                        Toast.makeText(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
-////                        Toast.success(getApplicationContext(), "OKOKOKOKO", Toast.LENGTH_LONG).show();
-//                        // menyimpan login ke session
-//=======
+
                     JSONObject metaData = jo.getJSONObject("metaData");
                     String code = metaData.getString("code");
                     String message = metaData.getString("message");

@@ -38,9 +38,10 @@ public class Fragment_Daftar_Selesai extends Fragment {
     public static String KEY_POLINAMA = "polikliniknama";
     public static String KEY_DOKTER = "dokter";
     public static String KEY_DOKTERNAMA = "dokternama";
+    public static String KEY_BOOKINGCODE = "bookingcode";
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli,
-            token,getcarabayarnama,getpolinama,getdokter,getdokternama, all;
+            token,getcarabayarnama,getpolinama,getdokter,getdokternama, all, getbookingcode;
     TextView tvdaftarselesaitanggal,tvdaftarselesaipoli;
 
     public ImageView image;
@@ -71,6 +72,7 @@ public class Fragment_Daftar_Selesai extends Fragment {
         getpolinama = getArguments().getString(KEY_POLINAMA);
         getdokter = getArguments().getString(KEY_DOKTER);
         getdokternama = getArguments().getString(KEY_DOKTERNAMA);
+        getbookingcode = getArguments().getString(KEY_BOOKINGCODE);
         token = indexActivity.getToken();
 
         tvdaftarselesaitanggal = (TextView) view.findViewById(R.id.tvdaftarselesaitanggal);
@@ -89,7 +91,7 @@ public class Fragment_Daftar_Selesai extends Fragment {
         String all;
         all = getjenispasien+getnorm+gethubungan+gettgllahir+getnotelp+getemail+gettanggal+getcarabayarnama+getbpjs+getrujukan+getpolinama+getdokternama;
         try {
-            BitMatrix bitMatrix = multiFormatWriter.encode(all, BarcodeFormat.QR_CODE, 300, 300);
+            BitMatrix bitMatrix = multiFormatWriter.encode(getbookingcode, BarcodeFormat.QR_CODE, 300, 300);
             BarcodeEncoder encoder = new BarcodeEncoder();
             Bitmap bitmap = encoder.createBitmap(bitMatrix);
             image.setImageBitmap(bitmap);
