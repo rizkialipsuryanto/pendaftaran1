@@ -241,14 +241,6 @@ public class Fragment_Dokter extends Fragment {
 
     public void daftarFragmentPoli() {
         String pasienbaru = "0";
-        String poliklinik = "2";
-        String dokter = "1";
-        String tanggal = "2020-03-17";
-        String normnya = "1";
-        String jenispasiennya = "SENDIRI";
-        String hubungannya = "TIDAK ADA";
-        String notelpnya = "4444";
-        String emailnya = "aa@gmail.com";
 
 //        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
         Log.d("OBJEK", "Jalan-----");
