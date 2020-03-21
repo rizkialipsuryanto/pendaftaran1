@@ -233,51 +233,51 @@ public class Fragment_poli extends Fragment {
 
     }
 
-    public void daftarFragmentPoli() {
-        String pasienbaru = "0";
-        String poliklinik = "2";
-        String dokter = "1";
-        String tanggal = "2020-03-17";
-        String normnya = "1";
-        String jenispasiennya = "SENDIRI";
-        String hubungannya = "TIDAK ADA";
-        String notelpnya = "4444";
-        String emailnya = "aa@gmail.com";
-
-        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
-        Log.d("OBJEK", "Jalan-----");
-        Log.d("OBJEK", getnorm);
-        Log.d("OBJEK", getjenispasien);
-        Log.d("OBJEK", gethubungan);
-        Log.d("OBJEK", gettgllahir);
-        Log.d("OBJEK", getnotelp);
-        Log.d("OBJEK", getemail);
-        Log.d("OBJEK", token);
-        // REST LOGIN ------------------------------------------------------------------
-        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,gettanggal,poliklinik.toString(),dokter.toString(),
-                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),getcarabayar,
-                getbpjs,getrujukan,"Bearer "+token);
-        daftar.enqueue(new Callback() {
-            @Override
-            public void onResponse(Call call, Response response) {
-                try {
-                    JSONObject jo = new JSONObject(response.body().toString());
-                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
-                } catch (Exception e) {
-                    Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
-                    Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
-                }
-
-            }
-
-            @Override
-            public void onFailure(Call call, Throwable t) {
-
-                Log.d("OBJEK", t.getMessage());
-            }
-        });
-    }
+//    public void daftarFragmentPoli() {
+//        String pasienbaru = "0";
+//        String poliklinik = "2";
+//        String dokter = "1";
+//        String tanggal = "2020-03-17";
+//        String normnya = "1";
+//        String jenispasiennya = "SENDIRI";
+//        String hubungannya = "TIDAK ADA";
+//        String notelpnya = "4444";
+//        String emailnya = "aa@gmail.com";
+//
+//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
+//        Log.d("OBJEK", "Jalan-----");
+//        Log.d("OBJEK", getnorm);
+//        Log.d("OBJEK", getjenispasien);
+//        Log.d("OBJEK", gethubungan);
+//        Log.d("OBJEK", gettgllahir);
+//        Log.d("OBJEK", getnotelp);
+//        Log.d("OBJEK", getemail);
+//        Log.d("OBJEK", token);
+//        // REST LOGIN ------------------------------------------------------------------
+//        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+//        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,gettanggal,poliklinik.toString(),dokter.toString(),
+//                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),getcarabayar,
+//                getbpjs,getrujukan,"Bearer "+token);
+//        daftar.enqueue(new Callback() {
+//            @Override
+//            public void onResponse(Call call, Response response) {
+//                try {
+//                    JSONObject jo = new JSONObject(response.body().toString());
+//                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
+//                } catch (Exception e) {
+//                    Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
+//                    Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onFailure(Call call, Throwable t) {
+//
+//                Log.d("OBJEK", t.getMessage());
+//            }
+//        });
+//    }
 
     private void nextFragment() {
         // TODO Auto-generated method stub

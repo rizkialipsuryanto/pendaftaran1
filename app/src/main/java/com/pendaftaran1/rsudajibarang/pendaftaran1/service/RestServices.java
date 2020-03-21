@@ -82,13 +82,47 @@ public interface RestServices {
             @Field("tanggal") String tanggal,
             @Field("poliklinik") String poliklinik,
             @Field("dokter") String dokter,
-            @Field("jenis_pasien") String jenis_pasien,
             @Field("hubungan") String hubungan,
             @Field("notelp") String notelp,
             @Field("email") String email,
             @Field("penjamin") String penjamin,
             @Field("nobpjs") String nobpjs,
             @Field("norujukan") String norujukan,
+            @Header("Authorization") String auth);
+
+    @POST("/api.simrs.rsudajibarang/api/registration/outPatient")
+    @FormUrlEncoded
+    public Call<JsonObject> PendaftaranPasienBaru(
+            @Field("pasienbaru") String pasienbaru,
+            @Field("tanggal") String tanggal,
+            @Field("poliklinik") String poliklinik,
+            @Field("dokter") String dokter,
+            @Field("hubungan") String hubungan,
+            @Field("notelp") String notelp,
+            @Field("penjamin") String penjamin,
+            @Field("nobpjs") String nobpjs,
+            @Field("norujukan") String norujukan,
+            @Field("nama") String nama,
+            @Field("nik") String nik,
+            @Field("jenis_kelamin") String jenis_kelamin,
+            @Field("tempat_lahir") String tempat_lahir,
+            @Field("alamat_sesuai_ktp") String alamat_sesuai_ktp,
+            @Field("provinsi_id") String provinsi_id,
+            @Field("kabupaten_id") String kabupaten_id,
+            @Field("kecamatan_id") String kecamatan_id,
+            @Field("kelurahan_id") String kelurahan_id,
+            @Field("nama_ayah") String nama_ayah,
+            @Field("nama_ibu") String nama_ibu,
+            @Field("nama_suami") String nama_suami,
+            @Field("nama_istri") String nama_istri,
+            @Field("agama_id") String agama_id,
+            @Field("pendidikan_id") String pendidikan_id,
+            @Field("pekerjaan_id") String pekerjaan_id,
+            @Field("status_kawin_id") String status_kawin_id,
+            @Field("kewarganegaraan") String kewarganegaraan,
+            @Field("suku") String suku,
+            @Field("bahasa_daerah") String bahasa_daerah,
+//            @Field("nama_title") String nama_title,
             @Header("Authorization") String auth);
 
     @GET("/api.simrs.rsudajibarang/api/registration/outPatientList")

@@ -226,7 +226,7 @@ public class Fragment_Dokter extends Fragment {
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            daftarFragmentPoli();
+                            daftarFragmentDokter();
 
                             dialog.dismiss();
                         }
@@ -244,15 +244,28 @@ public class Fragment_Dokter extends Fragment {
 
     }
 
-    public void daftarFragmentPoli() {
-        String pasienbaru = "0";
+    public void daftarFragmentDokter() {
+        String pasienbaru = getjenispasien;
+        Call daftar;
         Log.d("OBJEK", "Jalan-----");
         Log.d("OBJEK", token);
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,gettanggal,getpoli,
-                tvtempdokter.getText().toString(), getjenispasien.toString(),gethubungan.toString(),
-                getnotelp.toString(),getemail.toString(),getcarabayar, getbpjs,getrujukan,"Bearer "+token);
+        if (pasienbaru == "0"){
+            daftar = restServices.PendaftaranPasienLama(getjenispasien,getnorm,gettanggal,getpoli,
+                    tvtempdokter.getText().toString()
+                    ,gethubungan,
+                    getnotelp,getemail,getcarabayar, getbpjs,getrujukan,"Bearer "+token);
+        }
+        else{
+            daftar = restServices.PendaftaranPasienBaru(getjenispasien,gettanggal,getpoli,
+                    tvtempdokter.getText().toString(),gethubungan, getnotelp
+                    ,getcarabayar, getbpjs,getrujukan,getnama,getnik,getjeniskelamin,gettempatlahir,
+                    getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan,getnamaayah,getnamaibu,getsuami,
+                    getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,
+                    getbahasa,"Bearer "+token);
+        }
+
         daftar.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
