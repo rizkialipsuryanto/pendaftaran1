@@ -109,12 +109,8 @@ public class Fragment_Dftronline extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment__dftronline, container, false);
-        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-        gethubungan = getArguments().getString(KEY_HUBUNGAN);
-        getnorm = getArguments().getString(KEY_NORM);
-        gettgllahir = getArguments().getString(KEY_TGLLAHIR);
-        getnotelp = getArguments().getString(KEY_NOTELP);
-        getemail = getArguments().getString(KEY_EMAIL);
+
+        getfrombefore();
 
         kalenderinputcontrol= (EditText) view.findViewById(R.id.kalenderinputtglkontrol);
         btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggalcontrol);
@@ -289,28 +285,61 @@ public class Fragment_Dftronline extends Fragment {
                 Toasty.error(getActivity(), "Masukkan 16 Digit!", Toast.LENGTH_LONG).show();
             }
             if (ponmrbpjs.getText().toString().length()==13 && ponmrrujukan.getText().toString().length()==16){
-                Fragment_poli secondFragtry = new Fragment_poli();
-                Bundle mBundle = new Bundle();
-                mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-                mBundle.putString(KEY_HUBUNGAN, gethubungan);
-                mBundle.putString(KEY_NORM, getnorm);
-                mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-                mBundle.putString(KEY_NOTELP, getnotelp);
-                mBundle.putString(KEY_EMAIL, getemail);
-                mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-                mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
-                mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
-                mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
-                mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
-
-                secondFragtry.setArguments(mBundle);
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+                postnextfragment();
             }
 
         }
-        else
-            {
+        else {
+            postnextfragment();
+        }
+
+
+
+
+    }
+
+    private void getfrombefore(){
+        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+        Log.i("OBJEK", getjenispasien);
+        if(getjenispasien == String.valueOf('0')) {
+            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            getnorm = getArguments().getString(KEY_NORM);
+            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getemail = getArguments().getString(KEY_EMAIL);
+        }
+        if(getjenispasien == String.valueOf('1'))
+        {
+            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            getnama = getArguments().getString(KEY_NAMA);
+            getnik = getArguments().getString(KEY_NIK);
+            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+            getprovinsi = getArguments().getString(KEY_PROVINSI);
+            getkabupaten = getArguments().getString(KEY_KABUPATEN);
+            getkecamatan = getArguments().getString(KEY_KECAMATAN);
+            getkelurahan = getArguments().getString(KEY_KELURAHAN);
+            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+            getnamaibu = getArguments().getString(KEY_NAMAIBU);
+            getsuami = getArguments().getString(KEY_SUAMI);
+            getistri = getArguments().getString(KEY_ISTRI);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getagama = getArguments().getString(KEY_AGAMA);
+            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
+            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+            getsuku = getArguments().getString(KEY_SUKU);
+            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+        }
+    }
+
+    private void postnextfragment(){
+        if(getjenispasien == String.valueOf('0'))
+        {
             Fragment_poli secondFragtry = new Fragment_poli();
             Bundle mBundle = new Bundle();
             mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
@@ -324,28 +353,45 @@ public class Fragment_Dftronline extends Fragment {
             mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
             mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
             mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
-
             secondFragtry.setArguments(mBundle);
             FragmentManager fm = getActivity().getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
         }
-
-
-
-
-    }
-
-    private void getfrombefore(){
-        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-        if(getjenispasien == String.valueOf('1')) {
-            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-            gethubungan = getArguments().getString(KEY_HUBUNGAN);
-            getnorm = getArguments().getString(KEY_NORM);
-            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
-            getnotelp = getArguments().getString(KEY_NOTELP);
-            getemail = getArguments().getString(KEY_EMAIL);
+        if(getjenispasien == String.valueOf('1'))
+        {
+            Fragment_poli secondFragtry = new Fragment_poli();
+            Bundle mBundle = new Bundle();
+            mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+            mBundle.putString(KEY_HUBUNGAN, gethubungan);
+            mBundle.putString(KEY_NAMA, getnama);
+            mBundle.putString(KEY_NIK, getnik);
+            mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);
+            mBundle.putString(KEY_TEMPATLAHIR, gettempatlahir);
+            mBundle.putString(KEY_ALAMATSESUAIKTP, getalamatsesuaiktp);
+            mBundle.putString(KEY_PROVINSI, getprovinsi);
+            mBundle.putString(KEY_KABUPATEN, getkabupaten);
+            mBundle.putString(KEY_KECAMATAN, getkecamatan);
+            mBundle.putString(KEY_KELURAHAN, getkelurahan);
+            mBundle.putString(KEY_NAMAAYAH, getnamaayah);
+            mBundle.putString(KEY_NAMAIBU, getnamaibu);
+            mBundle.putString(KEY_SUAMI, getsuami);
+            mBundle.putString(KEY_ISTRI, getistri);
+            mBundle.putString(KEY_NOTELP, getnotelp);
+            mBundle.putString(KEY_AGAMA, getagama);
+            mBundle.putString(KEY_PENDIDIKAN, getpendidikan);
+            mBundle.putString(KEY_PEKERJAAN, getpekerjaan);
+            mBundle.putString(KEY_STATUSKAWIN, getstatuskawin);
+            mBundle.putString(KEY_KEWARGANEGARAAN, getkewarganegaraan);
+            mBundle.putString(KEY_SUKU, getsuku);
+            mBundle.putString(KEY_BAHASADAERAH, getbahasa);
+            mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+            mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+            mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
+            mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+            mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+            secondFragtry.setArguments(mBundle);
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
         }
     }
-
-
 }
