@@ -109,96 +109,96 @@ public class Fragment_Dokter extends Fragment {
         getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
         jenisnya = getjenispasien;
         Log.i("DATA", getjenispasien);
-        if(jenisnya == "0") {
-            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-            gethubungan = getArguments().getString(KEY_HUBUNGAN);
-            getnorm = getArguments().getString(KEY_NORM);
-            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
-            getnotelp = getArguments().getString(KEY_NOTELP);
-            getemail = getArguments().getString(KEY_EMAIL);
-            gettanggal = getArguments().getString(KEY_TANGGAL);
-            getcarabayar = getArguments().getString(KEY_CARABAYAR);
-            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
-            getbpjs = getArguments().getString(KEY_BPJS);
-            getrujukan = getArguments().getString(KEY_RUJUKAN);
-            getnama = getArguments().getString(KEY_NAMA);
-            getnik = getArguments().getString(KEY_NIK);
-            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
-            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
-            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
-            getprovinsi = getArguments().getString(KEY_PROVINSI);
-            getkabupaten = getArguments().getString(KEY_KABUPATEN);
-            getkecamatan = getArguments().getString(KEY_KECAMATAN);
-            getkelurahan = getArguments().getString(KEY_KELURAHAN);
-            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
-            getnamaibu = getArguments().getString(KEY_NAMAIBU);
-            getsuami = getArguments().getString(KEY_SUAMI);
-            getistri = getArguments().getString(KEY_ISTRI);
-            getnotelp = getArguments().getString(KEY_NOTELP);
-            getagama = getArguments().getString(KEY_AGAMA);
-            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
-            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
-            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
-            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
-            getsuku = getArguments().getString(KEY_SUKU);
-            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
-            getpoli = getArguments().getString(KEY_POLI);
-            getpolinama = getArguments().getString(KEY_POLINAMA);
-        }
-        if(jenisnya == "1")
-        {
-            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-            gethubungan = getArguments().getString(KEY_HUBUNGAN);
-            getnama = getArguments().getString(KEY_NAMA);
-            Log.i("DATA", getnama);
-            getnik = getArguments().getString(KEY_NIK);
-            Log.i("DATA", getnik);
-            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
-            Log.i("DATA", getjeniskelamin);
-            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
-            Log.i("DATA", gettempatlahir);
-            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
-            Log.i("DATA", getalamatsesuaiktp);
-            getprovinsi = getArguments().getString(KEY_PROVINSI);
-            Log.i("DATA", getprovinsi);
-            getkabupaten = getArguments().getString(KEY_KABUPATEN);
-            Log.i("DATA", getkabupaten);
-            getkecamatan = getArguments().getString(KEY_KECAMATAN);
-            Log.i("DATA", getkecamatan);
-            getkelurahan = getArguments().getString(KEY_KELURAHAN);
-            Log.i("DATA", getkelurahan);
-            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
-            Log.i("DATA", getnamaayah);
-            getnamaibu = getArguments().getString(KEY_NAMAIBU);
-            Log.i("DATA", getnamaibu);
-            getsuami = getArguments().getString(KEY_SUAMI);
-            Log.i("DATA", getsuami);
-            getistri = getArguments().getString(KEY_ISTRI);
-            Log.i("DATA", getistri);
-            getnotelp = getArguments().getString(KEY_NOTELP);
-            Log.i("DATA", getnotelp);
-            getagama = getArguments().getString(KEY_AGAMA);
-            Log.i("DATA", getagama);
-            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
-            Log.i("DATA", getpendidikan);
-            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
-            Log.i("DATA", getpekerjaan);
-            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
-            Log.i("DATA", getstatuskawin);
+//        if(jenisnya == "0") {
+//            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+//            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+//            getnorm = getArguments().getString(KEY_NORM);
+//            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
+//            getnotelp = getArguments().getString(KEY_NOTELP);
+//            getemail = getArguments().getString(KEY_EMAIL);
+//            gettanggal = getArguments().getString(KEY_TANGGAL);
+//            getcarabayar = getArguments().getString(KEY_CARABAYAR);
+//            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
+//            getbpjs = getArguments().getString(KEY_BPJS);
+//            getrujukan = getArguments().getString(KEY_RUJUKAN);
+//            getnama = getArguments().getString(KEY_NAMA);
+//            getnik = getArguments().getString(KEY_NIK);
+//            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+//            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+//            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+//            getprovinsi = getArguments().getString(KEY_PROVINSI);
+//            getkabupaten = getArguments().getString(KEY_KABUPATEN);
+//            getkecamatan = getArguments().getString(KEY_KECAMATAN);
+//            getkelurahan = getArguments().getString(KEY_KELURAHAN);
+//            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+//            getnamaibu = getArguments().getString(KEY_NAMAIBU);
+//            getsuami = getArguments().getString(KEY_SUAMI);
+//            getistri = getArguments().getString(KEY_ISTRI);
+//            getnotelp = getArguments().getString(KEY_NOTELP);
+//            getagama = getArguments().getString(KEY_AGAMA);
+//            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+//            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+//            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
 //            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
-//            Log.i("DATA", getkewarganegaraan);
-            getsuku = getArguments().getString(KEY_SUKU);
-            Log.i("DATA", getsuku);
-            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
-            Log.i("DATA", getbahasa);
-            gettanggal = getArguments().getString(KEY_TANGGAL);
-            getcarabayar = getArguments().getString(KEY_CARABAYAR);
-            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
-            getbpjs = getArguments().getString(KEY_BPJS);
-            getrujukan = getArguments().getString(KEY_RUJUKAN);
-            getpoli = getArguments().getString(KEY_POLI);
-            getpolinama = getArguments().getString(KEY_POLINAMA);
-        }
+//            getsuku = getArguments().getString(KEY_SUKU);
+//            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+//            getpoli = getArguments().getString(KEY_POLI);
+//            getpolinama = getArguments().getString(KEY_POLINAMA);
+//        }
+//        if(jenisnya == "1")
+//        {
+//            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+//            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+//            getnama = getArguments().getString(KEY_NAMA);
+//            Log.i("DATA", getnama);
+//            getnik = getArguments().getString(KEY_NIK);
+//            Log.i("DATA", getnik);
+//            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+//            Log.i("DATA", getjeniskelamin);
+//            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+//            Log.i("DATA", gettempatlahir);
+//            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+//            Log.i("DATA", getalamatsesuaiktp);
+//            getprovinsi = getArguments().getString(KEY_PROVINSI);
+//            Log.i("DATA", getprovinsi);
+//            getkabupaten = getArguments().getString(KEY_KABUPATEN);
+//            Log.i("DATA", getkabupaten);
+//            getkecamatan = getArguments().getString(KEY_KECAMATAN);
+//            Log.i("DATA", getkecamatan);
+//            getkelurahan = getArguments().getString(KEY_KELURAHAN);
+//            Log.i("DATA", getkelurahan);
+//            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+//            Log.i("DATA", getnamaayah);
+//            getnamaibu = getArguments().getString(KEY_NAMAIBU);
+//            Log.i("DATA", getnamaibu);
+//            getsuami = getArguments().getString(KEY_SUAMI);
+//            Log.i("DATA", getsuami);
+//            getistri = getArguments().getString(KEY_ISTRI);
+//            Log.i("DATA", getistri);
+//            getnotelp = getArguments().getString(KEY_NOTELP);
+//            Log.i("DATA", getnotelp);
+//            getagama = getArguments().getString(KEY_AGAMA);
+//            Log.i("DATA", getagama);
+//            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+//            Log.i("DATA", getpendidikan);
+//            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+//            Log.i("DATA", getpekerjaan);
+//            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
+//            Log.i("DATA", getstatuskawin);
+////            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+////            Log.i("DATA", getkewarganegaraan);
+//            getsuku = getArguments().getString(KEY_SUKU);
+//            Log.i("DATA", getsuku);
+//            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+//            Log.i("DATA", getbahasa);
+//            gettanggal = getArguments().getString(KEY_TANGGAL);
+//            getcarabayar = getArguments().getString(KEY_CARABAYAR);
+//            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
+//            getbpjs = getArguments().getString(KEY_BPJS);
+//            getrujukan = getArguments().getString(KEY_RUJUKAN);
+//            getpoli = getArguments().getString(KEY_POLI);
+//            getpolinama = getArguments().getString(KEY_POLINAMA);
+//        }
         getfrombefore();
         token = indexActivity.getToken();
 
@@ -337,12 +337,14 @@ public class Fragment_Dokter extends Fragment {
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         if (pasienbaru == "0"){
+            Log.d("OBJEK", "Jalan lama");
             daftar = restServices.PendaftaranPasienLama(getjenispasien,getnorm,gettanggal,getpoli,
                     tvtempdokter.getText().toString()
                     ,gethubungan,
                     getnotelp,getemail,getcarabayar, getbpjs,getrujukan,"Bearer "+token);
         }
         else{
+            Log.d("OBJEK", "Jalan baru");
             daftar = restServices.PendaftaranPasienBaru(getjenispasien,gettanggal,getpoli,
                     tvtempdokter.getText().toString(),gethubungan, getnotelp
                     ,getcarabayar, getbpjs,getrujukan,getnama,getnik,getjeniskelamin,gettempatlahir,

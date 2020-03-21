@@ -111,18 +111,6 @@ public class Fragment_poli extends Fragment {
 
         getfrombefore();
 
-//        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-//        gethubungan = getArguments().getString(KEY_HUBUNGAN);
-//        getnorm = getArguments().getString(KEY_NORM);
-//        gettgllahir = getArguments().getString(KEY_TGLLAHIR);
-//        getnotelp = getArguments().getString(KEY_NOTELP);
-//        getemail = getArguments().getString(KEY_EMAIL);
-//        gettanggal = getArguments().getString(KEY_TANGGAL);
-//        getcarabayar = getArguments().getString(KEY_CARABAYAR);
-//        getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
-//        getbpjs = getArguments().getString(KEY_BPJS);
-//        getrujukan = getArguments().getString(KEY_RUJUKAN);
-
         listView.setAdapter(adapter);
 
         getdata();
