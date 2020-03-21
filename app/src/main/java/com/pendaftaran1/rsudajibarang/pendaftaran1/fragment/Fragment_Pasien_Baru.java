@@ -276,13 +276,10 @@ public class Fragment_Pasien_Baru extends Fragment {
     }
 
     private void nextFragment() {
-//        FragmentManager fm = getActivity().getSupportFragmentManager();
-//        Fragment newFrame = new Fragment_Dftronline();
-//        fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
 
         Fragment_Dftronline secondFragtry = new Fragment_Dftronline();
         Bundle mBundle = new Bundle();
-        mBundle.putString(KEY_JENIS_PASIEN, "0");
+        mBundle.putString(KEY_JENIS_PASIEN, "1");
         mBundle.putString(KEY_HUBUNGAN, sppbhubunganpasien.getSelectedItem().toString());
         mBundle.putString(KEY_NAMA, pbnamaa.getText().toString());
         mBundle.putString(KEY_NIK, pbnika.getText().toString());
@@ -294,6 +291,17 @@ public class Fragment_Pasien_Baru extends Fragment {
         mBundle.putString(KEY_ISTRI, pbistria.getText().toString());
         mBundle.putString(KEY_NOTELP, pbnmrtelpa.getText().toString());
         mBundle.putString(KEY_PROVINSI, sppbprovinsi.getSelectedItem().toString());
+        mBundle.putString(KEY_KABUPATEN, sppbkabupaten.getSelectedItem().toString());
+        mBundle.putString(KEY_KECAMATAN, sppbkecamatan.getSelectedItem().toString());
+        mBundle.putString(KEY_KELURAHAN, sppbkelurahan.getSelectedItem().toString());
+        mBundle.putString(KEY_JENISKELAMIN, sppbjeniskelamin.getSelectedItem().toString());
+        mBundle.putString(KEY_AGAMA, sppbagama.getSelectedItem().toString());
+        mBundle.putString(KEY_PENDIDIKAN, sppbpendidikan.getSelectedItem().toString());
+        mBundle.putString(KEY_PEKERJAAN, sppbpekerjaan.getSelectedItem().toString());
+        mBundle.putString(KEY_STATUSKAWIN, sppbstatuspernikahan.getSelectedItem().toString());
+        mBundle.putString(KEY_SUKU, sppbsuku.getSelectedItem().toString());
+        mBundle.putString(KEY_BAHASADAERAH, sppbbahasa.getSelectedItem().toString());
+//        mBundle.putString(KEY_TITLE, sppbagama.getSelectedItem().toString());
 
         secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();

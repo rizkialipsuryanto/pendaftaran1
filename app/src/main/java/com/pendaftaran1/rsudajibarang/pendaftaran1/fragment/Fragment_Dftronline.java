@@ -60,9 +60,33 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_CARABAYARNAMA = "carabayarnama";
     public static String KEY_BPJS = "bpjs";
     public static String KEY_RUJUKAN = "rujukan";
+
+
+    public static String KEY_NAMA = "nama";
+    public static String KEY_NIK = "nik";
+    public static String KEY_JENISKELAMIN = "jenis_kelamin";
+    public static String KEY_TEMPATLAHIR = "tempat_lahir";
+    public static String KEY_ALAMATSESUAIKTP = "alamat_sesuai_ktp";
+    public static String KEY_PROVINSI = "provinsi";
+    public static String KEY_KABUPATEN = "kabupaten";
+    public static String KEY_KECAMATAN = "kecamatan";
+    public static String KEY_KELURAHAN = "kelurahan";
+    public static String KEY_NAMAAYAH = "nama_ayah";
+    public static String KEY_NAMAIBU = "nama_ibu";
+    public static String KEY_SUAMI = "nama_suami";
+    public static String KEY_ISTRI = "nama_istri";
+    public static String KEY_AGAMA = "agama";
+    public static String KEY_PENDIDIKAN = "pendidikan";
+    public static String KEY_PEKERJAAN = "pekerjaan";
+    public static String KEY_STATUSKAWIN = "status_kawin";
+    public static String KEY_KEWARGANEGARAAN = "kewarganegaraan";
+    public static String KEY_SUKU = "suku";
+    public static String KEY_BAHASADAERAH = "bahasa_daerah";
+    public static String KEY_TITLE = "title";
     public static String save;
 
-    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
+    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan;
+    String getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
     EditText kalenderinputcontrol, ponmrbpjs, ponmrrujukan;
     LinearLayout llnobpjs;
     ImageButton btnTanggal;
@@ -309,6 +333,18 @@ public class Fragment_Dftronline extends Fragment {
 
 
 
+    }
+
+    private void getfrombefore(){
+        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+        if(getjenispasien == String.valueOf('1')) {
+            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            getnorm = getArguments().getString(KEY_NORM);
+            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getemail = getArguments().getString(KEY_EMAIL);
+        }
     }
 
 
