@@ -356,49 +356,74 @@ public class Fragment_Dftronline extends Fragment {
     }
 
     private void getfrombefore(){
+        String jenispasiennya;
         getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-        Log.i("OBJEK", getjenispasien);
-        if(getjenispasien == String.valueOf('0')) {
+        jenispasiennya = getjenispasien;
+        Log.i("DATA", getjenispasien);
+        if(jenispasiennya == "0") {
             getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
             gethubungan = getArguments().getString(KEY_HUBUNGAN);
             getnorm = getArguments().getString(KEY_NORM);
+            Log.i("DATA", getnorm);
             gettgllahir = getArguments().getString(KEY_TGLLAHIR);
             getnotelp = getArguments().getString(KEY_NOTELP);
             getemail = getArguments().getString(KEY_EMAIL);
         }
-        if(getjenispasien == String.valueOf('1'))
+        if(jenispasiennya == "1")
         {
             getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
             gethubungan = getArguments().getString(KEY_HUBUNGAN);
             getnama = getArguments().getString(KEY_NAMA);
+            Log.i("DATA", getnama);
             getnik = getArguments().getString(KEY_NIK);
+            Log.i("DATA", getnik);
             getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+            Log.i("DATA", getjeniskelamin);
             gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+            Log.i("DATA", gettempatlahir);
             getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+            Log.i("DATA", getalamatsesuaiktp);
             getprovinsi = getArguments().getString(KEY_PROVINSI);
+            Log.i("DATA", getprovinsi);
             getkabupaten = getArguments().getString(KEY_KABUPATEN);
+            Log.i("DATA", getkabupaten);
             getkecamatan = getArguments().getString(KEY_KECAMATAN);
+            Log.i("DATA", getkecamatan);
             getkelurahan = getArguments().getString(KEY_KELURAHAN);
+            Log.i("DATA", getkelurahan);
             getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+            Log.i("DATA", getnamaayah);
             getnamaibu = getArguments().getString(KEY_NAMAIBU);
+            Log.i("DATA", getnamaibu);
             getsuami = getArguments().getString(KEY_SUAMI);
+            Log.i("DATA", getsuami);
             getistri = getArguments().getString(KEY_ISTRI);
+            Log.i("DATA", getistri);
             getnotelp = getArguments().getString(KEY_NOTELP);
+            Log.i("DATA", getnotelp);
             getagama = getArguments().getString(KEY_AGAMA);
+            Log.i("DATA", getagama);
             getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+            Log.i("DATA", getpendidikan);
             getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+            Log.i("DATA", getpekerjaan);
             getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
-            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+            Log.i("DATA", getstatuskawin);
+//            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+//            Log.i("DATA", getkewarganegaraan);
             getsuku = getArguments().getString(KEY_SUKU);
+            Log.i("DATA", getsuku);
             getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+            Log.i("DATA", getbahasa);
         }
     }
 
     private void postnextfragment(){
+        getfrombefore();
             Fragment_poli secondFragtry = new Fragment_poli();
             Bundle mBundle = new Bundle();
             mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-            mBundle.putString(KEY_NORM, getjenispasien);
+            mBundle.putString(KEY_NORM, getnorm);
             mBundle.putString(KEY_TGLLAHIR, gettgllahir);
             mBundle.putString(KEY_EMAIL, getemail);
             mBundle.putString(KEY_HUBUNGAN, gethubungan);
