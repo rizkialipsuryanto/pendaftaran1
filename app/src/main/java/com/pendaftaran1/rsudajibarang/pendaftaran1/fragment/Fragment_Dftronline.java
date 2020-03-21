@@ -85,8 +85,8 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_TITLE = "title";
     public static String save;
 
-    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan;
-    String getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
+    String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
+    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
     EditText kalenderinputcontrol, ponmrbpjs, ponmrrujukan;
     LinearLayout llnobpjs;
     ImageButton btnTanggal;
@@ -398,6 +398,9 @@ public class Fragment_Dftronline extends Fragment {
             Fragment_poli secondFragtry = new Fragment_poli();
             Bundle mBundle = new Bundle();
             mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+            mBundle.putString(KEY_NORM, getjenispasien);
+            mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+            mBundle.putString(KEY_EMAIL, getemail);
             mBundle.putString(KEY_HUBUNGAN, gethubungan);
             mBundle.putString(KEY_NAMA, getnama);
             mBundle.putString(KEY_NIK, getnik);

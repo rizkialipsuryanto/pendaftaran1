@@ -59,6 +59,28 @@ public class Fragment_Dokter extends Fragment {
     public static String KEY_DOKTERNAMA = "dokternama";
     public static String KEY_BOOKINGCODE = "bookingcode";
 
+    public static String KEY_NAMA = "nama";
+    public static String KEY_NIK = "nik";
+    public static String KEY_JENISKELAMIN = "jenis_kelamin";
+    public static String KEY_TEMPATLAHIR = "tempat_lahir";
+    public static String KEY_ALAMATSESUAIKTP = "alamat_sesuai_ktp";
+    public static String KEY_PROVINSI = "provinsi";
+    public static String KEY_KABUPATEN = "kabupaten";
+    public static String KEY_KECAMATAN = "kecamatan";
+    public static String KEY_KELURAHAN = "kelurahan";
+    public static String KEY_NAMAAYAH = "nama_ayah";
+    public static String KEY_NAMAIBU = "nama_ibu";
+    public static String KEY_SUAMI = "nama_suami";
+    public static String KEY_ISTRI = "nama_istri";
+    public static String KEY_AGAMA = "agama";
+    public static String KEY_PENDIDIKAN = "pendidikan";
+    public static String KEY_PEKERJAAN = "pekerjaan";
+    public static String KEY_STATUSKAWIN = "status_kawin";
+    public static String KEY_KEWARGANEGARAAN = "kewarganegaraan";
+    public static String KEY_SUKU = "suku";
+    public static String KEY_BAHASADAERAH = "bahasa_daerah";
+    public static String KEY_TITLE = "title";
+
     RecyclerView listView;
     TextView tvtempdokter,tvtempdokternama;
     View dialogView;
@@ -67,6 +89,7 @@ public class Fragment_Dokter extends Fragment {
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getbpjs,getrujukan,getpoli,
     token,getcarabayarnama,getpolinama;
+    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
     EditText txtalertjenispasien, txtalertnorm, txtalerttgllahir, txtalertnotelp,txtalertemail,txtalerttanggal,txtalertcarabayar,
     txtalertnobpjs,txtalertnorujukan,txtalertpoli,txtalertdokter;
     String jenis_pasien, norm, tgllahir, notelp, email, tanggal, carabayar,bpjs, rujukan, poli, dokter;
@@ -82,18 +105,20 @@ public class Fragment_Dokter extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dokter, container, false);
         getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
-        gethubungan = getArguments().getString(KEY_HUBUNGAN);
-        getnorm = getArguments().getString(KEY_NORM);
-        gettgllahir = getArguments().getString(KEY_TGLLAHIR);
-        getnotelp = getArguments().getString(KEY_NOTELP);
-        getemail = getArguments().getString(KEY_EMAIL);
-        gettanggal = getArguments().getString(KEY_TANGGAL);
-        getcarabayar = getArguments().getString(KEY_CARABAYAR);
-        getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
-        getbpjs = getArguments().getString(KEY_BPJS);
-        getrujukan = getArguments().getString(KEY_RUJUKAN);
         getpoli = getArguments().getString(KEY_POLI);
-        getpolinama = getArguments().getString(KEY_POLINAMA);
+        getfrombefore();
+//        gethubungan = getArguments().getString(KEY_HUBUNGAN);
+//        getnorm = getArguments().getString(KEY_NORM);
+//        gettgllahir = getArguments().getString(KEY_TGLLAHIR);
+//        getnotelp = getArguments().getString(KEY_NOTELP);
+//        getemail = getArguments().getString(KEY_EMAIL);
+//        gettanggal = getArguments().getString(KEY_TANGGAL);
+//        getcarabayar = getArguments().getString(KEY_CARABAYAR);
+//        getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
+//        getbpjs = getArguments().getString(KEY_BPJS);
+//        getrujukan = getArguments().getString(KEY_RUJUKAN);
+//        getpoli = getArguments().getString(KEY_POLI);
+//        getpolinama = getArguments().getString(KEY_POLINAMA);
         token = indexActivity.getToken();
 
         listView = (RecyclerView) view.findViewById(R.id.rcvdokter);
@@ -222,12 +247,6 @@ public class Fragment_Dokter extends Fragment {
     public void daftarFragmentPoli() {
         String pasienbaru = "0";
         Log.d("OBJEK", "Jalan-----");
-        Log.d("OBJEK", getnorm);
-        Log.d("OBJEK", getjenispasien);
-        Log.d("OBJEK", gethubungan);
-        Log.d("OBJEK", gettgllahir);
-        Log.d("OBJEK", getnotelp);
-        Log.d("OBJEK", getemail);
         Log.d("OBJEK", token);
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
@@ -256,6 +275,27 @@ public class Fragment_Dokter extends Fragment {
                     mBundle.putString(KEY_TGLLAHIR, gettgllahir);
                     mBundle.putString(KEY_NOTELP, getnotelp);
                     mBundle.putString(KEY_EMAIL, getemail);
+                    mBundle.putString(KEY_NAMA, getnama);
+                    mBundle.putString(KEY_NIK, getnik);
+                    mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);
+                    mBundle.putString(KEY_TEMPATLAHIR, gettempatlahir);
+                    mBundle.putString(KEY_ALAMATSESUAIKTP, getalamatsesuaiktp);
+                    mBundle.putString(KEY_PROVINSI, getprovinsi);
+                    mBundle.putString(KEY_KABUPATEN, getkabupaten);
+                    mBundle.putString(KEY_KECAMATAN, getkecamatan);
+                    mBundle.putString(KEY_KELURAHAN, getkelurahan);
+                    mBundle.putString(KEY_NAMAAYAH, getnamaayah);
+                    mBundle.putString(KEY_NAMAIBU, getnamaibu);
+                    mBundle.putString(KEY_SUAMI, getsuami);
+                    mBundle.putString(KEY_ISTRI, getistri);
+                    mBundle.putString(KEY_NOTELP, getnotelp);
+                    mBundle.putString(KEY_AGAMA, getagama);
+                    mBundle.putString(KEY_PENDIDIKAN, getpendidikan);
+                    mBundle.putString(KEY_PEKERJAAN, getpekerjaan);
+                    mBundle.putString(KEY_STATUSKAWIN, getstatuskawin);
+                    mBundle.putString(KEY_KEWARGANEGARAAN, getkewarganegaraan);
+                    mBundle.putString(KEY_SUKU, getsuku);
+                    mBundle.putString(KEY_BAHASADAERAH, getbahasa);
                     mBundle.putString(KEY_TANGGAL, gettanggal);
                     mBundle.putString(KEY_CARABAYAR, getcarabayar);
                     mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
@@ -284,6 +324,80 @@ public class Fragment_Dokter extends Fragment {
                 Log.d("OBJEK", t.getMessage());
             }
         });
+    }
+
+    private void getfrombefore(){
+        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+        Log.i("OBJEK", getjenispasien);
+        if(getjenispasien == String.valueOf('0')) {
+            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            getnorm = getArguments().getString(KEY_NORM);
+            gettgllahir = getArguments().getString(KEY_TGLLAHIR);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getemail = getArguments().getString(KEY_EMAIL);
+            gettanggal = getArguments().getString(KEY_TANGGAL);
+            getcarabayar = getArguments().getString(KEY_CARABAYAR);
+            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
+            getbpjs = getArguments().getString(KEY_BPJS);
+            getrujukan = getArguments().getString(KEY_RUJUKAN);
+            getnama = getArguments().getString(KEY_NAMA);
+            getnik = getArguments().getString(KEY_NIK);
+            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+            getprovinsi = getArguments().getString(KEY_PROVINSI);
+            getkabupaten = getArguments().getString(KEY_KABUPATEN);
+            getkecamatan = getArguments().getString(KEY_KECAMATAN);
+            getkelurahan = getArguments().getString(KEY_KELURAHAN);
+            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+            getnamaibu = getArguments().getString(KEY_NAMAIBU);
+            getsuami = getArguments().getString(KEY_SUAMI);
+            getistri = getArguments().getString(KEY_ISTRI);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getagama = getArguments().getString(KEY_AGAMA);
+            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
+            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+            getsuku = getArguments().getString(KEY_SUKU);
+            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+            getpoli = getArguments().getString(KEY_POLI);
+            getpolinama = getArguments().getString(KEY_POLINAMA);
+        }
+        if(getjenispasien == String.valueOf('1'))
+        {
+            getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
+            gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            getnama = getArguments().getString(KEY_NAMA);
+            getnik = getArguments().getString(KEY_NIK);
+            getjeniskelamin = getArguments().getString(KEY_JENISKELAMIN);
+            gettempatlahir = getArguments().getString(KEY_TEMPATLAHIR);
+            getalamatsesuaiktp = getArguments().getString(KEY_ALAMATSESUAIKTP);
+            getprovinsi = getArguments().getString(KEY_PROVINSI);
+            getkabupaten = getArguments().getString(KEY_KABUPATEN);
+            getkecamatan = getArguments().getString(KEY_KECAMATAN);
+            getkelurahan = getArguments().getString(KEY_KELURAHAN);
+            getnamaayah = getArguments().getString(KEY_NAMAAYAH);
+            getnamaibu = getArguments().getString(KEY_NAMAIBU);
+            getsuami = getArguments().getString(KEY_SUAMI);
+            getistri = getArguments().getString(KEY_ISTRI);
+            getnotelp = getArguments().getString(KEY_NOTELP);
+            getagama = getArguments().getString(KEY_AGAMA);
+            getpendidikan = getArguments().getString(KEY_PENDIDIKAN);
+            getpekerjaan = getArguments().getString(KEY_PEKERJAAN);
+            getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
+            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
+            getsuku = getArguments().getString(KEY_SUKU);
+            getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+            gettanggal = getArguments().getString(KEY_TANGGAL);
+            getcarabayar = getArguments().getString(KEY_CARABAYAR);
+            getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
+            getbpjs = getArguments().getString(KEY_BPJS);
+            getrujukan = getArguments().getString(KEY_RUJUKAN);
+            getpoli = getArguments().getString(KEY_POLI);
+            getpolinama = getArguments().getString(KEY_POLINAMA);
+        }
     }
 
 }
