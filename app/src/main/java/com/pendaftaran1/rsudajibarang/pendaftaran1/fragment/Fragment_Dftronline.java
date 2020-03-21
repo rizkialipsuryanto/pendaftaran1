@@ -110,6 +110,7 @@ public class Fragment_Dftronline extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment__dftronline, container, false);
 
+        getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
         getfrombefore();
 
         kalenderinputcontrol= (EditText) view.findViewById(R.id.kalenderinputtglkontrol);
@@ -275,6 +276,8 @@ public class Fragment_Dftronline extends Fragment {
 
     private void nextFragment() {
         // TODO Auto-generated method stub
+        String jenis_pasien;
+        jenis_pasien = getjenispasien.toString();
         if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
             if(ponmrbpjs.getText().toString().length()<13){
                 ponmrbpjs.setError("Masukkan 13 Digit!");
@@ -285,16 +288,70 @@ public class Fragment_Dftronline extends Fragment {
                 Toasty.error(getActivity(), "Masukkan 16 Digit!", Toast.LENGTH_LONG).show();
             }
             if (ponmrbpjs.getText().toString().length()==13 && ponmrrujukan.getText().toString().length()==16){
+
+                Toasty.error(getActivity(), jenis_pasien, Toast.LENGTH_LONG).show();
                 postnextfragment();
+//                if(jenis_pasien == "0")
+//                {
+//                    Fragment_poli secondFragtry = new Fragment_poli();
+//                    Bundle mBundle = new Bundle();
+//                    mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+//                    mBundle.putString(KEY_HUBUNGAN, gethubungan);
+//                    mBundle.putString(KEY_NORM, getnorm);
+//                    mBundle.putString(KEY_TGLLAHIR, gettgllahir);
+//                    mBundle.putString(KEY_NOTELP, getnotelp);
+//                    mBundle.putString(KEY_EMAIL, getemail);
+//                    mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+//                    mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+//                    mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
+//                    mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+//                    mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+//                    secondFragtry.setArguments(mBundle);
+//                    FragmentManager fm = getActivity().getSupportFragmentManager();
+//                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+//                }
+//                if(jenis_pasien == "0")
+//                {
+//                    Fragment_poli secondFragtry = new Fragment_poli();
+//                    Bundle mBundle = new Bundle();
+//                    mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
+//                    mBundle.putString(KEY_HUBUNGAN, gethubungan);
+//                    mBundle.putString(KEY_NAMA, getnama);
+//                    mBundle.putString(KEY_NIK, getnik);
+//                    mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);
+//                    mBundle.putString(KEY_TEMPATLAHIR, gettempatlahir);
+//                    mBundle.putString(KEY_ALAMATSESUAIKTP, getalamatsesuaiktp);
+//                    mBundle.putString(KEY_PROVINSI, getprovinsi);
+//                    mBundle.putString(KEY_KABUPATEN, getkabupaten);
+//                    mBundle.putString(KEY_KECAMATAN, getkecamatan);
+//                    mBundle.putString(KEY_KELURAHAN, getkelurahan);
+//                    mBundle.putString(KEY_NAMAAYAH, getnamaayah);
+//                    mBundle.putString(KEY_NAMAIBU, getnamaibu);
+//                    mBundle.putString(KEY_SUAMI, getsuami);
+//                    mBundle.putString(KEY_ISTRI, getistri);
+//                    mBundle.putString(KEY_NOTELP, getnotelp);
+//                    mBundle.putString(KEY_AGAMA, getagama);
+//                    mBundle.putString(KEY_PENDIDIKAN, getpendidikan);
+//                    mBundle.putString(KEY_PEKERJAAN, getpekerjaan);
+//                    mBundle.putString(KEY_STATUSKAWIN, getstatuskawin);
+//                    mBundle.putString(KEY_KEWARGANEGARAAN, getkewarganegaraan);
+//                    mBundle.putString(KEY_SUKU, getsuku);
+//                    mBundle.putString(KEY_BAHASADAERAH, getbahasa);
+//                    mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
+//                    mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
+//                    mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
+//                    mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
+//                    mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
+//                    secondFragtry.setArguments(mBundle);
+//                    FragmentManager fm = getActivity().getSupportFragmentManager();
+//                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+//                }
             }
 
         }
         else {
             postnextfragment();
         }
-
-
-
 
     }
 
@@ -338,27 +395,6 @@ public class Fragment_Dftronline extends Fragment {
     }
 
     private void postnextfragment(){
-        if(getjenispasien == String.valueOf('0'))
-        {
-            Fragment_poli secondFragtry = new Fragment_poli();
-            Bundle mBundle = new Bundle();
-            mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-            mBundle.putString(KEY_HUBUNGAN, gethubungan);
-            mBundle.putString(KEY_NORM, getnorm);
-            mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-            mBundle.putString(KEY_NOTELP, getnotelp);
-            mBundle.putString(KEY_EMAIL, getemail);
-            mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-            mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
-            mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
-            mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
-            mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
-            secondFragtry.setArguments(mBundle);
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
-        }
-        if(getjenispasien == String.valueOf('1'))
-        {
             Fragment_poli secondFragtry = new Fragment_poli();
             Bundle mBundle = new Bundle();
             mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
@@ -392,6 +428,5 @@ public class Fragment_Dftronline extends Fragment {
             secondFragtry.setArguments(mBundle);
             FragmentManager fm = getActivity().getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
-        }
     }
 }
