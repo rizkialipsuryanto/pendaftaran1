@@ -41,7 +41,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/pb_nik" />
+                android:text="@string/pb_nik"
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbnik"

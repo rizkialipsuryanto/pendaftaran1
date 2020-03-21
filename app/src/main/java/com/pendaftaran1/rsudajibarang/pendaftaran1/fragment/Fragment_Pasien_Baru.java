@@ -51,6 +51,37 @@ import static android.R.layout.simple_spinner_item;
  */
 public class Fragment_Pasien_Baru extends Fragment {
 
+    public static String KEY_JENIS_PASIEN = "jenis_pasien";
+    public static String KEY_HUBUNGAN = "hubungan";
+    public static String KEY_NORM = "norm";
+    public static String KEY_TGLLAHIR = "tgl_lahir";
+    public static String KEY_NOTELP = "notelp";
+    public static String KEY_EMAIL = "email";
+
+    public static String KEY_NAMA = "nama";
+    public static String KEY_NIK = "nik";
+    public static String KEY_JENISKELAMIN = "jenis_kelamin";
+    public static String KEY_TEMPATLAHIR = "tempat_lahir";
+    public static String KEY_ALAMATSESUAIKTP = "alamat_sesuai_ktp";
+    public static String KEY_PROVINSI = "provinsi";
+
+    public static String KEY_KABUPATEN = "kabupaten";
+    public static String KEY_KECAMATAN = "kecamatan";
+    public static String KEY_KELURAHAN = "kelurahan";
+    public static String KEY_NAMAAYAH = "nama_ayah";
+    public static String KEY_NAMAIBU = "nama_ibu";
+    public static String KEY_SUAMI = "nama_suami";
+
+    public static String KEY_ISTRI = "nama_istri";
+    public static String KEY_AGAMA = "agama";
+    public static String KEY_PENDIDIKAN = "pendidikan";
+    public static String KEY_PEKERJAAN = "pekerjaan";
+    public static String KEY_STATUSKAWIN = "status_kawin";
+    public static String KEY_KEWARGANEGARAAN = "kewarganegaraan";
+    public static String KEY_SUKU = "suku";
+    public static String KEY_BAHASADAERAH = "bahasa_daerah";
+    public static String KEY_TITLE = "title";
+
     EditText pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
     TextView tvtempprovinsii,tvtempkabupatenn,tvtempkecamatann;
     private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten,sppbkecamatan,sppbkelurahan,sppbagama, sppbpendidikan, sppbpekerjaan, sppbstatuspernikahan
@@ -147,9 +178,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         sppbprovinsi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-//                Toasty.success(getActivity(), parentView.getItemAtPosition(position).toString(), Toast.LENGTH_LONG).show();
                 tvtempprovinsii.setText(valueIdProvinsi.get(position));
-//                goodModelKabArrayList.clear();
                 fetchJSONKabupaten();
             }
 
@@ -247,9 +276,28 @@ public class Fragment_Pasien_Baru extends Fragment {
     }
 
     private void nextFragment() {
+//        FragmentManager fm = getActivity().getSupportFragmentManager();
+//        Fragment newFrame = new Fragment_Dftronline();
+//        fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
+
+        Fragment_Dftronline secondFragtry = new Fragment_Dftronline();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(KEY_JENIS_PASIEN, "0");
+        mBundle.putString(KEY_HUBUNGAN, sppbhubunganpasien.getSelectedItem().toString());
+        mBundle.putString(KEY_NAMA, pbnamaa.getText().toString());
+        mBundle.putString(KEY_NIK, pbnika.getText().toString());
+        mBundle.putString(KEY_TEMPATLAHIR, pbtempatlahira.getText().toString());
+        mBundle.putString(KEY_ALAMATSESUAIKTP, pbalamatktpa.getText().toString());
+        mBundle.putString(KEY_NAMAAYAH, pbayaha.getText().toString());
+        mBundle.putString(KEY_NAMAIBU, pbibua.getText().toString());
+        mBundle.putString(KEY_SUAMI, pbsuamia.getText().toString());
+        mBundle.putString(KEY_ISTRI, pbistria.getText().toString());
+        mBundle.putString(KEY_NOTELP, pbnmrtelpa.getText().toString());
+        mBundle.putString(KEY_PROVINSI, sppbprovinsi.getSelectedItem().toString());
+
+        secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();
-        Fragment newFrame = new Fragment_Dftronline();
-        fm.beginTransaction().replace(R.id.flMain, newFrame).commit();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
     private void fetchJSONProvinsi(){

@@ -131,7 +131,7 @@ public class Fragment_Pasien_Lama extends Fragment {
 
         Fragment_Dftronline secondFragtry = new Fragment_Dftronline();
         Bundle mBundle = new Bundle();
-        mBundle.putString(KEY_JENIS_PASIEN, "PASIEN LAMA");
+        mBundle.putString(KEY_JENIS_PASIEN, "0");
         mBundle.putString(KEY_HUBUNGAN, sppbhubunganpasien.getSelectedItem().toString());
         mBundle.putString(KEY_NORM, plnorma.getText().toString());
         mBundle.putString(KEY_TGLLAHIR, kalenderinputcatatan.getText().toString());
