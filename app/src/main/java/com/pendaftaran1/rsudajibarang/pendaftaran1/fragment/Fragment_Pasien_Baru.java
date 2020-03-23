@@ -1,5 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -92,6 +93,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten,sppbkecamatan,sppbkelurahan,sppbagama, sppbpendidikan, sppbpekerjaan, sppbstatuspernikahan
     ,sppbsuku,sppbbahasa,sppbhubunganpasien,sppbtitle;
     Button btnpbdaftarr;
+    public static ProgressDialog pDialog;
 
     private ArrayList<mProvinsi> goodModelArrayList;
     private ArrayList<mKabupaten> goodModelKabArrayList;
@@ -318,6 +320,10 @@ public class Fragment_Pasien_Baru extends Fragment {
     }
 
     private void fetchJSONProvinsi(){
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
+        showDialog();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call povinsi = restServices.ListProvinsi();
@@ -329,12 +335,14 @@ public class Fragment_Pasien_Baru extends Fragment {
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+                        hideDialog();
                         Log.i("onSuccess", response.body().toString());
 
                         String jsonresponse = response.body().toString();
                         spinJSONProvinsi(jsonresponse);
 
                     } else {
+                        hideDialog();
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
                     }
                 }
@@ -343,6 +351,7 @@ public class Fragment_Pasien_Baru extends Fragment {
             @Override
             public void onFailure(Call call, Throwable t) {
                 Log.i("onFailure",t.getMessage().toString());
+                hideDialog();
             }
         });
     }
@@ -1133,5 +1142,15 @@ public class Fragment_Pasien_Baru extends Fragment {
             e.printStackTrace();
         }
 
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }

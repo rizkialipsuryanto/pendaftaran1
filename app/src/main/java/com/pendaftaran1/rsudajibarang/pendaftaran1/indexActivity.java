@@ -170,6 +170,4 @@ public class indexActivity extends AppCompatActivity {
         return name;
     }
 
-
-
 }
