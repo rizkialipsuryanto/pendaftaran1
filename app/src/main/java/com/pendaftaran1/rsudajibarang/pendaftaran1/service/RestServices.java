@@ -48,6 +48,9 @@ public interface RestServices {
     @GET("/api.simrs.rsudajibarang/api/references/etnis")
     public Call<JsonObject> ListSuku();
 
+    @GET("/api.simrs.rsudajibarang/api/references/title")
+    public Call<JsonObject> ListTitle();
+
     @GET("/api.simrs.rsudajibarang/api/references/bahasa")
     public Call<JsonObject> ListBahasa();
 

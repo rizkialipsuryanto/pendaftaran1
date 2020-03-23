@@ -33,6 +33,7 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPendidikan;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mStatusPernikahan;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mSuku;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mTitle;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONArray;
@@ -89,7 +90,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     private RadioGroup radioKewarganegaraan;
     private RadioButton radioKewarganegaraanButton;
     private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten,sppbkecamatan,sppbkelurahan,sppbagama, sppbpendidikan, sppbpekerjaan, sppbstatuspernikahan
-    ,sppbsuku,sppbbahasa,sppbhubunganpasien;
+    ,sppbsuku,sppbbahasa,sppbhubunganpasien,sppbtitle;
     Button btnpbdaftarr;
 
     private ArrayList<mProvinsi> goodModelArrayList;
@@ -103,6 +104,7 @@ public class Fragment_Pasien_Baru extends Fragment {
     private ArrayList<mSuku> goodModelSukuArrayList;
     private ArrayList<mBahasa> goodModelBahasaArrayList;
     private ArrayList<mHubunganPasien> goodModelHubunganPasienArrayList;
+    private ArrayList<mTitle> goodModelTitleArrayList;
     private ArrayList<String> playerNames = new ArrayList<String>();
 
 
@@ -125,6 +127,8 @@ public class Fragment_Pasien_Baru extends Fragment {
     List<String> valueIdBahasa = new ArrayList<String>();
     List<String> valueBahasa = new ArrayList<String>();
     List<String> valueHubunganPasien = new ArrayList<String>();
+    List<String> valueIdTitle = new ArrayList<String>();
+    List<String> valueTitle = new ArrayList<String>();
 
     public Fragment_Pasien_Baru() {
         // Required empty public constructor
@@ -137,7 +141,6 @@ public class Fragment_Pasien_Baru extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pasien_baru, container, false);
         btnpbdaftarr = (Button) view.findViewById(R.id.btnpbdaftar);
-        pbtitlee = (EditText) view.findViewById(R.id.pbtitle);
         pbnamaa = (EditText) view.findViewById(R.id.pbnama);
         pbnika = (EditText) view.findViewById(R.id.pbnik);
         pbtempatlahira = (EditText) view.findViewById(R.id.pbtempatlahir);
@@ -162,6 +165,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         sppbsuku = (Spinner) view.findViewById(R.id.spinnersuku);
         sppbbahasa = (Spinner) view.findViewById(R.id.spinnerbhs);
         sppbhubunganpasien = (Spinner) view.findViewById(R.id.spinnerpbhub);
+        sppbtitle = (Spinner) view.findViewById(R.id.spinnerpbtitle);
 
         fetchJSONProvinsi();
         fetchJSONAgama();
@@ -171,6 +175,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         fetchJSONSuku();
         fetchJSONBahasa();
         fetchJSONHubunganPasien();
+        fetchJSONTitle();
 
         btnpbdaftarr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -305,7 +310,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         mBundle.putString(KEY_STATUSKAWIN, sppbstatuspernikahan.getSelectedItem().toString());
         mBundle.putString(KEY_SUKU, sppbsuku.getSelectedItem().toString());
         mBundle.putString(KEY_BAHASADAERAH, sppbbahasa.getSelectedItem().toString());
-        mBundle.putString(KEY_TITLE, pbtitlee.getText().toString());
+        mBundle.putString(KEY_TITLE, sppbtitle.getSelectedItem().toString());
 
         secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -1053,6 +1058,75 @@ public class Fragment_Pasien_Baru extends Fragment {
 
             spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
             sppbhubunganpasien.setAdapter(spinnerArrayAdapter);
+            spinnerArrayAdapter.notifyDataSetChanged();
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void fetchJSONTitle(){
+        // REST LOGIN ------------------------------------------------------------------
+        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+        Call title = restServices.ListTitle();
+
+        title.enqueue(new Callback() {
+            @Override
+            public void onResponse(Call call, Response response) {
+                Log.i("Responsestring", response.body().toString());
+                //Toast.makeText()
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i("onSuccess", response.body().toString());
+
+                        String jsonresponse = response.body().toString();
+                        spinJSONTitle(jsonresponse);
+
+                    } else {
+                        Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.i("onFailure",t.getMessage().toString());
+            }
+        });
+    }
+
+    private void spinJSONTitle(String response){
+
+        try {
+
+            JSONObject obj = new JSONObject(response);
+            JSONObject rrrr = obj.getJSONObject("response");
+
+            goodModelTitleArrayList = new ArrayList<>();
+            JSONArray dataArray  = rrrr.getJSONArray("title");
+
+            for (int i = 0; i < dataArray.length(); i++) {
+
+                mTitle spinnerModel = new mTitle();
+                JSONObject dataobj = dataArray.getJSONObject(i);
+
+                spinnerModel.setId(dataobj.getString("id"));
+                spinnerModel.setTitle(dataobj.getString("title"));
+
+                goodModelTitleArrayList.add(spinnerModel);
+
+            }
+
+            for (int i = 0; i < goodModelTitleArrayList.size(); i++){
+                valueIdTitle.add(goodModelTitleArrayList.get(i).getId().toString());
+                valueTitle.add(goodModelTitleArrayList.get(i).getTitle().toString());
+            }
+
+            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getActivity(), simple_spinner_item, valueTitle);
+
+            spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
+            sppbtitle.setAdapter(spinnerArrayAdapter);
             spinnerArrayAdapter.notifyDataSetChanged();
 
         } catch (JSONException e) {
