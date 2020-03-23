@@ -60,8 +60,6 @@ public class Fragment_Dftronline extends Fragment {
     public static String KEY_CARABAYARNAMA = "carabayarnama";
     public static String KEY_BPJS = "bpjs";
     public static String KEY_RUJUKAN = "rujukan";
-
-
     public static String KEY_NAMA = "nama";
     public static String KEY_NIK = "nik";
     public static String KEY_JENISKELAMIN = "jenis_kelamin";
@@ -86,7 +84,7 @@ public class Fragment_Dftronline extends Fragment {
     public static String save;
 
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail;
-    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
+    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa,gettitle;
     EditText kalenderinputcontrol, ponmrbpjs, ponmrrujukan;
     LinearLayout llnobpjs;
     ImageButton btnTanggal;
@@ -291,61 +289,6 @@ public class Fragment_Dftronline extends Fragment {
 
                 Toasty.error(getActivity(), jenis_pasien, Toast.LENGTH_LONG).show();
                 postnextfragment();
-//                if(jenis_pasien == "0")
-//                {
-//                    Fragment_poli secondFragtry = new Fragment_poli();
-//                    Bundle mBundle = new Bundle();
-//                    mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-//                    mBundle.putString(KEY_HUBUNGAN, gethubungan);
-//                    mBundle.putString(KEY_NORM, getnorm);
-//                    mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-//                    mBundle.putString(KEY_NOTELP, getnotelp);
-//                    mBundle.putString(KEY_EMAIL, getemail);
-//                    mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-//                    mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
-//                    mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
-//                    mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
-//                    mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
-//                    secondFragtry.setArguments(mBundle);
-//                    FragmentManager fm = getActivity().getSupportFragmentManager();
-//                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
-//                }
-//                if(jenis_pasien == "0")
-//                {
-//                    Fragment_poli secondFragtry = new Fragment_poli();
-//                    Bundle mBundle = new Bundle();
-//                    mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-//                    mBundle.putString(KEY_HUBUNGAN, gethubungan);
-//                    mBundle.putString(KEY_NAMA, getnama);
-//                    mBundle.putString(KEY_NIK, getnik);
-//                    mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);
-//                    mBundle.putString(KEY_TEMPATLAHIR, gettempatlahir);
-//                    mBundle.putString(KEY_ALAMATSESUAIKTP, getalamatsesuaiktp);
-//                    mBundle.putString(KEY_PROVINSI, getprovinsi);
-//                    mBundle.putString(KEY_KABUPATEN, getkabupaten);
-//                    mBundle.putString(KEY_KECAMATAN, getkecamatan);
-//                    mBundle.putString(KEY_KELURAHAN, getkelurahan);
-//                    mBundle.putString(KEY_NAMAAYAH, getnamaayah);
-//                    mBundle.putString(KEY_NAMAIBU, getnamaibu);
-//                    mBundle.putString(KEY_SUAMI, getsuami);
-//                    mBundle.putString(KEY_ISTRI, getistri);
-//                    mBundle.putString(KEY_NOTELP, getnotelp);
-//                    mBundle.putString(KEY_AGAMA, getagama);
-//                    mBundle.putString(KEY_PENDIDIKAN, getpendidikan);
-//                    mBundle.putString(KEY_PEKERJAAN, getpekerjaan);
-//                    mBundle.putString(KEY_STATUSKAWIN, getstatuskawin);
-//                    mBundle.putString(KEY_KEWARGANEGARAAN, getkewarganegaraan);
-//                    mBundle.putString(KEY_SUKU, getsuku);
-//                    mBundle.putString(KEY_BAHASADAERAH, getbahasa);
-//                    mBundle.putString(KEY_TANGGAL, kalenderinputcontrol.getText().toString());
-//                    mBundle.putString(KEY_CARABAYAR, tvcarabayartemp.getText().toString());
-//                    mBundle.putString(KEY_CARABAYARNAMA, tvcarabayartempnama.getText().toString());
-//                    mBundle.putString(KEY_BPJS, ponmrbpjs.getText().toString());
-//                    mBundle.putString(KEY_RUJUKAN, ponmrrujukan.getText().toString());
-//                    secondFragtry.setArguments(mBundle);
-//                    FragmentManager fm = getActivity().getSupportFragmentManager();
-//                    fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
-//                }
             }
 
         }
@@ -373,6 +316,8 @@ public class Fragment_Dftronline extends Fragment {
         {
             getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
             gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            gettitle = getArguments().getString(KEY_TITLE);
+            Log.i("DATA", gettitle);
             getnama = getArguments().getString(KEY_NAMA);
             Log.i("DATA", getnama);
             getnik = getArguments().getString(KEY_NIK);
@@ -409,8 +354,6 @@ public class Fragment_Dftronline extends Fragment {
             Log.i("DATA", getpekerjaan);
             getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
             Log.i("DATA", getstatuskawin);
-//            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
-//            Log.i("DATA", getkewarganegaraan);
             getsuku = getArguments().getString(KEY_SUKU);
             Log.i("DATA", getsuku);
             getbahasa = getArguments().getString(KEY_BAHASADAERAH);
@@ -427,6 +370,7 @@ public class Fragment_Dftronline extends Fragment {
             mBundle.putString(KEY_TGLLAHIR, gettgllahir);
             mBundle.putString(KEY_EMAIL, getemail);
             mBundle.putString(KEY_HUBUNGAN, gethubungan);
+            mBundle.putString(KEY_TITLE, gettitle);
             mBundle.putString(KEY_NAMA, getnama);
             mBundle.putString(KEY_NIK, getnik);
             mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);

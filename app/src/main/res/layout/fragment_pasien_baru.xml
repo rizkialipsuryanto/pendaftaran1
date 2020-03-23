@@ -29,6 +29,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:text="Title"
+                android:textColor="@color/colorDivider"/>
+
+            <EditText
+                android:id="@+id/pbtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="@string/pb_nama"
                 android:textColor="@color/colorDivider"/>
 
@@ -230,26 +242,6 @@
                 android:layout_height="match_parent"
                 android:text="@string/pb_kewarganegaraan"
                 android:textColor="@color/colorDivider"/>
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_above="@+id/view_bellow">
-
-                <RadioButton
-                    android:id="@+id/pbkewarganegaraan1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pb_wni"
-                    android:paddingRight="10dp"/>
-
-                <RadioButton
-                    android:id="@+id/pbkewarganegaraan2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pb_wna"
-                    android:paddingRight="10dp"/>
-            </RadioGroup>
 
             <TextView
                 android:layout_width="match_parent"

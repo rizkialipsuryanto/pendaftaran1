@@ -122,7 +122,7 @@ public interface RestServices {
             @Field("kewarganegaraan") String kewarganegaraan,
             @Field("suku") String suku,
             @Field("bahasa_daerah") String bahasa_daerah,
-//            @Field("nama_title") String nama_title,
+            @Field("nama_title") String nama_title,
             @Header("Authorization") String auth);
 
     @GET("/api.simrs.rsudajibarang/api/registration/outPatientList")

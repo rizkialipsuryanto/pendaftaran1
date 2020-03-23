@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,12 +15,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
-import com.android.volley.ServerError;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.SliderImageAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
@@ -31,14 +26,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.pDialog;
-
 public class Login extends AppCompatActivity {
 
     ViewPager viewPager;
 
     String token;
     TextView usernamea, passwordd;
+
+    public static ProgressDialog pDialog;
 
     public final static String TAG_TOKEN = "token";
     public static final String session_status = "session_status";
@@ -97,6 +92,11 @@ public class Login extends AppCompatActivity {
 
     private void login() {
 
+        pDialog = new ProgressDialog(this);
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Logging in ...");
+        showDialog();
+
         Call login = restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
         login.enqueue(new Callback() {
             @Override
@@ -115,6 +115,7 @@ public class Login extends AppCompatActivity {
                     // MENDAPATKAN TOKEN
                     String token = rrrr.getString("token");
                     if (Integer.parseInt(code) == 200) {
+                        hideDialog();
                         Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
 //                       menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -141,9 +142,19 @@ public class Login extends AppCompatActivity {
             public void onFailure(Call call, Throwable t) {
 
                 Log.d("OBJEK", t.getMessage());
+                hideDialog();
             }
         });
     }
 
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 }
 

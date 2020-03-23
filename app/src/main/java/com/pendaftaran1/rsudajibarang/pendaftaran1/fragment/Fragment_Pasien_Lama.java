@@ -1,5 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -55,10 +58,13 @@ public class Fragment_Pasien_Lama extends Fragment {
     public static String KEY_NOTELP = "notelp";
     public static String KEY_EMAIL = "email";
 
+    public static ProgressDialog pDialog;
+
     EditText plnorma, plnotelephona,plemaila, kalenderinputcatatan;
     Button btnpldaftara;
     ImageButton btnTanggal;
     String hubunganspinner, token;
+
 
     private Spinner sppbhubunganpasien;
 
@@ -144,6 +150,10 @@ public class Fragment_Pasien_Lama extends Fragment {
     }
 
     private void fetchJSONHubunganPasien(){
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Logging in ...");
+        showDialog();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call hubunganpasien = restServices.ListHubunganPasien();
@@ -155,12 +165,14 @@ public class Fragment_Pasien_Lama extends Fragment {
                 //Toast.makeText()
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
+                        hideDialog();
                         Log.i("onSuccess", response.body().toString());
 
                         String jsonresponse = response.body().toString();
                         spinJSONHubunganPasien(jsonresponse);
 
                     } else {
+                        hideDialog();
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
                     }
                 }
@@ -168,6 +180,7 @@ public class Fragment_Pasien_Lama extends Fragment {
 
             @Override
             public void onFailure(Call call, Throwable t) {
+                hideDialog();
                 Log.i("onFailure",t.getMessage().toString());
             }
         });
@@ -246,6 +259,16 @@ public class Fragment_Pasien_Lama extends Fragment {
                     }
                 }).show();
 
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 }

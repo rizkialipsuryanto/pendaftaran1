@@ -15,6 +15,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -82,8 +84,10 @@ public class Fragment_Pasien_Baru extends Fragment {
     public static String KEY_BAHASADAERAH = "bahasa_daerah";
     public static String KEY_TITLE = "title";
 
-    EditText pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
+    EditText pbtitlee,pbnamaa,pbnika,pbtempatlahira,pbalamatktpa,pbayaha,pbibua,pbsuamia,pbistria,pbnmrtelpa;
     TextView tvtempprovinsii,tvtempkabupatenn,tvtempkecamatann;
+    private RadioGroup radioKewarganegaraan;
+    private RadioButton radioKewarganegaraanButton;
     private Spinner sppbprovinsi,sppbjeniskelamin,sppbkabupaten,sppbkecamatan,sppbkelurahan,sppbagama, sppbpendidikan, sppbpekerjaan, sppbstatuspernikahan
     ,sppbsuku,sppbbahasa,sppbhubunganpasien;
     Button btnpbdaftarr;
@@ -133,6 +137,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pasien_baru, container, false);
         btnpbdaftarr = (Button) view.findViewById(R.id.btnpbdaftar);
+        pbtitlee = (EditText) view.findViewById(R.id.pbtitle);
         pbnamaa = (EditText) view.findViewById(R.id.pbnama);
         pbnika = (EditText) view.findViewById(R.id.pbnik);
         pbtempatlahira = (EditText) view.findViewById(R.id.pbtempatlahir);
@@ -276,7 +281,6 @@ public class Fragment_Pasien_Baru extends Fragment {
     }
 
     private void nextFragment() {
-
         Fragment_Dftronline secondFragtry = new Fragment_Dftronline();
         Bundle mBundle = new Bundle();
         mBundle.putString(KEY_JENIS_PASIEN, "1");
@@ -301,7 +305,7 @@ public class Fragment_Pasien_Baru extends Fragment {
         mBundle.putString(KEY_STATUSKAWIN, sppbstatuspernikahan.getSelectedItem().toString());
         mBundle.putString(KEY_SUKU, sppbsuku.getSelectedItem().toString());
         mBundle.putString(KEY_BAHASADAERAH, sppbbahasa.getSelectedItem().toString());
-//        mBundle.putString(KEY_TITLE, sppbagama.getSelectedItem().toString());
+        mBundle.putString(KEY_TITLE, pbtitlee.getText().toString());
 
         secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();

@@ -87,7 +87,7 @@ public class Fragment_poli extends Fragment {
     public static String KEY_BAHASADAERAH = "bahasa_daerah";
     public static String KEY_TITLE = "title";
     String getjenispasien,gethubungan,getnorm,gettgllahir,getnotelp,getemail,gettanggal,getcarabayar,getcarabayarnama,getbpjs,getrujukan;
-    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa;
+    String getnama,getnik,getjeniskelamin,gettempatlahir,getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan, getnamaayah,getnamaibu,getsuami,getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,getbahasa,gettitle;
     public String polik;
 
     TextView tvtemppoli,tvtemppolinama;
@@ -270,26 +270,6 @@ public class Fragment_poli extends Fragment {
     private void nextFragment() {
         // TODO Auto-generated method stub
         postnextfragment();
-
-//        Fragment_Dokter secondFragtry = new Fragment_Dokter();
-//        Bundle mBundle = new Bundle();
-//        mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
-//        mBundle.putString(KEY_HUBUNGAN, gethubungan);
-//        mBundle.putString(KEY_NORM, getnorm);
-//        mBundle.putString(KEY_TGLLAHIR, gettgllahir);
-//        mBundle.putString(KEY_NOTELP, getnotelp);
-//        mBundle.putString(KEY_EMAIL, getemail);
-//        mBundle.putString(KEY_TANGGAL, gettanggal);
-//        mBundle.putString(KEY_CARABAYAR, getcarabayar);
-//        mBundle.putString(KEY_CARABAYARNAMA, getcarabayarnama);
-//        mBundle.putString(KEY_BPJS, getbpjs);
-//        mBundle.putString(KEY_RUJUKAN, getrujukan);
-//        mBundle.putString(KEY_POLI, tvtemppoli.getText().toString());
-//        mBundle.putString(KEY_POLINAMA, tvtemppolinama.getText().toString());
-//
-//        secondFragtry.setArguments(mBundle);
-//        FragmentManager fm = getActivity().getSupportFragmentManager();
-//        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
     private void getfrombefore(){
@@ -335,6 +315,8 @@ public class Fragment_poli extends Fragment {
         {
             getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
             gethubungan = getArguments().getString(KEY_HUBUNGAN);
+            gettitle = getArguments().getString(KEY_TITLE);
+            Log.i("DATA", gettitle);
             getnama = getArguments().getString(KEY_NAMA);
             Log.i("DATA", getnama);
             getnik = getArguments().getString(KEY_NIK);
@@ -402,6 +384,7 @@ public class Fragment_poli extends Fragment {
         mBundle.putString(KEY_RUJUKAN, getrujukan);
         mBundle.putString(KEY_POLI, tvtemppoli.getText().toString());
         mBundle.putString(KEY_POLINAMA, tvtemppolinama.getText().toString());
+        mBundle.putString(KEY_TITLE, gettitle);
         mBundle.putString(KEY_NAMA, getnama);
         mBundle.putString(KEY_NIK, getnik);
         mBundle.putString(KEY_JENISKELAMIN, getjeniskelamin);
