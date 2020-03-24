@@ -8,15 +8,27 @@
     android:background="@color/abu"
     tools:context=".fragment.HomeFragment">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/admin_avatar"
+        />
+
+    </LinearLayout>
+
     <View
         android:id="@+id/rectangle_1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="336dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/rectangle_1">
-
-    </View>
+        android:background="@drawable/rectangle_1" />
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="match_parent"
@@ -27,65 +39,57 @@
         app:orientation="horizontal">
 
         <FrameLayout
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:layout_width="350dp"
             android:layout_height="90dp"
             android:background="@drawable/bgbuttonhome">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/admin_avatar"
+                    android:contentDescription="@string/desdftr"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/admin_avatar"
-                    android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="337dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="center"
+                android:text="@string/dftr"
+                android:textAlignment="center"
+                android:textColor="@color/colorDivider"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="3000dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
-                    android:text="@string/dftr"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textColor="@color/colorDivider"
-                    android:textSize="14sp" />
-            </RelativeLayout>
         </FrameLayout>
 
         <FrameLayout
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
             android:layout_width="350dp"
             android:layout_height="90dp"
             android:background="@drawable/bgbuttonhome">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/admin_avatar"
+                android:contentDescription="@string/desjdwl"/>
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/admin_avatar"
-                    android:layout_centerVertical="true"/>
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:text="@string/cek"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="@color/colorDivider"
+                android:textSize="14sp" />
 
-                <TextView
-                    android:layout_width="3000dp"
-                    android:layout_height="70dp"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginRight="2dp"
-                    android:text="@string/cek"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:textColor="@color/colorDivider"
-                    android:textSize="14sp" />
-            </RelativeLayout>
         </FrameLayout>
 
     </androidx.gridlayout.widget.GridLayout>
