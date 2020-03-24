@@ -4,12 +4,12 @@
         <layer-list android:opacity="transparent">
             <item>
                 <shape>
-                    <solid android:color="@android:color/holo_blue_dark" />
+                    <solid android:color="@color/putih" />
                     <corners
                         android:radius="20dp"/>
                     <padding android:right="5dp" android:left="5dp" android:top="5dp" android:bottom="5dp"/>
                     <stroke
-                        android:color="@android:color/holo_orange_dark"
+                        android:color="@color/putih"
                         android:width="3dp" />
                 </shape>
             </item>
