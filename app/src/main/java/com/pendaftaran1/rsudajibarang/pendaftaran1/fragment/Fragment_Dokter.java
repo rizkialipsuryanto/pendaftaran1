@@ -128,7 +128,7 @@ public class Fragment_Dokter extends Fragment {
 //        Toasty.error(getActivity(), getpoli, Toast.LENGTH_LONG).show();
         iduser = indexActivity.getIdUser();
         Toasty.error(getActivity(), iduser, Toast.LENGTH_LONG).show();
-        Toasty.error(getActivity(), indexActivity.getIdUser(), Toast.LENGTH_LONG).show();
+//        Toasty.error(getActivity(), indexActivity.getIdUser(), Toast.LENGTH_LONG).show();
         return view;
     }
 
@@ -261,6 +261,7 @@ public class Fragment_Dokter extends Fragment {
 //        pDialog.setMessage("Loading ...");
 //        showDialog();
         String pasienbaru = getjenispasien;
+        String idusernya = indexActivity.getIdUser();
         Call daftar;
         Log.d("OBJEK", "Jalan-----");
         Log.d("OBJEK", token);
@@ -271,13 +272,13 @@ public class Fragment_Dokter extends Fragment {
             daftar = restServices.PendaftaranPasienLama(getjenispasien,getnorm,gettanggal,getpoli,
                     tvtempdokter.getText().toString()
                     ,gethubungan,
-                    getnotelp,getemail,getcarabayar, getbpjs,getrujukan,iduser.toString(),"Bearer "+token);
+                    getnotelp,getemail,getcarabayar, getbpjs,getrujukan,idusernya.toString(),"Bearer "+token);
         }
         else{
             Log.d("OBJEK", "Jalan baru");
             daftar = restServices.PendaftaranPasienBaru(getjenispasien,gettanggal,getpoli,
                     tvtempdokter.getText().toString(),gethubungan, getnotelp
-                    ,getcarabayar, getbpjs,getrujukan,iduser.toString(),getnama,getnik,getjeniskelamin,gettempatlahir,
+                    ,getcarabayar, getbpjs,getrujukan,idusernya.toString(),getnama,getnik,getjeniskelamin,gettempatlahir,
                     getalamatsesuaiktp,getprovinsi,getkabupaten,getkecamatan,getkelurahan,getnamaayah,getnamaibu,getsuami,
                     getistri,getagama,getpendidikan,getpekerjaan,getstatuskawin,getkewarganegaraan,getsuku,
                     getbahasa,gettitle,"Bearer "+token);
