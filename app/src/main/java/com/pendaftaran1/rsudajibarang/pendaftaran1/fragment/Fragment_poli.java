@@ -1,5 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -40,6 +41,7 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_poli extends Fragment {
+    public static ProgressDialog pDialog;
     private ArrayList<mPoliklinik> goodModelPoliklinikArrayList;
 //    ArrayList<mPoliklinik>birdsLists;
     private PoliklinikAdapter adapter;
@@ -119,6 +121,10 @@ public class Fragment_poli extends Fragment {
     }
 
     private void getdata() {
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
+        showDialog();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
 //        Call poli = restServices.ListPoli();
@@ -136,9 +142,10 @@ public class Fragment_poli extends Fragment {
 
                         String jsonresponse = response.body().toString();
                         writeListView(jsonresponse);
-
+                        hideDialog();
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                        hideDialog();
                     }
                 }
             }
@@ -146,6 +153,7 @@ public class Fragment_poli extends Fragment {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.i("onFailure",t.getMessage().toString());
+                hideDialog();
             }
         });
     }
@@ -192,8 +200,6 @@ public class Fragment_poli extends Fragment {
                             .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,int id) {
                                     // jika tombol diklik, maka akan menutup activity ini
-//                        getActivity().finish();
-
                                     nextFragment();
                                 }
                             })
@@ -221,58 +227,16 @@ public class Fragment_poli extends Fragment {
 
     }
 
-//    public void daftarFragmentPoli() {
-//        String pasienbaru = "0";
-//        String poliklinik = "2";
-//        String dokter = "1";
-//        String tanggal = "2020-03-17";
-//        String normnya = "1";
-//        String jenispasiennya = "SENDIRI";
-//        String hubungannya = "TIDAK ADA";
-//        String notelpnya = "4444";
-//        String emailnya = "aa@gmail.com";
-//
-//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxNjc1NSwiZXhwIjoxNTg0NDM0NzU1fQ.RU4u4aV7rXKSRHvEl7Q0BW9F46qarkj5GK4XPhanvCM";
-//        Log.d("OBJEK", "Jalan-----");
-//        Log.d("OBJEK", getnorm);
-//        Log.d("OBJEK", getjenispasien);
-//        Log.d("OBJEK", gethubungan);
-//        Log.d("OBJEK", gettgllahir);
-//        Log.d("OBJEK", getnotelp);
-//        Log.d("OBJEK", getemail);
-//        Log.d("OBJEK", token);
-//        // REST LOGIN ------------------------------------------------------------------
-//        RestServices restServices = ServiceGenerator.build().create(RestServices.class);
-//        Call daftar = restServices.PendaftaranPasienLama(pasienbaru.toString(),getnorm,gettanggal,poliklinik.toString(),dokter.toString(),
-//                getjenispasien.toString(),gethubungan.toString(),getnotelp.toString(),getemail.toString(),getcarabayar,
-//                getbpjs,getrujukan,"Bearer "+token);
-//        daftar.enqueue(new Callback() {
-//            @Override
-//            public void onResponse(Call call, Response response) {
-//                try {
-//                    JSONObject jo = new JSONObject(response.body().toString());
-//                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
-//                } catch (Exception e) {
-//                    Toasty.error(getActivity(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
-//                    Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call call, Throwable t) {
-//
-//                Log.d("OBJEK", t.getMessage());
-//            }
-//        });
-//    }
-
     private void nextFragment() {
         // TODO Auto-generated method stub
         postnextfragment();
     }
 
     private void getfrombefore(){
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
+        showDialog();
         String jenispasiennya;
         getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
         jenispasiennya = getjenispasien;
@@ -310,6 +274,7 @@ public class Fragment_poli extends Fragment {
             getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
             getsuku = getArguments().getString(KEY_SUKU);
             getbahasa = getArguments().getString(KEY_BAHASADAERAH);
+            hideDialog();
         }
         if(jenispasiennya == "1")
         {
@@ -353,8 +318,6 @@ public class Fragment_poli extends Fragment {
             Log.i("DATA", getpekerjaan);
             getstatuskawin = getArguments().getString(KEY_STATUSKAWIN);
             Log.i("DATA", getstatuskawin);
-//            getkewarganegaraan = getArguments().getString(KEY_KEWARGANEGARAAN);
-//            Log.i("DATA", getkewarganegaraan);
             getsuku = getArguments().getString(KEY_SUKU);
             Log.i("DATA", getsuku);
             getbahasa = getArguments().getString(KEY_BAHASADAERAH);
@@ -364,6 +327,7 @@ public class Fragment_poli extends Fragment {
             getcarabayarnama = getArguments().getString(KEY_CARABAYARNAMA);
             getbpjs = getArguments().getString(KEY_BPJS);
             getrujukan = getArguments().getString(KEY_RUJUKAN);
+            hideDialog();
         }
     }
 
@@ -410,6 +374,16 @@ public class Fragment_poli extends Fragment {
         secondFragtry.setArguments(mBundle);
         FragmentManager fm = getActivity().getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
 }

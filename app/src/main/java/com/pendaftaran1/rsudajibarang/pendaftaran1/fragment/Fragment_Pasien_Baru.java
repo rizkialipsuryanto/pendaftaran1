@@ -281,9 +281,15 @@ public class Fragment_Pasien_Baru extends Fragment {
             Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
         }
         else{
+            pDialog = new ProgressDialog(getContext());
+            pDialog.setCancelable(false);
+            pDialog.setMessage("Loading ...");
+            showDialog();
             Toasty.success(getActivity(), "Pilih Tanggal dan Jenis Pelayanan", Toast.LENGTH_LONG).show();
             // Di dalam activity
             nextFragment();
+
+            hideDialog();
         }
     }
 
