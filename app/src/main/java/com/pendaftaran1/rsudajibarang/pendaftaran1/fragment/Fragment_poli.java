@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.PoliklinikAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPoliklinik;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
@@ -114,6 +115,8 @@ public class Fragment_poli extends Fragment {
         getfrombefore();
 
         listView.setAdapter(adapter);
+
+        Toasty.error(getActivity(), indexActivity.getIdUser(), Toast.LENGTH_LONG).show();
 
         getdata();
 

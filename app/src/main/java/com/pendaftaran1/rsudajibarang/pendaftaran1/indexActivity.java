@@ -55,7 +55,7 @@ public class indexActivity extends AppCompatActivity {
 
     public static final String TAG_TOKEN = "token";
     public static String token;
-    public static String name;
+    public static String iduser;
     private String url_insert = Base.URL + "auth/decode";
     public static ProgressDialog pDialog;
     public static String Errmsg;
@@ -107,11 +107,12 @@ public class indexActivity extends AppCompatActivity {
         //Untuk inisialisasi fragment pertama kali
         fragmentManager.beginTransaction().replace(R.id.flMain, new HomeFragment()).commit();
         token = getIntent().getStringExtra(TAG_TOKEN);
+        getiduser();
 
         Toast.makeText(getApplicationContext(),token, Toast.LENGTH_LONG).show();
     }
 
-    private void nama() {
+    private void getiduser() {
         String url;
         url = url_insert+"?token="+getIntent().getStringExtra(TAG_TOKEN);
 
@@ -128,11 +129,11 @@ public class indexActivity extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     // fetch JSONObject named employee
                     JSONObject employee = obj.getJSONObject("response");
-                    String message = employee.getString("decoded");
-                    Log.d("OBJECT",message);
-                    Toast.makeText(indexActivity.this, message, Toast.LENGTH_LONG).show();
+//                    String message = employee.getString("decoded");
+//                    Log.d("OBJECT",message);
+//                    Toast.makeText(indexActivity.this, message, Toast.LENGTH_LONG).show();
                     // get employee name and salary
-                    name = employee.getString("name");
+                    iduser = employee.getString("id");
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -166,8 +167,8 @@ public class indexActivity extends AppCompatActivity {
         return token;
     }
 
-    public static String getName() {
-        return name;
+    public static String getIdUser() {
+        return iduser;
     }
 
 }

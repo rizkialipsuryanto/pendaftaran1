@@ -91,6 +91,7 @@ public interface RestServices {
             @Field("penjamin") String penjamin,
             @Field("nobpjs") String nobpjs,
             @Field("norujukan") String norujukan,
+            @Field("userid") String userid,
             @Header("Authorization") String auth);
 
     @POST("/api.simrs.rsudajibarang/api/registration/outPatient")
@@ -105,6 +106,7 @@ public interface RestServices {
             @Field("penjamin") String penjamin,
             @Field("nobpjs") String nobpjs,
             @Field("norujukan") String norujukan,
+            @Field("userid") String userid,
             @Field("nama") String nama,
             @Field("nik") String nik,
             @Field("jenis_kelamin") String jenis_kelamin,
@@ -132,5 +134,7 @@ public interface RestServices {
     public Call<JsonObject> ListRiwayat(@Query("id") String id,
                                         @Header("Authorization") String auth);
 
+    @GET("/api.simrs.rsudajibarang/api/registration/outPatientList")
+    public Call<JsonObject> Decode(@Header("Authorization") String auth);
 
 }

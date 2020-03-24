@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mCaraBayar;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mHubunganPasien;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
@@ -164,6 +165,7 @@ public class Fragment_Dftronline extends Fragment {
         });
 
         fetchJSONHubunganPasien();
+        Toasty.error(getActivity(), indexActivity.getIdUser(), Toast.LENGTH_LONG).show();
         return view;
     }
 

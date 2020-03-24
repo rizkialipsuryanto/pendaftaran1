@@ -90,6 +90,7 @@ public class Fragment_Pasien_Lama extends Fragment {
         btnTanggal = (ImageButton) view.findViewById(R.id.btnTanggal1);
         kalenderinputcatatan = view.findViewById(R.id.kalenderinputcatatan);
 
+        Toasty.error(getActivity(), indexActivity.getIdUser(), Toast.LENGTH_LONG).show();
 
         btnpldaftara.setOnClickListener(new View.OnClickListener() {
             @Override
