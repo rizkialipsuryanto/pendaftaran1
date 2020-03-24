@@ -228,8 +228,13 @@ public class Fragment_poli extends Fragment {
     }
 
     private void nextFragment() {
+//        pDialog = new ProgressDialog(getContext());
+//        pDialog.setCancelable(false);
+//        pDialog.setMessage("Loading ...");
+//        showDialog();
         // TODO Auto-generated method stub
         postnextfragment();
+//        hideDialog();
     }
 
     private void getfrombefore(){

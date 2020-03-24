@@ -1,6 +1,7 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
@@ -39,6 +40,7 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Dokter extends Fragment {
+    public static ProgressDialog pDialog;
     private ArrayList<mDokter> goodModelDokterArrayList;
     private DokterAdapter dokterAdapter;
 
@@ -125,6 +127,10 @@ public class Fragment_Dokter extends Fragment {
     }
 
     private void getdata() {
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
+        showDialog();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call dokter = restServices.ListDokter(getpoli,"Bearer "+token);
@@ -141,9 +147,11 @@ public class Fragment_Dokter extends Fragment {
 
                         String jsonresponse = response.body().toString();
                         writeListView(jsonresponse);
+                        hideDialog();
 
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                        hideDialog();
                     }
                 }
             }
@@ -151,14 +159,16 @@ public class Fragment_Dokter extends Fragment {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 Log.i("onFailure",t.getMessage().toString());
+                hideDialog();
             }
         });
     }
 
     private void writeListView(String response){
 
-        getfrombefore();
+//        getfrombefore();
         try {
+
             //getting the whole json object from the response
             JSONObject obj = new JSONObject(response);
             JSONObject rrrr = obj.getJSONObject("response");
@@ -239,7 +249,11 @@ public class Fragment_Dokter extends Fragment {
     }
 
     public void daftarFragmentDokter() {
-        getfrombefore();
+//        getfrombefore();
+//        pDialog = new ProgressDialog(getContext());
+//        pDialog.setCancelable(false);
+//        pDialog.setMessage("Loading ...");
+//        showDialog();
         String pasienbaru = getjenispasien;
         Call daftar;
         Log.d("OBJEK", "Jalan-----");
@@ -276,6 +290,7 @@ public class Fragment_Dokter extends Fragment {
                     String code = metaData.getString("code");
                     bookingcode = rrrr.getString("bookingcode");
                     Log.d("OBJEK","RESPON BODY : "+bookingcode);
+//                    hideDialog();
 
                     Fragment_Daftar_Selesai secondFragtry = new Fragment_Daftar_Selesai();
                     Bundle mBundle = new Bundle();
@@ -324,6 +339,7 @@ public class Fragment_Dokter extends Fragment {
                 } catch (Exception e) {
                     Toasty.error(getContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                     Log.d("OBJEK","RESPON BODY : "+e.getMessage().toString());
+//                    hideDialog();
                 }
 
             }
@@ -332,11 +348,16 @@ public class Fragment_Dokter extends Fragment {
             public void onFailure(Call call, Throwable t) {
 
                 Log.d("OBJEK", t.getMessage());
+//                hideDialog();
             }
         });
     }
 
     private void getfrombefore(){
+//        pDialog = new ProgressDialog(getContext());
+//        pDialog.setCancelable(false);
+//        pDialog.setMessage("Loading ...");
+//        showDialog();
         String jenispasiennya;
         getjenispasien = getArguments().getString(KEY_JENIS_PASIEN);
         jenispasiennya = getjenispasien;
@@ -377,6 +398,7 @@ public class Fragment_Dokter extends Fragment {
             getbahasa = getArguments().getString(KEY_BAHASADAERAH);
             getpoli = getArguments().getString(KEY_POLI);
             getpolinama = getArguments().getString(KEY_POLINAMA);
+//            hideDialog();
         }
         if(jenispasiennya == "1")
         {
@@ -433,7 +455,17 @@ public class Fragment_Dokter extends Fragment {
             getrujukan = getArguments().getString(KEY_RUJUKAN);
             getpoli = getArguments().getString(KEY_POLI);
             getpolinama = getArguments().getString(KEY_POLINAMA);
+//            hideDialog();
         }
     }
 
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 }

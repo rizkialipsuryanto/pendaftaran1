@@ -1,5 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ import static android.view.View.VISIBLE;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_Dftronline extends Fragment {
+    public static ProgressDialog pDialog;
     public static String KEY_JENIS_PASIEN = "jenis_pasien";
     public static String KEY_HUBUNGAN = "hubungan";
     public static String KEY_NORM = "norm";
@@ -166,6 +168,10 @@ public class Fragment_Dftronline extends Fragment {
     }
 
     private void fetchJSONHubunganPasien(){
+        pDialog = new ProgressDialog(getContext());
+        pDialog.setCancelable(false);
+        pDialog.setMessage("Loading ...");
+        showDialog();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call carabayar = restServices.ListCaraBayar();
@@ -181,9 +187,11 @@ public class Fragment_Dftronline extends Fragment {
 
                         String jsonresponse = response.body().toString();
                         spinJSONCaraBayar(jsonresponse);
+                        hideDialog();
 
                     } else {
                         Log.i("onEmptyResponse", "Returned empty response");//Toast.makeText(getContext(),"Nothing returned",Toast.LENGTH_LONG).show();
+                        hideDialog();
                     }
                 }
             }
@@ -191,6 +199,7 @@ public class Fragment_Dftronline extends Fragment {
             @Override
             public void onFailure(Call call, Throwable t) {
                 Log.i("onFailure",t.getMessage().toString());
+                hideDialog();
             }
         });
     }
@@ -400,5 +409,15 @@ public class Fragment_Dftronline extends Fragment {
             secondFragtry.setArguments(mBundle);
             FragmentManager fm = getActivity().getSupportFragmentManager();
             fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+    }
+
+    private void showDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hideDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 }
