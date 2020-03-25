@@ -58,7 +58,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/buttonprofil"
-            android:text="Simpan" />
+            android:text="Simpan"
+            android:textColor="@color/putih"/>
 
         <ImageView
             android:id="@+id/imageviewBCDaftarSelesai"
