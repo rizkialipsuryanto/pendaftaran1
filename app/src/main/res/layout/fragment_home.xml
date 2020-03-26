@@ -3,99 +3,125 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/abu"
     tools:context=".fragment.HomeFragment">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/admin_avatar"
-        />
-
-    </LinearLayout>
-
-    <View
-        android:id="@+id/rectangle_1"
-        android:layout_width="wrap_content"
-        android:layout_height="336dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/rectangle_1" />
-
-    <androidx.gridlayout.widget.GridLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/rectangle_1"
-        app:columnCount="1"
-        app:rowCount="2"
-        app:orientation="horizontal">
+        android:layout_height="wrap_content"
+        >
 
-        <FrameLayout
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp"
-            android:layout_width="350dp"
-            android:layout_height="90dp"
-            android:background="@drawable/bgbuttonhome">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/admin_avatar"
-                    android:contentDescription="@string/desdftr"/>
+                android:orientation="vertical"
+                android:background="@drawable/rectangle_1">
 
-            <TextView
-                android:id="@+id/tvpendaftaranpoli"
-                android:layout_width="337dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:fontFamily="@font/montserrat_alternates"
-                android:gravity="center"
-                android:text="@string/dftr"
-                android:textAlignment="center"
-                android:textColor="@color/colorDivider"
-                android:textSize="14sp" />
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/admin_avatar"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="20dp"/>
 
-        </FrameLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rizki Alip Suryanto"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3304110310950003"
+                    />
+            </LinearLayout>
 
-        <FrameLayout
-            android:layout_marginStart="30dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="30dp"
-            android:layout_width="350dp"
-            android:layout_height="90dp"
-            android:background="@drawable/bgbuttonhome">
-
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/admin_avatar"
-                android:contentDescription="@string/desjdwl"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="300dp"
-                android:layout_height="70dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:fontFamily="@font/montserrat_alternates"
-                android:gravity="center"
-                android:text="@string/cek"
-                android:textAlignment="center"
-                android:textColor="@color/colorDivider"
-                android:textSize="14sp" />
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:columnCount="1"
+                    app:rowCount="2"
+                    app:orientation="horizontal">
 
-        </FrameLayout>
+                    <FrameLayout
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="350dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/bgbuttonhome">
 
-    </androidx.gridlayout.widget.GridLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/admin_avatar"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:contentDescription="@string/desdftr"/>
+
+                        <TextView
+                            android:id="@+id/tvpendaftaranpoli"
+                            android:layout_width="340dp"
+                            android:layout_height="100dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:text="@string/dftr"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorDivider"
+                            android:textSize="18sp" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="350dp"
+                        android:layout_height="110dp"
+                        android:background="@drawable/bgbuttonhome">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/admin_avatar"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="5dp"
+                            android:contentDescription="@string/desjdwl"/>
+
+                        <TextView
+                            android:id="@+id/tvjadwaldokter"
+                            android:layout_width="310dp"
+                            android:layout_height="100dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:text="@string/cek"
+                            android:textAlignment="center"
+                            android:textColor="@color/colorDivider"
+                            android:textSize="18sp" />
+
+                    </FrameLayout>
+
+                </androidx.gridlayout.widget.GridLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
