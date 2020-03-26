@@ -20,12 +20,21 @@
         android:textSize="18sp" />
 
     <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/kabupaten_banyumas" />
+
+    <ImageView
         android:id="@+id/imageviewku"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/splash_screen_progress_bar"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="4dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -38,9 +47,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginRight="100dp"
         android:layout_marginBottom="150dp"
-        android:progressBackgroundTint="@color/birunyacinta"
-        android:visibility="gone" />
+        android:progressBackgroundTint="@color/birunyacinta" />
 
     <TextView
         android:id="@+id/textView2"
