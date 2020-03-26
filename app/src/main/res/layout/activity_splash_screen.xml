@@ -7,11 +7,18 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ellipse" />
+
     <TextView
         android:id="@+id/h1_headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="390dp"
         android:fontFamily="@font/montserrat_alternates"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/splash"
@@ -23,7 +30,8 @@
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/imageView6"
+        android:layout_marginTop="50dp"
         app:srcCompat="@drawable/kabupaten_banyumas" />
 
     <ImageView
