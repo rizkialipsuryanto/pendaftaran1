@@ -28,11 +28,11 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@id/imageView6"
         android:layout_marginTop="50dp"
-        app:srcCompat="@drawable/kabupaten_banyumas" />
+        app:srcCompat="@mipmap/ic_banyumas" />
 
     <ImageView
         android:id="@+id/imageviewku"
