@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,6 +47,7 @@ public class HomeFragment extends Fragment {
 
     public Button barcode;
     public ImageView image;
+    public TextView daftar;
 
     String teksbarcode,name;
     private String url_insert = Base.URL + "auth/decode";
@@ -63,13 +66,18 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+//        daftar = (TextView) view.findViewById(R.id.tvpendaftaranpoli);
 //        barcode = (Button)view.findViewById(R.id.barcodeteks);
 //        image = (ImageView)view.findViewById(R.id.imageview);
-
-
 //        name = indexActivity.getName();
         teksbarcode = indexActivity.getToken();
 
+
+        view.findViewById(R.id.tvpendaftaranpoli).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Daftar();
+            }
+        });
 //        barcode.setText(name.toString());
 //        barcode.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -143,6 +151,13 @@ public class HomeFragment extends Fragment {
 
         queue.add(strReq);
 
+    }
+
+    private void Daftar() {
+        // TODO Auto-generated method stub
+        DaftarFragment secondFragtry = new DaftarFragment();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
 //    public void onClick(View v) {

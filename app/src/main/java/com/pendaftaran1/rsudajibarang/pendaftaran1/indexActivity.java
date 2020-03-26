@@ -75,9 +75,7 @@ public class indexActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-//                    mTextMessage.setText(R.string.title_home);
-//                    return true;
-                    fragment = new DaftarFragment();
+                    fragment = new HomeFragment();
                     break;
                 case R.id.navigation_dashboard:
                     fragment = new Fragment_Riwayat();

@@ -59,9 +59,8 @@ public class Fragment_Riwayat extends Fragment {
     }
 
     private void getdata() {
-        String id = "2";
-//        String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjEyIiwiZW1haWwiOiJhcmlndXN3YWh5dS5pZEBnbWFpbC5jb20iLCJmaXJzdG5hbWUiOiItLS0tIiwibGFzdG5hbWUiOiItLS0iLCJjZWsiOnRydWUsImlhdCI6MTU4NDQxMTg3OCwiZXhwIjoxNTg0NDI5ODc4fQ.afATTKIba_ekReGFSUD3_NE9fBzRof2yVLeeDlOeB7I";
-
+//        String id = "2";
+        String id = indexActivity.getIdUser();
         // REST LOGIN ------------------------------------------------------------------
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
         Call riwayat = restServices.ListRiwayat(id, "Bearer "+token);

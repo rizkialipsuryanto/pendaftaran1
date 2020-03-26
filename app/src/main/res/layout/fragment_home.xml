@@ -53,6 +53,7 @@
                     android:contentDescription="@string/desdftr"/>
 
             <TextView
+                android:id="@+id/tvpendaftaranpoli"
                 android:layout_width="337dp"
                 android:layout_height="70dp"
                 android:layout_marginLeft="2dp"
