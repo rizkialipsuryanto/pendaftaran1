@@ -14,17 +14,20 @@
             android:id="@+id/tvtempdokter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tvtempdokternama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:visibility="gone" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates"
             android:text="Pilih Dokter"
             android:textAlignment="center"
             android:textColor="@color/colorDivider"

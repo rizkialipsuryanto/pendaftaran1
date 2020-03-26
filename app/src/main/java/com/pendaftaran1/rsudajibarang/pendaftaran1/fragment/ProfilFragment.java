@@ -1,6 +1,8 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.util.Log;
@@ -50,6 +52,11 @@ public class ProfilFragment extends Fragment {
 //        emaill = (EditText) view.findViewById(R.id.profilEmail);
 
         LoadProfil();
+        view.findViewById(R.id.lllogout).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Logout();
+            }
+        });
         return view;
     }
 
@@ -110,6 +117,36 @@ public class ProfilFragment extends Fragment {
 
         queue.add(strReq);
 
+    }
+
+    private void Logout(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Log Out?");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Apakah anda yakin ingin keluar?")
+                .setCancelable(false)
+                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog,int id) {
+                        // jika tombol diklik, maka akan menutup activity ini
+                        getActivity().finish();
+                    }
+                })
+                .setNegativeButton("Batalkan",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 
 }

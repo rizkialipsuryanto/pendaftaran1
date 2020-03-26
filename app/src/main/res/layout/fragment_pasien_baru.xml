@@ -19,8 +19,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_hubungan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerpbhub"
                 android:layout_width="match_parent"
@@ -29,8 +30,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="Title"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <Spinner
                 android:id="@+id/spinnerpbtitle"
@@ -40,18 +42,21 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_nama"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbnama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_nik"
                 android:textColor="@color/colorDivider" />
 
@@ -59,13 +64,15 @@
                 android:id="@+id/pbnik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_jk"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerpbjk"
                 android:entries="@array/jenis_kelamin"
@@ -75,32 +82,37 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_tempat_lahir"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbtempatlahir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_alamat"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbalamatktp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_provinsi"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerprov"
                 android:layout_width="match_parent"
@@ -109,8 +121,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_kabupaten"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerkab"
                 android:layout_width="match_parent"
@@ -119,8 +132,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_kecamatan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerkec"
                 android:layout_width="match_parent"
@@ -129,8 +143,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_kelurahan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/pbspinnerkel"
                 android:layout_width="match_parent"
@@ -139,68 +154,79 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_ayah"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbayah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_ibu"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbibu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_suami"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbsuami"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_istri"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbistri"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="text" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_no_telephon"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/pbnmrtelp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_agama"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinneragama"
                 android:layout_width="match_parent"
@@ -209,8 +235,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_pendidikan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerpend"
                 android:layout_width="match_parent"
@@ -219,8 +246,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_pekerjaan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerpbpekerjaan"
                 android:layout_width="match_parent"
@@ -229,8 +257,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_status_kawin"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnerpbstatuskawin"
                 android:layout_width="match_parent"
@@ -239,14 +268,16 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_kewarganegaraan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pb_suku"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
             <Spinner
                 android:id="@+id/spinnersuku"
                 android:layout_width="match_parent"
@@ -256,7 +287,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/pb_bahasa_daerah"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider"
+                android:fontFamily="@font/montserrat_alternates" />
             <Spinner
                 android:id="@+id/spinnerbhs"
                 android:layout_width="match_parent"
@@ -266,10 +298,10 @@
                 android:id="@+id/btnpbdaftar"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="100dp"
-                android:text="NEXT"
                 android:layout_gravity="center_horizontal"
-                />
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:text="NEXT" />
         </LinearLayout>
     </ScrollView>
 

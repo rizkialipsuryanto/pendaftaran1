@@ -17,6 +17,7 @@
             android:id="@+id/tvtanggallist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates"
             android:textColor="@color/colorDivider"
             android:textSize="12sp" />
 
@@ -24,6 +25,7 @@
             android:id="@+id/tvpolilist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates"
             android:textColor="@android:color/widget_edittext_dark"
             android:textSize="12sp" />
 
@@ -31,6 +33,7 @@
             android:id="@+id/tvdokterlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_alternates"
             android:textColor="@android:color/widget_edittext_dark"
             android:textSize="12sp" />
     </LinearLayout>

@@ -39,6 +39,7 @@
             <TextView
                 android:layout_width="142dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/daftar"
                 android:textColor="@color/birunyacinta"
                 android:textSize="24sp"
@@ -47,6 +48,7 @@
             <TextView
                 android:layout_width="371dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/ket_daftar"
                 android:textColor="@color/abuabu"
                 android:textSize="12sp" />
@@ -56,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nik"
                 android:textColor="@color/colorDivider" />
 
@@ -65,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Masukan NIK"
                 android:inputType="number"
                 android:padding="10dp"
@@ -78,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nama_dpn"
                 android:textColor="@color/colorDivider" />
 
@@ -87,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Nama Depan"
                 android:padding="10dp"
                 android:singleLine="true"
@@ -99,6 +105,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nama_blk"
                 android:textColor="@color/colorDivider" />
 
@@ -108,6 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Nama Belakang"
                 android:padding="10dp"
                 android:singleLine="true"
@@ -120,6 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_email"
                 android:textColor="@color/colorDivider" />
 
@@ -129,6 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Email"
                 android:padding="10dp"
                 android:singleLine="true"
@@ -141,6 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nohp"
                 android:textColor="@color/colorDivider" />
 
@@ -150,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Masukan Nomor HP"
                 android:inputType="number"
                 android:padding="10dp"
@@ -163,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_password"
                 android:textColor="@color/colorDivider" />
 
@@ -172,6 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="Password"
                 android:inputType="textPassword"
                 android:padding="10dp"
@@ -187,6 +201,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/selector_xml_btn_yellow"
+                android:fontFamily="@font/montserrat_alternates"
                 android:padding="10dp"
                 android:text="@string/btndftr"
                 android:textColor="@color/putih"

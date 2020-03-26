@@ -32,6 +32,7 @@
                 android:id="@+id/txt_poli"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/montserrat_alternates"
                 android:textColor="@color/colorDivider"
                 android:textSize="18sp"
                 android:textStyle="bold" />
