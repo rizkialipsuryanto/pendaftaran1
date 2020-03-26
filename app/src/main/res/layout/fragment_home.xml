@@ -12,17 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <LinearLayout
+                android:id="@+id/layout_profil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/rectangle_1">
 
+                <LinearLayout
+                    android:id="@+id/l_profil"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    >
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -30,22 +37,41 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginLeft="20dp"/>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Rizki Alip Suryanto"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="3304110310950003"
-                    />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center">
+
+                        <TextView
+                            android:id="@+id/profil1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rizki Alip Suryanto"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/putih"/>
+
+                        <TextView
+                            android:id="@+id/NIK1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3304110310950003"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="@color/putih"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
             </LinearLayout>
 
+
             <LinearLayout
+                android:id="@+id/layout_menu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_below="@+id/layout_profil">
 
                 <androidx.gridlayout.widget.GridLayout
                     android:layout_width="match_parent"
@@ -119,7 +145,7 @@
                 </androidx.gridlayout.widget.GridLayout>
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </ScrollView>
 
