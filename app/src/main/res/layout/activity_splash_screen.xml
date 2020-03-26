@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="396dp"
+        android:fontFamily="@font/montserrat_alternates"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/splash"
         android:textAlignment="center"
@@ -47,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="18dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/montserrat_alternates"
         android:text="@string/copyright"
         android:textAlignment="center"
         android:textColor="@color/colorDivider" />

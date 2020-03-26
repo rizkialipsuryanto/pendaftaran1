@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -31,9 +32,9 @@ import java.util.Map;
 public class ProfilFragment extends Fragment {
 
 
-    String teksbarcode,email, firstname, lastname;
+    String teksbarcode,email, namaa;
     private String url_insert = Base.URL + "auth/decode";
-    EditText firstnamee, lastnamee, emaill;
+    TextView nama, lastnamee, emaill;
     public ProfilFragment() {
         // Required empty public constructor
     }
@@ -44,9 +45,9 @@ public class ProfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
-        firstnamee = (EditText) view.findViewById(R.id.profilFirstname);
-        lastnamee = (EditText) view.findViewById(R.id.profilLastname);
-        emaill = (EditText) view.findViewById(R.id.profilEmail);
+        nama = (TextView) view.findViewById(R.id.tvprofilnama);
+//        lastnamee = (EditText) view.findViewById(R.id.profilLastname);
+//        emaill = (EditText) view.findViewById(R.id.profilEmail);
 
         LoadProfil();
         return view;
@@ -74,13 +75,13 @@ public class ProfilFragment extends Fragment {
                     Toast.makeText(getActivity(), message, Toast.LENGTH_LONG).show();
                     // get employee name and salary
                     email = employee.getString("email");
-                    firstname = employee.getString("firstname");
-                    lastname = employee.getString("lastname");
+                    namaa = employee.getString("firstname")+" "+employee.getString("lastname");
+//                    lastname = employee.getString("lastname");
 
                     //ini untuk settext
-                    emaill.setText(email);
-                    firstnamee.setText(firstname);
-                    lastnamee.setText(lastname);
+//                    emaill.setText(email);
+                    nama.setText(namaa);
+//                    lastnamee.setText(lastname);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
