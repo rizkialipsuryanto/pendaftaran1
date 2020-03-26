@@ -58,6 +58,7 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
+                android:fontFamily="@font/montserrat_alternates"
                 android:gravity="center"
                 android:text="@string/dftr"
                 android:textAlignment="center"
@@ -86,9 +87,10 @@
                 android:layout_height="70dp"
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
                 android:text="@string/cek"
                 android:textAlignment="center"
-                android:gravity="center"
                 android:textColor="@color/colorDivider"
                 android:textSize="14sp" />
 
