@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +57,12 @@ public class ProfilFragment extends Fragment {
         view.findViewById(R.id.lllogout).setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 Logout();
+            }
+        });
+
+        view.findViewById(R.id.btnprofiledit).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Edit();
             }
         });
         return view;
@@ -147,6 +155,14 @@ public class ProfilFragment extends Fragment {
 
         // menampilkan alert dialog
         alertDialog.show();
+    }
+
+    private void Edit() {
+        // TODO Auto-generated method stub
+
+        ProfilEditFragment secondFragtry = new ProfilEditFragment();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }
 
 }
