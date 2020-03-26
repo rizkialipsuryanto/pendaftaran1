@@ -7,11 +7,18 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ellipse" />
+
     <TextView
         android:id="@+id/h1_headline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="396dp"
+        android:layout_marginTop="390dp"
         android:fontFamily="@font/montserrat_alternates"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/splash"
@@ -20,12 +27,22 @@
         android:textSize="18sp" />
 
     <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_below="@id/imageView6"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/kabupaten_banyumas" />
+
+    <ImageView
         android:id="@+id/imageviewku"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/splash_screen_progress_bar"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="4dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
@@ -38,9 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginRight="100dp"
         android:layout_marginBottom="150dp"
-        android:progressBackgroundTint="@color/birunyacinta"
-        android:visibility="gone" />
+        android:progressBackgroundTint="@color/birunyacinta" />
 
     <TextView
         android:id="@+id/textView2"

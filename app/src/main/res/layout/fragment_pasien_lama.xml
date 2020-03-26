@@ -19,8 +19,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pl_hubungan"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <Spinner
                 android:id="@+id/spinnerplhubungan"
@@ -33,22 +34,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pl_norm"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/plnorm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="@string/plh_norm"
-                android:inputType="number"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pl_tgl_lahir"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -91,30 +95,34 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pl_no_telephon"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/plnotelephon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="@string/plh_no_telephon"
-                android:inputType="number"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="number" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/pl_email"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <EditText
                 android:id="@+id/plemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:hint="@string/plh_email"
-                android:inputType="textEmailAddress"
-                android:importantForAutofill="no" />
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
 
             <Button
                 android:id="@+id/btnpldaftar"
@@ -122,6 +130,7 @@
                 android:layout_height="45dp"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/selector_xml_btn_yellow"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/btn_pl_daftar"
                 android:textAlignment="center"
                 android:textColor="@color/putih" />

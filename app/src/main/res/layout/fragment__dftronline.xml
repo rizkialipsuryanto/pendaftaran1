@@ -29,8 +29,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/po_tgl"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -78,8 +79,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/po_penjamin"
-                android:textColor="@color/colorDivider"/>
+                android:textColor="@color/colorDivider" />
 
             <Spinner
                 android:id="@+id/spinnercarabayar"
@@ -96,41 +98,46 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_alternates"
                     android:text="@string/po_nmrbpjs"
-                    android:textColor="@color/colorDivider"/>
+                    android:textColor="@color/colorDivider" />
 
                 <EditText
                     android:id="@+id/ponmrbpjs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="13"
+                    android:fontFamily="@font/montserrat_alternates"
                     android:hint="@string/poh_nmrbpjs"
                     android:importantForAutofill="no"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:maxLength="13" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_alternates"
                     android:text="@string/po_nmrrujukan"
-                    android:textColor="@color/colorDivider"/>
+                    android:textColor="@color/colorDivider" />
 
                 <EditText
                     android:id="@+id/ponmrrujukan"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="16"
+                    android:fontFamily="@font/montserrat_alternates"
                     android:hint="@string/poh_nmrrujukan"
-                    android:importantForAutofill="no" />
+                    android:importantForAutofill="no"
+                    android:maxLength="16" />
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnpodaftar"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:background="@drawable/selector_xml_btn_yellow"
+                android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/po_btndftr"
                 android:textAlignment="center"
-                android:layout_gravity="center_horizontal"
                 android:textColor="@color/putih" />
 
         </LinearLayout>

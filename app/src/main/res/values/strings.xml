@@ -97,13 +97,13 @@
     <string name="poh_penjamin">Pilih Penjamin</string>
     <string name="poh_nmrbpjs">Masukan Nomor BPJS</string>
     <string name="poh_nmrrujukan">Masukan Nomor Rujukan</string>
-    
+
     <!--fragment Home -->
     <string name="dftr">Pendaftaran Poliklinik</string>
     <string name="cek">Cek Jadwal Dokter</string>
     <string name="desdftr">Ini button daftar</string>
     <string name="desjdwl">Ini button jadwal</string>
-    
+
     <!-- fragment profil -->
     <string name="fp_datapasien">Data Pasien Terdaftar</string>
     <string name="fp_sk">Syarat dan Ketentuan</string>
