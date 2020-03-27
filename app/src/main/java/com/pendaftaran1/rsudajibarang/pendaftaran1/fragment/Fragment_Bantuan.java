@@ -1,0 +1,43 @@
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class Fragment_Bantuan extends Fragment {
+
+    ListView listView;
+    TextView textView;
+    String[] listItem;
+    public Fragment_Bantuan() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view = inflater.inflate(R.layout.fragment_bantuan, container, false);
+
+        listView=(ListView)view.findViewById(R.id.listViewbantuan);
+        textView=(TextView)view.findViewById(R.id.tvbantuanlist);
+        listItem = getResources().getStringArray(R.array.list_bantuan);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
+                android.R.layout.simple_list_item_1, android.R.id.text1, listItem);
+        listView.setAdapter(adapter);
+        return view;
+    }
+}

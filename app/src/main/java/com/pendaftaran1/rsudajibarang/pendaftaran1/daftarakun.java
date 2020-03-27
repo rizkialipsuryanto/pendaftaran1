@@ -38,7 +38,7 @@ public class daftarakun extends AppCompatActivity {
     private static final String TAG_SUCCESS = "1";
     private static final String TAG_MESSAGE = "message";
     private static final String TAG = daftarakun.class.getSimpleName();
-    private String url_insert = Base.URL + "api.simrs.rsudajibarang/api/auth/registration";
+    private String url_insert = Base.REST_BASE_URL + "api.simrs.rsudajibarang/api/auth/registration";
     int success;
     String firstnames, lastnames, emails,passwords;
     EditText firstnamee, lastnamee,emaile, passworde;
