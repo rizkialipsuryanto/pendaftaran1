@@ -50,8 +50,6 @@ public class ProfilFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profil, container, false);
         nama = (TextView) view.findViewById(R.id.tvprofilnama);
-//        lastnamee = (EditText) view.findViewById(R.id.profilLastname);
-//        emaill = (EditText) view.findViewById(R.id.profilEmail);
 
         LoadProfil();
         view.findViewById(R.id.lllogout).setOnClickListener(new View.OnClickListener(){
