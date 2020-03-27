@@ -255,11 +255,6 @@ public class Fragment_Dokter extends Fragment {
     }
 
     public void daftarFragmentDokter() {
-//        getfrombefore();
-//        pDialog = new ProgressDialog(getContext());
-//        pDialog.setCancelable(false);
-//        pDialog.setMessage("Loading ...");
-//        showDialog();
         String pasienbaru = getjenispasien;
         String idusernya = indexActivity.getIdUser();
         Call daftar;

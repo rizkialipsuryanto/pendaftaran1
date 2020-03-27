@@ -21,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.DaftarFragment;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Bantuan;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Riwayat;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_poli;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.HomeFragment;
@@ -79,6 +80,9 @@ public class indexActivity extends AppCompatActivity {
                     break;
                 case R.id.navigation_dashboard:
                     fragment = new Fragment_Riwayat();
+                    break;
+                case R.id.navigation_bantuan:
+                    fragment = new Fragment_Bantuan();
                     break;
                 case R.id.navigation_notifications:
                     fragment = new ProfilFragment();

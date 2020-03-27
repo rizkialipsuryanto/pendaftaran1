@@ -12,7 +12,7 @@
         android:title="@string/title_riwayat" />
 
     <item
-        android:id="@+id/navigation_profil"
+        android:id="@+id/navigation_bantuan"
         android:icon="@drawable/ic_help_outline_black_24dp"
         android:title="@string/title_help" />
 

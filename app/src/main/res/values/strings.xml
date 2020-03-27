@@ -118,4 +118,11 @@
         <item>Laki-Laki</item>
         <item>Perempuan</item>
     </string-array>
+
+<!--    Ini untuk list bantuan-->
+    <string-array name="list_bantuan">
+        <item>Bagaimana cara mendaftar akun?</item>
+        <item>Bagaimana saya mengganti no. HP?</item>
+        <item>Bagaimana cara menjadwal ulang antrian yang batal?</item>
+    </string-array>
 </resources>

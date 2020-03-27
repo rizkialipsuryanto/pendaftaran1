@@ -137,4 +137,16 @@ public interface RestServices {
     @GET("/api.simrs.rsudajibarang/api/registration/outPatientList")
     public Call<JsonObject> Decode(@Header("Authorization") String auth);
 
+    @POST("/api.simrs.rsudajibarang/api/registration/outPatient")
+    @FormUrlEncoded
+    public Call<JsonObject> EditProfil(
+            @Field("firstname") String firstname,
+            @Field("lastname") String lastname,
+            @Field("nik") String nik,
+            @Field("alamat") String alamat,
+            @Field("nohp") String nohp,
+            @Field("email") String email,
+            @Field("password") String password,
+            @Field("userid") String userid,
+            @Header("Authorization") String auth);
 }

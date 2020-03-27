@@ -218,6 +218,15 @@
                             android:inputType="textPersonName"
                             android:text="Password"
                             android:textColor="@color/abu" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/edittexts"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:text="SIMPAN" />
                     </LinearLayout>
 
                 </LinearLayout>
