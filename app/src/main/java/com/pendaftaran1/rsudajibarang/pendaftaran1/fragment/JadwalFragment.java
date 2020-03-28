@@ -12,11 +12,12 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 
 import com.google.android.material.tabs.TabLayout;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.PoliAdapter;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien.Fragment_Pasien_Baru;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien.Fragment_Pasien_Lama;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPoli;
 
 import java.util.ArrayList;

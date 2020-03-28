@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 
 import com.google.android.material.tabs.TabLayout;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien.Fragment_Pasien_Baru;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien.Fragment_Pasien_Lama;
 
 import java.util.ArrayList;
 import java.util.List;

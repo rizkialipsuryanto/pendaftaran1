@@ -1,4 +1,4 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -22,6 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Dftronline;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mAgama;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mBahasa;

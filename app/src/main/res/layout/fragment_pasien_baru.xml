@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Fragment_Pasien_Baru">
+    tools:context=".fragment.tabjenispasien.Fragment_Pasien_Baru">
 
     <ScrollView
         android:layout_width="match_parent"

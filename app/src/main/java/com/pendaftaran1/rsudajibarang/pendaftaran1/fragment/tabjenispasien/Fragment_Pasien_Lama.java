@@ -1,4 +1,4 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Dftronline;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mHubunganPasien;
