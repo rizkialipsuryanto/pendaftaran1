@@ -127,6 +127,10 @@ public class Fragment_Pasien_Lama extends Fragment {
             plnotelephona.setError("Masukkan No Telephon!");
             Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();
         }
+        if(kalenderinputcatatan.getText().toString().length()==0) {
+            kalenderinputcatatan.setError("Pilih Tanggal Lahir!");
+            Toasty.error(getActivity(), "Pilih Tanggal Lahir", Toast.LENGTH_LONG).show();
+        }
         if(plemaila.getText().toString().length()==0) {
             plemaila.setError("Masukkan Email!");
             Toasty.error(getActivity(), "Isi Data Dengan Lengkap", Toast.LENGTH_LONG).show();

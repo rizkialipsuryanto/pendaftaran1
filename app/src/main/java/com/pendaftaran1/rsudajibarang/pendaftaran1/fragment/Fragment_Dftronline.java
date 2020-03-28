@@ -309,24 +309,29 @@ public class Fragment_Dftronline extends Fragment {
         // TODO Auto-generated method stub
         String jenis_pasien;
         jenis_pasien = getjenispasien.toString();
-        if(tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
-            if(ponmrbpjs.getText().toString().length()<13){
-                ponmrbpjs.setError("Masukkan 13 Digit!");
-                Toasty.error(getActivity(), "Masukkan 13 Digit!", Toast.LENGTH_LONG).show();
-            }
-            if(ponmrrujukan.getText().toString().length()<16) {
-                ponmrrujukan.setError("Masukkan 16 Digit!");
-                Toasty.error(getActivity(), "Masukkan 16 Digit!", Toast.LENGTH_LONG).show();
-            }
-            if (ponmrbpjs.getText().toString().length()==13 && ponmrrujukan.getText().toString().length()==16){
-
-                Toasty.error(getActivity(), jenis_pasien, Toast.LENGTH_LONG).show();
-                postnextfragment();
-            }
-
+        if(kalenderinputcontrol.getText().toString().length()==0) {
+            kalenderinputcontrol.setError("Pilih Tanggal Control!");
+            Toasty.error(getActivity(), "Pilih Tanggal Control", Toast.LENGTH_LONG).show();
         }
         else {
-            postnextfragment();
+            if (tvcarabayartemp.getText().toString().equals("4") || tvcarabayartemp.getText().toString().equals("3")) {
+                if (ponmrbpjs.getText().toString().length() < 13) {
+                    ponmrbpjs.setError("Masukkan 13 Digit!");
+                    Toasty.error(getActivity(), "Masukkan 13 Digit!", Toast.LENGTH_LONG).show();
+                }
+                if (ponmrrujukan.getText().toString().length() < 16) {
+                    ponmrrujukan.setError("Masukkan 16 Digit!");
+                    Toasty.error(getActivity(), "Masukkan 16 Digit!", Toast.LENGTH_LONG).show();
+                }
+                if (ponmrbpjs.getText().toString().length() == 13 && ponmrrujukan.getText().toString().length() == 16) {
+
+                    Toasty.error(getActivity(), jenis_pasien, Toast.LENGTH_LONG).show();
+                    postnextfragment();
+                }
+
+            } else {
+                postnextfragment();
+            }
         }
 
     }
@@ -396,6 +401,7 @@ public class Fragment_Dftronline extends Fragment {
 
     private void postnextfragment(){
         getfrombefore();
+
             Fragment_poli secondFragtry = new Fragment_poli();
             Bundle mBundle = new Bundle();
             mBundle.putString(KEY_JENIS_PASIEN, getjenispasien);
@@ -443,5 +449,17 @@ public class Fragment_Dftronline extends Fragment {
     private void hideDialog() {
         if (pDialog.isShowing())
             pDialog.dismiss();
+    }
+
+    private void validasi(){
+        if(kalenderinputcontrol.getText().toString().length()==0) {
+            kalenderinputcontrol.setError("Pilih Tanggal Control!");
+            Toasty.error(getActivity(), "Pilih Tanggal Control", Toast.LENGTH_LONG).show();
+        }
+
+        else{
+            Toasty.success(getActivity(), "Pilih Tanggal dan Jenis Pelayanan", Toast.LENGTH_LONG).show();
+            nextFragment();
+        }
     }
 }
