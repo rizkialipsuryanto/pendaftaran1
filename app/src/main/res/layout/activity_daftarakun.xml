@@ -26,16 +26,6 @@
             android:orientation="vertical"
             android:paddingTop="0dp">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/regis_title"-->
-<!--                android:layout_width="308dp"-->
-<!--                android:layout_height="129dp"-->
-<!--                android:layout_alignParentStart="true"-->
-<!--                android:layout_alignParentLeft="true"-->
-<!--                android:layout_gravity="center_vertical|center_horizontal|center"-->
-<!--                android:paddingLeft="11dp"-->
-<!--                app:srcCompat="@drawable/siapceria2" />-->
-
             <TextView
                 android:layout_width="142dp"
                 android:layout_height="wrap_content"

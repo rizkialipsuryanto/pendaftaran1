@@ -70,7 +70,6 @@ public class Fragment_Pasien_Lama extends Fragment {
     ImageButton btnTanggal;
     String hubunganspinner, token;
 
-
     private Spinner sppbhubunganpasien;
 
     private ArrayList<mHubunganPasien> goodModelHubunganPasienArrayList;
@@ -80,7 +79,6 @@ public class Fragment_Pasien_Lama extends Fragment {
     public Fragment_Pasien_Lama() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
