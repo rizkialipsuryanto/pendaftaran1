@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,14 @@ public class JadwalFragment extends Fragment {
 //        recyclerView.setLayoutManager(manager);
         return view;
     }
+
+//    private void setupViewPager(ViewPager viewPager) {
+//
+//        DaftarFragment.Adapter adapter = new DaftarFragment.Adapter(getChildFragmentManager());
+//        adapter.addFragment(new Fragment_Pasien_Lama(), "Semua");
+//
+//        viewPager.setAdapter(adapter);
+//    }
 
 //    void addData(){
 ////        poliArrayList = new ArrayList<>();

@@ -9,6 +9,13 @@
     android:scrollbarStyle="outsideOverlay"
     tools:context=".fragment.ProfilFragment">
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ellipse" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -119,7 +119,7 @@
         <item>Perempuan</item>
     </string-array>
 
-<!--    Ini untuk list bantuan-->
+    <!--    Ini untuk list bantuan-->
     <string-array name="list_bantuan">
         <item>Bagaimana cara mendaftar akun?</item>
         <item>Bagaimana saya mengganti no. HP?</item>

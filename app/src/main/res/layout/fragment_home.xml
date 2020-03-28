@@ -79,7 +79,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:background="@color/putih"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">S
 
                 <LinearLayout
                     android:id="@+id/l_tgl"
