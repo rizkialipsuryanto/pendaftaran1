@@ -78,6 +78,11 @@ public class HomeFragment extends Fragment {
                 Daftar();
             }
         });
+        view.findViewById(R.id.tvjadwaldokter).setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Jadwal();
+            }
+        });
 //        barcode.setText(name.toString());
 //        barcode.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -156,6 +161,13 @@ public class HomeFragment extends Fragment {
     private void Daftar() {
         // TODO Auto-generated method stub
         DaftarFragment secondFragtry = new DaftarFragment();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+    }
+
+    private void Jadwal() {
+        // TODO Auto-generated method stub
+        JadwalFragment secondFragtry = new JadwalFragment();
         FragmentManager fm = getActivity().getSupportFragmentManager();
         fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
     }

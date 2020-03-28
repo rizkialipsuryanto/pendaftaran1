@@ -128,11 +128,14 @@ public class Login extends AppCompatActivity {
                         startActivity(intent);
 
                     } else {
+                        hideDialog();
                         Toasty.error(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
 
                 } catch (Exception e) {
-                    Toasty.error(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
+                    hideDialog();
+                    Log.d("OBJEK","RESPON BODY : "+e.toString());
+//                    Toasty.error(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                 }
 
             }

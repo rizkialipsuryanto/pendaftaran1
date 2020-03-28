@@ -284,7 +284,7 @@ public class Fragment_Dftronline extends Fragment {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, (month+1));
                 calendar.set(Calendar.DAY_OF_MONTH, day_of_month);
-                String myFormat = "dd/MM/yyyy";
+                String myFormat = "yyyy-MM-dd";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
                 kalenderinputcontrol.setText(sdf.format(calendar.getTime()));
             }

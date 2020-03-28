@@ -4,18 +4,23 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 
+import com.google.android.material.tabs.TabLayout;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.PoliAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPoli;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,51 +41,55 @@ public class JadwalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_jadwal, container, false);
-//        addData();
 
-//        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-//        poliArrayList = new ArrayList();
-//        poliArrayList.add(new mPoli("Item 1", R.drawable.siapceria2, "#09A9FF"));
-//        poliArrayList.add(new mPoli("Item 2", R.drawable.beer, "#3E51B1"));
-//        poliArrayList.add(new mPoli("Item 3", R.drawable.ferrari, "#673BB7"));
-//        poliArrayList.add(new mPoli("Item 4", R.drawable.jetpack_joyride, "#4BAA50"));
-//        poliArrayList.add(new mPoli("Item 5", R.drawable.three_d, "#F94336"));
-//        poliArrayList.add(new mPoli("Item 6", R.drawable.terraria, "#0A9B88"));
-//
-//        PoliAdapter adapter = new PoliAdapter(this, poliArrayList, this);
-//        recyclerView.setAdapter(adapter);
+        // Setting ViewPager for each Tabs
+        ViewPager viewPager = (ViewPager) view.findViewById(R.id.tab_viewpagerjadwaldokter);
+        setupViewPager(viewPager);
+        // Set Tabs inside Toolbar
+        TabLayout tabs = (TabLayout) view.findViewById(R.id.tab_layout_jadwal_dokter);
+        tabs.setupWithViewPager(viewPager);
 
-
-        /**
-         AutoFitGridLayoutManager that auto fits the cells by the column width defined.
-         **/
-
-        /*AutoFitGridLayoutManager layoutManager = new AutoFitGridLayoutManager(this, 500);
-        recyclerView.setLayoutManager(layoutManager);*/
-
-
-        /**
-         Simple GridLayoutManager that spans two columns
-         **/
-//        GridLayoutManager manager = new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false);
-//        recyclerView.setLayoutManager(manager);
         return view;
     }
 
-//    private void setupViewPager(ViewPager viewPager) {
-//
-//        DaftarFragment.Adapter adapter = new DaftarFragment.Adapter(getChildFragmentManager());
-//        adapter.addFragment(new Fragment_Pasien_Lama(), "Semua");
-//
-//        viewPager.setAdapter(adapter);
-//    }
+    // Add Fragments to Tabs
+    private void setupViewPager(ViewPager viewPager) {
 
-//    void addData(){
-////        poliArrayList = new ArrayList<>();
-////        poliArrayList.add(new mPoli("Dimas Maulana", "1414370309", "123456789"));
-////        poliArrayList.add(new mPoli("Fadly Yonk", "1214234560", "987654321"));
-////        poliArrayList.add(new mPoli("Ariyandi Nugraha", "1214230345", "987648765"));
-////        poliArrayList.add(new mPoli("Aham Siswana", "1214378098", "098758124"));
-////    }
+        Adapter adapter = new Adapter(getChildFragmentManager());
+        adapter.addFragment(new Fragment_Pasien_Lama(), "Semua");
+        adapter.addFragment(new Fragment_Pasien_Baru(), "Kandungan");
+        adapter.addFragment(new Fragment_Pasien_Baru(), "Anak");
+
+        viewPager.setAdapter(adapter);
+    }
+
+    static class Adapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public Adapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
+    }
 
 }

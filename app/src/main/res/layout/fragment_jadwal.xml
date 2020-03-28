@@ -25,23 +25,39 @@
                     android:id="@+id/search_jadwal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/edittext" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/lh_viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/tab_viewpager"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout_jadwal_dokter"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    android:layout_below="@+id/toolbar"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/read"
+                    android:elevation="6dp"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
             </LinearLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/tab_viewpagerjadwaldokter"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
 
         </LinearLayout>
 
@@ -56,10 +72,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ListView
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp">
+                <!-- TODO: Update blank fragment layout -->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcvjadwal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </ScrollView>
 
         </LinearLayout>
 

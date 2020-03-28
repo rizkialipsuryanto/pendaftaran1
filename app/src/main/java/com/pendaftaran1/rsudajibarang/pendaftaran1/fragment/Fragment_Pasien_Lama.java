@@ -1,5 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,8 +38,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
@@ -241,24 +245,42 @@ public class Fragment_Pasien_Lama extends Fragment {
         View view = inflater.inflate(R.layout.layout_datepicker, null, false);
 
         // dapatkan id dan nilai
-        final DatePicker myDatePicker = (DatePicker)view
-                .findViewById(R.id.datepicker);
+//        final DatePicker myDatePicker = (DatePicker)view
+//                .findViewById(R.id.datepicker);
 
         // buat popup
-        new AlertDialog.Builder(getActivity()).setView(view)
-                // judul
-                .setTitle("Tanggal Hari Ini")
-                // tombol
-                .setPositiveButton("Pilih", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        String month=desimal(myDatePicker.getMonth() + 1);
-                        String day=desimal(myDatePicker.getDayOfMonth());
-                        int year = myDatePicker.getYear();
-                        // print hasil dalam toast
-                        kalenderinputcatatan.setText(year+"-"+month+"-"+day);
-                        dialog.cancel();
-                    }
-                }).show();
+//        new AlertDialog.Builder(getActivity()).setView(view)
+//                // judul
+//                .setTitle("Tanggal Hari Ini")
+//                // tombol
+//                .setPositiveButton("Pilih", new DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int id) {
+//                        String month=desimal(myDatePicker.getMonth() + 1);
+//                        String day=desimal(myDatePicker.getDayOfMonth());
+//                        int year = myDatePicker.getYear();
+//                        // print hasil dalam toast
+//                        kalenderinputcatatan.setText(year+"-"+month+"-"+day);
+//                        dialog.cancel();
+//                    }
+//                }).show();
+
+        final Calendar calendar = Calendar.getInstance();
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker arg0, int year, int month, int day_of_month) {
+                calendar.set(Calendar.YEAR, year);
+                calendar.set(Calendar.MONTH, (month+1));
+                calendar.set(Calendar.DAY_OF_MONTH, day_of_month);
+                String myFormat = "yyyy-MM-dd";
+                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.getDefault());
+                kalenderinputcatatan.setText(sdf.format(calendar.getTime()));
+            }
+        }, calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        calendar.add(Calendar.DAY_OF_YEAR, -1);
+//        dialog.getDatePicker().setMinDate(calendar.getTimeInMillis()); -(1000*60*60*24*1)// TODO: used to hide previous date,month and year
+        calendar.add(Calendar.YEAR, 0);
+        dialog.getDatePicker().setMaxDate((calendar.getTimeInMillis()));
+        dialog.show();
 
     }
 
