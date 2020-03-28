@@ -15,8 +15,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.SliderImageAdapter;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.user.LoginResponseRepos;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONObject;
@@ -41,6 +45,8 @@ public class Login extends AppCompatActivity {
     public static final String my_shared_preferences = "my_shared_preferences";
     Boolean session = false;
     RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+    Gson  _messageGson = new Gson();
+    LoginResponseRepos _loginResponseReposMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,57 +102,39 @@ public class Login extends AppCompatActivity {
         pDialog.setMessage("Logging in ...");
         showDialog();
 
-        Call login = restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
-        login.enqueue(new Callback() {
+        Call<LoginResponseRepos>  login= restServices.Login(usernamea.getText().toString(), passwordd.getText().toString());
+        login.enqueue(new Callback<LoginResponseRepos>() {
             @Override
-            public void onResponse(Call call, Response response) {
-                try {
-                    JSONObject jo = new JSONObject(response.body().toString());
-                    Log.d("OBJEK","RESPON BODY : "+response.body().toString());
-
-                    // CASTING JSON OBJECT
-                    JSONObject rrrr = jo.getJSONObject("response");
-
-                    JSONObject metaData = jo.getJSONObject("metaData");
-                    String code = metaData.getString("code");
-                    String message = metaData.getString("message");
-
-                    // MENDAPATKAN TOKEN
-                    String token = rrrr.getString("token");
-                    if (Integer.parseInt(code) == 200) {
-                        hideDialog();
-                        Toasty.success(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-//                       menyimpan login ke session
+            public void onResponse(Call<LoginResponseRepos> call, Response<LoginResponseRepos> response) {
+                if (response.isSuccessful()) {
+                    hideDialog();
+                    Toasty.success(getApplicationContext(), response.body().getMetaData().getMessage(), Toast.LENGTH_LONG).show();
+//                    menyimpan login ke session
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
-                        editor.putString(TAG_TOKEN, token);
+                        editor.putString(TAG_TOKEN, response.body().getResponse().getToken());
                         editor.commit();
 //                        // Memanggil main activity
                         Intent intent = new Intent(Login.this, indexActivity.class);
-                        intent.putExtra(TAG_TOKEN, token);
+                        intent.putExtra(TAG_TOKEN, response.body().getResponse().getToken());
                         finish();
                         startActivity(intent);
-
-                    } else {
-                        hideDialog();
-                        Toasty.error(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                    }
-
-                } catch (Exception e) {
-                    hideDialog();
-                    Log.d("OBJEK","RESPON BODY : "+e.toString());
-//                    Toasty.error(getApplicationContext(), e.getMessage().toString(), Toast.LENGTH_LONG).show();
                 }
-
+                else {
+                    hideDialog();
+                    _loginResponseReposMessage = _messageGson.fromJson(response.errorBody().charStream(), LoginResponseRepos.class);
+                    Toasty.error(getApplicationContext(), _loginResponseReposMessage.getMetaData().getMessage(), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
-
-                Log.d("OBJEK", t.getMessage());
+            public void onFailure(Call<LoginResponseRepos> call, Throwable t) {
                 hideDialog();
+                Toasty.error(getApplicationContext(), "Gagal Menghubungkan ke server...", Toast.LENGTH_LONG).show();
             }
         });
+
+
     }
 
     private void showDialog() {

@@ -1,6 +1,7 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.service;
 
 import com.google.gson.JsonObject;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.user.LoginResponseRepos;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -19,7 +20,7 @@ public interface RestServices {
 
     @POST("/api.simrs.rsudajibarang/api/auth/login")
     @FormUrlEncoded
-    public Call<JsonObject> Login(@Field("username") String username, @Field("password") String password);
+    public Call<LoginResponseRepos> Login(@Field("username") String username, @Field("password") String password);
 
     @GET("/api.simrs.rsudajibarang/api/references/provinsi")
     public Call<JsonObject> ListProvinsi();
