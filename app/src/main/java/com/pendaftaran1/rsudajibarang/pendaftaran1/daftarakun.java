@@ -2,8 +2,6 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,20 +9,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
+import com.google.gson.Gson;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.model.registration.RegistrationResponseRepos;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,6 +31,7 @@ import java.util.Map;
 import es.dmoral.toasty.Toasty;
 import retrofit2.Call;
 import retrofit2.Callback;
+
 
 public class daftarakun extends AppCompatActivity {
 
@@ -45,6 +45,20 @@ public class daftarakun extends AppCompatActivity {
     Button btn_lanjut;
 
     String tag_json_obj = "json_obj_req";
+
+
+
+    RestServices restServices = ServiceGenerator.build().create(RestServices.class);
+    Gson _messageGson = new Gson();
+    RegistrationResponseRepos _registrationResponseReposMessage;
+
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,15 +74,9 @@ public class daftarakun extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-
-                simpan();
-//                saveRegistration();
-//                Intent intent = new Intent(daftarakun.this, Login.class);
-//                finish();
-//                startActivity(intent);
-
-
+//                simpan();
+                _saveRegistration();
+                //saveRegistration();
             }
         });
     }
@@ -132,7 +140,29 @@ public class daftarakun extends AppCompatActivity {
 //        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
 
+    private void _saveRegistration(){
+        Call<RegistrationResponseRepos> register = restServices.RegistrationUser(firstnamee.getText().toString(),
+                lastnamee.getText().toString(),
+                emaile.getText().toString(),
+                passworde.getText().toString());
 
+        register.enqueue(new Callback<RegistrationResponseRepos>() {
+            @Override
+            public void onResponse(Call<RegistrationResponseRepos> call, retrofit2.Response<RegistrationResponseRepos> response) {
+                if (response.isSuccessful()) {
+                    Toasty.success(getApplicationContext(), response.body().getMetaData().getMessage().toString(), Toast.LENGTH_LONG).show();
+                }else{
+                    _registrationResponseReposMessage = _messageGson.fromJson(response.errorBody().charStream(), RegistrationResponseRepos.class);
+                    Toasty.error(getApplicationContext(), _registrationResponseReposMessage.getMetaData().getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RegistrationResponseRepos> call, Throwable t) {
+
+            }
+        });
+    }
     private void saveRegistration(){
 
         RestServices restServices = ServiceGenerator.build().create(RestServices.class);
@@ -153,12 +183,6 @@ public class daftarakun extends AppCompatActivity {
                     }else{
                         Toasty.error(getApplicationContext(), "GAGAL REGISTRASI. SILAKAN ULANGI", Toast.LENGTH_LONG).show();
                     }
-//                if(response.code()== 200){
-
-//                }else{
-//                    Toasty.error(getApplicationContext(), "GAGAL REGISTRASI", Toast.LENGTH_LONG).show();
-//                }
-//                response.isSuccessful()
 
             }
 
