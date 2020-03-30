@@ -5,12 +5,14 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.preference.PreferenceManager;
 import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -47,6 +49,15 @@ public class Fragment_Bantuan extends Fragment {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, listItem);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+
+                Fragment_Bantuan_Detail secondFragtry = new Fragment_Bantuan_Detail();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction().replace(R.id.flMain, secondFragtry).commit();
+            }
+        });
 
         imgbtnwa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
