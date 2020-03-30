@@ -10,8 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.adapter.RiwayatAdapter;
@@ -43,12 +41,11 @@ public class Fragment_Riwayat extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment__riwayat, container, false);
+        View view = inflater.inflate(R.layout.fragment_riwayat, container, false);
         listView=(RecyclerView) view.findViewById(R.id.rcvriwayat);
         RecyclerView.LayoutManager gridlay;
         gridlay = new GridLayoutManager(getActivity(), 1);
