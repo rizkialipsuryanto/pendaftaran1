@@ -2,12 +2,9 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1.adapter;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.FragmentRiwayatDetail;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Riwayat.FragmentRiwayatDetail;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mRiwayat;
 
 import java.util.ArrayList;

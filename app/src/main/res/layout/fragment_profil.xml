@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:scrollbarStyle="outsideOverlay"
-    tools:context=".fragment.ProfilFragment">
+    tools:context=".fragment.Profil.ProfilFragment">
 
     <ImageView
         android:id="@+id/imageView5"

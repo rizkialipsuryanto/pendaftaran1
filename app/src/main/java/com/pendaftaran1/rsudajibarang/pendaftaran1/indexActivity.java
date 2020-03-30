@@ -7,28 +7,18 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.NetworkError;
-import com.android.volley.NoConnectionError;
-import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.ServerError;
-import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.DaftarFragment;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Bantuan;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Riwayat;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_poli;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Bantuan.Fragment_Bantuan;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Riwayat.Fragment_Riwayat;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.HomeFragment;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.ProfilFragment;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Profil.ProfilFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;

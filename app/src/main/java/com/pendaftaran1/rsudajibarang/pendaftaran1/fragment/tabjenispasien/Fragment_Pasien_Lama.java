@@ -3,13 +3,11 @@ package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 
 import android.util.Log;
@@ -21,18 +19,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.app.AppController;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Dftronline;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Pendaftaran.Fragment_Dftronline;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mHubunganPasien;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mProvinsi;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONArray;

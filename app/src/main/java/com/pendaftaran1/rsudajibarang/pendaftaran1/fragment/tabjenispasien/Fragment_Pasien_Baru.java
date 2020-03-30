@@ -1,12 +1,10 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.tabjenispasien;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +20,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_Dftronline;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Pendaftaran.Fragment_Dftronline;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mAgama;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mBahasa;

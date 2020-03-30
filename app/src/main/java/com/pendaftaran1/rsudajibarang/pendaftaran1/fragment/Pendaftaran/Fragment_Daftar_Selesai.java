@@ -1,4 +1,4 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Pendaftaran;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
