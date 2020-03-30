@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -7,35 +7,139 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.3"
-        android:background="@drawable/buttonprofil"
+        android:layout_height="wrap_content"
+        android:background="@color/birunyacinta"
         android:orientation="vertical"
-        android:padding="5dp">
+        android:layout_margin="10dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tvtanggallist"
+            <TextView
+                android:id="@+id/tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/putih"
+                android:text="Rabu, 02 Feb 2020" />
+
+            <TextView
+                android:id="@+id/waktu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/putih"
+                android:text="09.00"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
-            android:textColor="@color/colorDivider"
-            android:textSize="12sp" />
+            android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/tvpolilist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
-            android:textColor="@android:color/widget_edittext_dark"
-            android:textSize="12sp" />
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
 
-        <TextView
-            android:id="@+id/tvdokterlist"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_alternates"
-            android:textColor="@android:color/widget_edittext_dark"
-            android:textSize="12sp" />
+                <ImageView
+                    android:id="@+id/qrcode"
+                    android:layout_width="150dp"
+                    android:layout_height="136dp"
+                    android:src="@drawable/admin_avatar" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Kode Transaksi"
+                    android:textColor="@color/putih"
+                    android:layout_marginLeft="5dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="20AndcT37i"
+                    android:textColor="@color/putih"
+                    android:textSize="12dp"
+                    android:layout_marginLeft="5dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Pasien"
+                    android:textColor="@color/putih"/>
+
+                <EditText
+                    android:id="@+id/nama_pasien"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/putih"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tipe"
+                    android:textColor="@color/putih"/>
+
+                <EditText
+                    android:id="@+id/tipe_penjamin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/putih"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dokter"
+                    android:textColor="@color/putih"/>
+
+                <EditText
+                    android:id="@+id/dokter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/putih"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvtanggallist"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/montserrat_alternates"-->
+<!--            android:textColor="@color/colorDivider"-->
+<!--            android:textSize="12sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvpolilist"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/montserrat_alternates"-->
+<!--            android:textColor="@android:color/widget_edittext_dark"-->
+<!--            android:textSize="12sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvdokterlist"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/montserrat_alternates"-->
+<!--            android:textColor="@android:color/widget_edittext_dark"-->
+<!--            android:textSize="12sp" />-->
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
