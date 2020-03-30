@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.tabjenispasien.Fragment_Bantuan_Detail">
+    tools:context=".fragment.Bantuan.Fragment_Bantuan_Detail">
 
     <LinearLayout
         android:layout_width="match_parent"

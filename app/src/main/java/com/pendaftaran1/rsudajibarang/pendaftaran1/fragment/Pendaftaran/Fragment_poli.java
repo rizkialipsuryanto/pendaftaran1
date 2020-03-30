@@ -1,4 +1,4 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Pendaftaran;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -14,8 +14,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 

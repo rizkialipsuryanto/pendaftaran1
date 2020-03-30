@@ -1,4 +1,4 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Riwayat;
 
 import android.os.Bundle;
 

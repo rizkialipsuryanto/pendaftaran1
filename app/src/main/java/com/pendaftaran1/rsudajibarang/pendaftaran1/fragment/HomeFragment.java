@@ -1,7 +1,6 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
 
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,14 +21,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.WriterException;
-import com.google.zxing.common.BitMatrix;
-import com.journeyapps.barcodescanner.BarcodeEncoder;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.constant.Base;
+import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Jadwal.JadwalFragment;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 
 import org.json.JSONException;
@@ -37,8 +33,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity.TAG_TOKEN;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -1,35 +1,18 @@
 package com.pendaftaran1.rsudajibarang.pendaftaran1.adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Fragment_poli;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mPoliklinik;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
-
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-
-import es.dmoral.toasty.Toasty;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PoliklinikAdapter extends RecyclerView.Adapter<PoliklinikAdapter.MyViewHolder> {
 

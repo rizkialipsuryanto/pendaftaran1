@@ -1,12 +1,10 @@
-package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment;
+package com.pendaftaran1.rsudajibarang.pendaftaran1.fragment.Pendaftaran;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -29,13 +27,11 @@ import com.pendaftaran1.rsudajibarang.pendaftaran1.R;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.helper.ServiceGenerator;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.indexActivity;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mCaraBayar;
-import com.pendaftaran1.rsudajibarang.pendaftaran1.model.mHubunganPasien;
 import com.pendaftaran1.rsudajibarang.pendaftaran1.service.RestServices;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,7 +45,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.R.layout.simple_spinner_item;
-import static android.view.View.VISIBLE;
 
 /**
  * A simple {@link Fragment} subclass.
