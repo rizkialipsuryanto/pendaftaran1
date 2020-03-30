@@ -104,7 +104,9 @@ public class Fragment_Riwayat extends Fragment {
 
                 modelListView.setId(dataobj.getString("id"));
                 modelListView.setTanggal(dataobj.getString("tanggal"));
-                modelListView.setPoliklinik(dataobj.getString("poliklinik"));
+                modelListView.setNomr(dataobj.getString("nomr"));
+                modelListView.setPenjamin(dataobj.getString("penjamin"));
+                modelListView.setDokter(dataobj.getString("dokter"));
 
                 goodModelRiwayatArrayList.add(modelListView);
 

@@ -48,9 +48,10 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.MyViewHo
     @Override
     public void onBindViewHolder(RiwayatAdapter.MyViewHolder holder, int position) {
 
-        holder.tvtanggal.setText("Tanggal: "+dataModelArrayList.get(position).getTanggal());
-        holder.tvpoli.setText("Poli: "+dataModelArrayList.get(position).getPoliklinik());
-        holder.tvdokter.setText("Dokter: "+dataModelArrayList.get(position).getDokter());
+        holder.tvtanggal.setText(dataModelArrayList.get(position).getTanggal());
+        holder.etnamapasienriwayat.setText(dataModelArrayList.get(position).getNomr());
+        holder.ettipe_penjaminriwayat.setText(dataModelArrayList.get(position).getPenjamin());
+        holder.etdokterriwayat.setText(dataModelArrayList.get(position).getDokter());
     }
 
     @Override
@@ -60,14 +61,15 @@ public class RiwayatAdapter extends RecyclerView.Adapter<RiwayatAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView tvtanggal, tvpoli, tvdokter;
+        TextView tvtanggal, etnamapasienriwayat, etdokterriwayat,ettipe_penjaminriwayat;
 
         public MyViewHolder(View itemView) {
             super(itemView);
 
             tvtanggal = (TextView) itemView.findViewById(R.id.tvtanggallist);
-            tvpoli = (TextView) itemView.findViewById(R.id.tvpolilist);
-            tvdokter = (TextView) itemView.findViewById(R.id.tvdokterlist);
+            etnamapasienriwayat = (TextView) itemView.findViewById(R.id.etnamapasienriwayat);
+            ettipe_penjaminriwayat = (TextView) itemView.findViewById(R.id.ettipe_penjaminriwayat);
+            etdokterriwayat = (TextView) itemView.findViewById(R.id.etdokterriwayat);
 
             itemView.setClickable(true);
             itemView.setOnClickListener(this);

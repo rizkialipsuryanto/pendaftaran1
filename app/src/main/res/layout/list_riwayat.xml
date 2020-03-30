@@ -19,7 +19,7 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/tanggal"
+                android:id="@+id/tvtanggallist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -83,7 +83,7 @@
                     android:textColor="@color/putih"/>
 
                 <EditText
-                    android:id="@+id/nama_pasien"
+                    android:id="@+id/etnamapasienriwayat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/putih"/>
@@ -95,7 +95,7 @@
                     android:textColor="@color/putih"/>
 
                 <EditText
-                    android:id="@+id/tipe_penjamin"
+                    android:id="@+id/ettipe_penjaminriwayat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/putih"/>
@@ -107,7 +107,7 @@
                     android:textColor="@color/putih"/>
 
                 <EditText
-                    android:id="@+id/dokter"
+                    android:id="@+id/etdokterriwayat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/putih"/>
