@@ -11,7 +11,8 @@
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Jenis Pasien" />
+        android:hint="Jenis Pasien"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertnorm"
@@ -22,7 +23,8 @@
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="NO RM" />
+        android:hint="NO RM"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalerttgllahir"
@@ -32,36 +34,41 @@
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Tanggal Lahir" />
+        android:hint="Tanggal Lahir"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertnotelp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="No Telp" />
+        android:hint="No Telp"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertemail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Email" />
+        android:hint="Email"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalerttanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Tanggal" />
+        android:hint="Tanggal"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertcarabayar"
@@ -71,16 +78,19 @@
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Cara Bayar" />
+        android:hint="Cara Bayar"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertnobpjs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="No Bpjs" />
+        android:hint="No Bpjs"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertnorujukan"
@@ -90,24 +100,29 @@
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="No Rujukan" />
+        android:hint="No Rujukan"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertpoli"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="No Poli" />
+        android:hint="No Poli"
+        android:textSize="14sp" />
 
     <EditText
         android:id="@+id/txtalertdokter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:background="@android:drawable/editbox_background_normal"
         android:editable="false"
         android:enabled="true"
-        android:hint="Dokter" />
+        android:hint="Dokter"
+        android:textSize="14sp" />
 
 </LinearLayout>

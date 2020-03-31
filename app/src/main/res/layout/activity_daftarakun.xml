@@ -9,17 +9,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp">
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal|center_vertical"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
             android:padding="20dp"
@@ -46,7 +44,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nik"
@@ -56,7 +53,6 @@
                 android:id="@+id/nik"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Masukan NIK"
@@ -71,7 +67,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nama_dpn"
@@ -81,7 +76,6 @@
                 android:id="@+id/firstname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Nama Depan"
@@ -94,7 +88,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nama_blk"
@@ -104,7 +97,6 @@
                 android:id="@+id/lastname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Nama Belakang"
@@ -117,7 +109,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_email"
@@ -127,7 +118,6 @@
                 android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Email"
@@ -140,7 +130,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_nohp"
@@ -150,7 +139,6 @@
                 android:id="@+id/nohp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Masukan Nomor HP"
@@ -164,7 +152,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:text="@string/dftr_password"
@@ -174,7 +161,6 @@
                 android:id="@+id/passworddaftar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="@drawable/edittexts"
                 android:fontFamily="@font/montserrat_alternates"
                 android:hint="Password"
@@ -187,10 +173,10 @@
 
             <Button
                 android:id="@+id/daftarsimpan"
-                android:layout_width="300dp"
-                android:layout_height="45dp"
+                android:layout_width="350dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/selector_xml_btn_yellow"
                 android:fontFamily="@font/montserrat_alternates"
                 android:padding="10dp"
@@ -199,5 +185,7 @@
                 android:textSize="14sp" />
 
         </LinearLayout>
+
     </ScrollView>
+
 </RelativeLayout>
